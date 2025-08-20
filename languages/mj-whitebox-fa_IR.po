@@ -1,0 +1,614 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mj-whitebox\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-20 06:21+0000\n"
+"PO-Revision-Date: 2025-08-20 06:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: فارسی\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.3.24\n"
+"X-Domain: mj-whitebox"
+
+#: Utils.php:668
+#, php-format
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "%s ساعت"
+msgstr[1] "%s ساعت"
+
+#: Utils.php:672
+#, php-format
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "%s دقیقه"
+msgstr[1] "%s دقیقه"
+
+#: Utils.php:676
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s ثانیه"
+msgstr[1] "%s ثانیه"
+
+#: ElementorControls.php:1577
+msgid "After"
+msgstr "بعد"
+
+#: Utils/Elementor.php:22
+msgid "All"
+msgstr "همه"
+
+#: ElementorControls.php:1605
+msgid "ASC"
+msgstr "صعودی"
+
+#: ElementorControls.php:1377 ElementorControls.php:1495
+msgid "Author"
+msgstr "نویسنده"
+
+#: ElementorControls.php:901 ElementorControls.php:969
+#: ElementorControls.php:1037 ElementorControls/Slider.php:28
+#: ElementorControls/Slider.php:52 ElementorControls/Slider.php:76
+msgid "Auto"
+msgstr "خودکار"
+
+#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:179
+msgid "Autoplay"
+msgstr "پخش خودکار"
+
+#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:187
+msgid "Autoplay time (s)"
+msgstr "زمان پخش خودکار (ثانیه)"
+
+#: ElementorControls.php:1564
+msgid "Before"
+msgstr "قبل"
+
+#: ElementorControls.php:473
+msgid "Border Radius"
+msgstr "گردی حاشیه"
+
+#: ElementorControls.php:1392 ElementorControls.php:1510
+msgid "Category"
+msgstr "دسته‌بندی"
+
+#: ElementorControls.php:404
+msgid "Center"
+msgstr "مرکز"
+
+#: ElementorControls.php:1566 ElementorControls.php:1580
+msgid "Choose"
+msgstr "انتخاب"
+
+#: ElementorControls.php:426
+msgid "Color"
+msgstr "رنگ"
+
+#: ElementorControls.php:770
+msgid "Column gap (px)"
+msgstr "فاصله ستون‌ها (px)"
+
+#: ElementorControls.php:791
+msgid "Columns"
+msgstr "ستون‌ها"
+
+#: Utils/Elementor.php:38
+msgid "Comment Count"
+msgstr "تعداد دیدگاه‌ها"
+
+#: ElementorControls.php:900 ElementorControls.php:968
+#: ElementorControls.php:1036 ElementorControls/Slider.php:27
+#: ElementorControls/Slider.php:51 ElementorControls/Slider.php:75
+msgid "Count"
+msgstr "تعداد"
+
+#: ElementorControls.php:1331
+msgid "Current Query"
+msgstr "کوئری فعلی"
+
+#: ElementorControls.php:1330 Utils/Elementor.php:28
+msgid "Custom"
+msgstr "دلخواه"
+
+#: ElementorControls.php:1553 Utils/Elementor.php:35 Utils/Elementor.php:46
+msgid "Date"
+msgstr "تاریخ"
+
+#: ElementorControls.php:1606
+msgid "DESC"
+msgstr "نزولی"
+
+#: ElementorControls.php:946
+msgid "Desktop column gap"
+msgstr "فاصله ستون‌های دسکتاپ"
+
+#: ElementorControls.php:927
+msgid "Desktop columns"
+msgstr "ستون‌های دسکتاپ"
+
+#: ElementorControls.php:937
+msgid "Desktop row gap"
+msgstr "فاصله ردیف‌های دسکتاپ"
+
+#: ElementorControls.php:888
+msgid "Desktop slider"
+msgstr "اسلایدر دسکتاپ"
+
+#: ElementorControls.php:918 ElementorControls/Slider.php:41
+msgid "Desktop slides space"
+msgstr "فاصله اسلاید‌های دسکتاپ"
+
+#: ElementorControls.php:896 ElementorControls/Slider.php:23
+msgid "Desktop slides type"
+msgstr "نوع اسلایدهای دسکتاپ"
+
+#: ElementorControls.php:908 ElementorControls/Slider.php:32
+msgid "Desktop visible slides"
+msgstr "تعداد اسلایدهای دسکتاپ"
+
+#: ElementorControls.php:1462
+msgid "Disabling this option will increase the performance of the page"
+msgstr "غیرفعال کردن این گزینه باعث افزایش سرعت صفحه می‌شود"
+
+#: ElementorControls.php:552
+msgid "Display"
+msgstr "نمایش"
+
+#: ElementorControls.php:1094
+msgid "Display settings"
+msgstr "تنظیمات نمایش"
+
+#: Utils.php:986
+msgid "div"
+msgstr "div"
+
+#: ElementorControls.php:1639
+msgid "Excludes"
+msgstr "استثناها"
+
+#: Utils.php:980
+msgid "H1"
+msgstr "H1"
+
+#: Utils.php:981
+msgid "H2"
+msgstr "H2"
+
+#: Utils.php:982
+msgid "H3"
+msgstr "H3"
+
+#: Utils.php:983
+msgid "H4"
+msgstr "H4"
+
+#: Utils.php:984
+msgid "H5"
+msgstr "H5"
+
+#: Utils.php:985
+msgid "H6"
+msgstr "H6"
+
+#: ElementorControls.php:524
+msgid "Height"
+msgstr "ارتفاع"
+
+#: ElementorControls.php:153 ElementorControls.php:865
+msgid "Hover"
+msgstr "هاور"
+
+#: Utils/Elementor.php:43
+msgid "ID"
+msgstr "شناسه"
+
+#: ElementorControls.php:1461
+msgid "Ignore sticky posts"
+msgstr "صرفنظر از پست‌های سنجاق شده"
+
+#: ElementorControls.php:1630
+msgid "Includes"
+msgstr "شامل‌ها"
+
+#: ElementorControls.php:412
+msgid "Justify"
+msgstr "تراز"
+
+#: Utils/Elementor.php:37 Utils/Elementor.php:47
+msgid "Last Modified"
+msgstr "آخرین تغییرات"
+
+#: ElementorControls.php:1329
+msgid "Latests posts"
+msgstr "آخرین نوشته‌ها"
+
+#: ElementorControls.php:1329
+msgid "Latests products"
+msgstr "آخرین محصولات"
+
+#: ElementorControls.php:400
+msgid "Left"
+msgstr "چپ"
+
+#: ElementorControls/Slider.php:123
+msgid "Loop"
+msgstr "چرخش"
+
+#: ElementorControls/SectionTitle.php:73
+msgid "Lorem"
+msgstr "لورم"
+
+#: ElementorControls.php:1332
+msgid "Manual Selection"
+msgstr "انتخاب دستی"
+
+#: ElementorControls.php:345
+msgid "Margin"
+msgstr "فاصله خارجی"
+
+#. Name of the plugin
+msgid "mj-whitebox"
+msgstr "mj-whitebox"
+
+#: ElementorControls.php:1082
+msgid "Mobile column gap"
+msgstr "فاصله ستون‌های موبایل"
+
+#: ElementorControls.php:1063
+msgid "Mobile columns"
+msgstr "ستون‌های موبایل"
+
+#: ElementorControls.php:1073
+msgid "Mobile row gap"
+msgstr "فاصله ردیف‌های موبایل"
+
+#: ElementorControls.php:1023
+msgid "Mobile slider"
+msgstr "اسلایدر موبایل"
+
+#: ElementorControls.php:1054 ElementorControls/Slider.php:89
+msgid "Mobile slides space"
+msgstr "فاصله اسلایدهای موبایل"
+
+#: ElementorControls.php:1032 ElementorControls/Slider.php:71
+msgid "Mobile slides type"
+msgstr "نوع اسلایدهای موبایل"
+
+#: ElementorControls.php:1044 ElementorControls/Slider.php:80
+msgid "Mobile visible slides"
+msgstr "تعداد اسلایدهای موبایل"
+
+#. Author of the plugin
+msgid "MohammadJafar Khajeh"
+msgstr "محمدجعفر خواجه"
+
+#: ElementorControls.php:891 ElementorControls.php:958
+#: ElementorControls.php:1026 ElementorControls.php:1177
+#: ElementorControls.php:1435 ElementorControls.php:1449
+#: ElementorControls.php:1465 ElementorControls/Slider.php:98
+#: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
+#: ElementorControls/Slider.php:182
+msgid "No"
+msgstr "خیر"
+
+#: ElementorControls.php:1613
+msgid "No Posts Message"
+msgstr "نوشته‌ای یافت نشد"
+
+#: ElementorControls.php:150 ElementorControls.php:846
+msgid "Normal"
+msgstr "عادی"
+
+#: ElementorControls.php:1161
+msgid "Offset"
+msgstr "آفست"
+
+#: ElementorControls.php:1445
+msgid "Only instock"
+msgstr "فقط موجودها"
+
+#: ElementorControls.php:1431
+msgid "Only on-sales"
+msgstr "فقط تخفیف‌دارها"
+
+#: ElementorControls.php:1600
+msgid "Order"
+msgstr "ترتیب"
+
+#: ElementorControls.php:1590
+msgid "Order By"
+msgstr "ترتیب بر اساس"
+
+#: Utils.php:987
+msgid "p"
+msgstr "p"
+
+#: ElementorControls.php:357
+msgid "Padding"
+msgstr "فاصله داخلی"
+
+#: ElementorControls.php:1260
+msgid "Pagination current style"
+msgstr "صفحه بندی: فعلی"
+
+#: ElementorControls.php:1314
+msgid "Pagination dots style"
+msgstr "صفحه بندی: نقطه‌ها"
+
+#: ElementorControls.php:1296
+msgid "Pagination next style"
+msgstr "صفحه بندی: بعدی"
+
+#: ElementorControls.php:1242
+msgid "Pagination number style"
+msgstr "صفحه بندی: اعداد"
+
+#: ElementorControls.php:1278
+msgid "Pagination previous style"
+msgstr "صفحه بندی: قبلی"
+
+#: ElementorControls.php:1191
+msgid "Pagination settings"
+msgstr "تنظیمات صفحه بندی"
+
+#: ElementorControls.php:1225
+msgid "Pagination style"
+msgstr "استایل صفحه بندی"
+
+#: Utils/Elementor.php:23
+msgid "Past Day"
+msgstr "روز گذشته"
+
+#: Utils/Elementor.php:25
+msgid "Past Month"
+msgstr "ماه گذشته"
+
+#: Utils/Elementor.php:26
+msgid "Past Quarter"
+msgstr "چهار‌ماه گذشته"
+
+#: Utils/Elementor.php:24
+msgid "Past Week"
+msgstr "هفته گذشته"
+
+#: Utils/Elementor.php:27
+msgid "Past Year"
+msgstr "سال گذشته"
+
+#: ElementorControls.php:440
+msgid "Placeholder color"
+msgstr "رنگ متن نگه‌دارنده"
+
+#: Utils/Elementor.php:49
+msgid "Popularity"
+msgstr "محبوبیت"
+
+#: ElementorControls.php:1348
+msgid "Post type"
+msgstr "پست تایپ"
+
+#: ElementorControls.php:1149
+msgid "Posts per page"
+msgstr "تعداد نوشته در هر صفحه"
+
+#: Utils/Elementor.php:48
+msgid "Price"
+msgstr "قیمت"
+
+#: Utils/Elementor.php:44
+msgid "Product name"
+msgstr "نام محصول"
+
+#: Utils/Elementor.php:45
+msgid "Product type"
+msgstr "نوع محصول"
+
+#: ElementorControls.php:1339
+msgid "Query type"
+msgstr "نوع کوئری"
+
+#: Utils/Elementor.php:39 Utils/Elementor.php:52
+msgid "Random"
+msgstr "تصادفی"
+
+#: Utils/Elementor.php:50
+msgid "Rating"
+msgstr "امتیاز"
+
+#: ElementorControls.php:408
+msgid "Right"
+msgstr "راست"
+
+#: ElementorControls.php:749
+msgid "Row gap (px)"
+msgstr "فاصله ردیف‌ها (px)"
+
+#: Utils/Elementor.php:51
+msgid "Sales"
+msgstr "تعداد فروش"
+
+#: ElementorControls.php:1361 ElementorControls.php:1476
+msgid "Search & Select"
+msgstr "جستجو و انتخاب"
+
+#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:188
+msgid "seconds"
+msgstr "ثانیه"
+
+#: ElementorControls/SectionTitle.php:19
+msgid "Section title"
+msgstr "عنوان بخش"
+
+#: ElementorControls/SectionTitle.php:121
+msgid "Section title icon style"
+msgstr "استایل آیکون عنوان بخش"
+
+#: ElementorControls/SectionTitle.php:105
+msgid "Section title row style"
+msgstr "استایل ردیف عنوان بخش"
+
+#: ElementorControls/SectionTitle.php:137
+msgid "Section title text style"
+msgstr "استایل متن عنوان بخش"
+
+#: ElementorControls.php:1477
+msgid "Select posts that you want to exclude"
+msgstr "نوشته‌هایی که میخواهید نادیده گرفته شوند را انتخاب کنید."
+
+#: ElementorControls.php:1362
+msgid "Select posts that you want to include"
+msgstr "نوشته‌هایی که میخواهید اضافه شوند را انتخاب کنید."
+
+#: ElementorControls.php:1377
+msgid "Seller"
+msgstr "فروشنده"
+
+#: ElementorControls.php:1571
+msgid ""
+"Setting a ‘Before’ date will show all the posts published until the chosen "
+"date (inclusive)."
+msgstr ""
+"تنظیم تاریخ «قبل» همه پست‌های منتشر شده را تا تاریخ انتخابی نشان می‌دهد."
+
+#: ElementorControls.php:1578
+msgid ""
+"Setting an ‘After’ date will show all the posts published until the chosen "
+"date (inclusive)."
+msgstr ""
+"تنظیم تاریخ «بعد» همه پست‌های منتشر شده را  تا تاریخ انتخابی نشان می‌دهد."
+
+#: ElementorControls.php:1626
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: ElementorControls/Slider.php:114
+msgid "Show arrows"
+msgstr "نمایش فلش‌ها"
+
+#: ElementorControls.php:1446
+msgid "Show only instock products"
+msgstr "نمایش فقط محصولات موجود"
+
+#: ElementorControls.php:1432
+msgid "Show only on-sales products"
+msgstr "فقط محصولات دارای تخفیف را نمایش می‌دهد"
+
+#: ElementorControls.php:1173
+msgid "Show pagination"
+msgstr "نمایش صفحه‌بندی"
+
+#: ElementorControls/SectionTitle.php:152 ElementorControls/Slider.php:224
+msgid "Slider arrows style"
+msgstr "استایل فلش‌های اسلایدر"
+
+#: ElementorControls/Slider.php:135
+msgid "Slider settings"
+msgstr "تنظیمات اسلایدر"
+
+#: ElementorControls.php:1014
+msgid "Tablet column gap"
+msgstr "فاصله ستون‌های تبلت"
+
+#: ElementorControls.php:995
+msgid "Tablet columns"
+msgstr "ستون‌های تبلت"
+
+#: ElementorControls.php:1005
+msgid "Tablet row gap"
+msgstr "فاصله ردیف‌های تبلت"
+
+#: ElementorControls.php:955
+msgid "Tablet slider"
+msgstr "اسلایدر تبلت"
+
+#: ElementorControls.php:986 ElementorControls/Slider.php:65
+msgid "Tablet slides space"
+msgstr "فاصله اسلایدهای تبلت"
+
+#: ElementorControls.php:964 ElementorControls/Slider.php:47
+msgid "Tablet slides type"
+msgstr "نوع اسلایدهای تبلت"
+
+#: ElementorControls.php:976 ElementorControls/Slider.php:56
+msgid "Tablet visible slides"
+msgstr "تعداد اسلایدهای تبلت"
+
+#: ElementorControls.php:1410 ElementorControls.php:1528
+#: ElementorControls/SectionTitle.php:58
+msgid "Tag"
+msgstr "تگ"
+
+#: ElementorControls.php:397
+msgid "Text align"
+msgstr "چینش متن"
+
+#: Utils/Users.php:147
+msgid "This email is already exists."
+msgstr "این ایمیل از قبل وجود دارد."
+
+#: Utils/Users.php:144
+msgid "This mobile is already exists."
+msgstr "این موبایل از قبل وجود دارد."
+
+#: Utils/Users.php:150
+msgid "This username is already exists."
+msgstr "این نام کاربری از قبل وجود دارد."
+
+#: Utils/Date.php:426
+msgctxt "Time slot label"
+msgid "Evening"
+msgstr "عصر"
+
+#: Utils/Date.php:422
+msgctxt "Time slot label"
+msgid "Morning"
+msgstr "صبح"
+
+#: Utils/Date.php:428
+msgctxt "Time slot label"
+msgid "Night"
+msgstr "شب"
+
+#: Utils/Date.php:424
+msgctxt "Time slot label"
+msgid "Noon"
+msgstr "ظهر"
+
+#: Utils/Elementor.php:36 ElementorControls/SectionTitle.php:71
+msgid "Title"
+msgstr "عنوان"
+
+#: ElementorControls/SectionTitle.php:65
+msgid "Title icon"
+msgstr "آیکون عنوان"
+
+#: ElementorControls/SectionTitle.php:83
+msgid "Title link"
+msgstr "لینک عنوان"
+
+#: ElementorControls.php:1174
+msgid ""
+"Turn off pagination if you don't need it. It can improve the page's "
+"performance."
+msgstr ""
+"در صورتی که به صفحه‌بندی نیازی ندارید، لطفا این گزینه را غیرفعال کنید. این "
+"کار باعث افزایش سرعت صفحه خواهد شد."
+
+#: ElementorControls.php:507
+msgid "Width"
+msgstr "عرض"
+
+#: ElementorControls.php:890 ElementorControls.php:957
+#: ElementorControls.php:1025 ElementorControls.php:1176
+#: ElementorControls.php:1434 ElementorControls.php:1448
+#: ElementorControls.php:1464 ElementorControls/Slider.php:97
+#: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
+#: ElementorControls/Slider.php:181
+msgid "Yes"
+msgstr "بله"
