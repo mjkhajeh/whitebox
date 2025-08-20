@@ -1019,20 +1019,6 @@ class Utils {
 	}
 
 	/**
-	 * Convert array of args to string for placing at shortcode
-	 *
-	 * @param array $args
-	 * @return string
-	 */
-	public static function prepare_shortcode_args( $args ) {
-		$result = '';
-		foreach( $args as $key => $value ) {
-			$result .= " {$key}=\"{$value}\"";
-		}
-		return $result;
-	}
-
-	/**
 	 * Get list of all registered sidebars
 	 *
 	 * @return array
