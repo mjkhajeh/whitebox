@@ -164,6 +164,7 @@ class Slider extends ElementorControls {
 
 	/**
 	 * Register options controls for slider.
+	 * Don't use this function with "slider_settings_controls"
 	 *
 	 * @param object $object  Elementor widget/section object.
 	 * @param array  $args    Optional. Arguments for controls. Default empty array.

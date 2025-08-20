@@ -157,7 +157,7 @@ class SectionTitle extends ElementorControls {
 		parent::general_style_controls( $object, $args );
 	}
 
-	public static function section_title_styles( $object, $icon = true, $arrows = false, $args = [] ) {
+	public static function styles( $object, $icon = true, $arrows = false, $args = [] ) {
 		$args = Utils::check_default( $args, [
 			'row'		=> [],
 			'icon'		=> [],
