@@ -163,6 +163,62 @@ class Slider extends ElementorControls {
 	}
 
 	/**
+	 * Register options controls for slider.
+	 *
+	 * @param object $object  Elementor widget/section object.
+	 * @param array  $args    Optional. Arguments for controls. Default empty array.
+	 * @param bool   $add_display_conditions_to_section Optional. Whether to add display conditions. Default false.
+	 *
+	 * @return void
+	 */
+	public static function options_controls( $object, $args = [], $add_display_conditions_to_section = false ) {
+		$args = Utils::check_default( $args, [
+			'section'	=> [
+				'name'			=> 'slider_options_controls',
+			],
+			'excludes'	=> [
+				'desktop_slides_type',
+				'desktop_slides',
+				'desktop_slides_space',
+				'tablet_slides_type',
+				'tablet_slides',
+				'tablet_slides_space',
+				'mobile_slides_type',
+				'mobile_slides',
+				'mobile_slides_space',
+			],
+			'controls'	=> [
+				'autoplay'	=> [
+					'separator'	=> 'default'
+				]
+			],
+		] );
+		if( $add_display_conditions_to_section ) {
+			$args['conditions'] = [
+				'relation'	=> 'or',
+				'terms'	=> [
+					[
+						'name'		=> 'desktop_slider',
+						'operator'	=> '==',
+						'value'		=> 'yes'
+					],
+					[
+						'name'		=> 'tablet_slider',
+						'operator'	=> '==',
+						'value'		=> 'yes'
+					],
+					[
+						'name'		=> 'mobile_slider',
+						'operator'	=> '==',
+						'value'		=> 'yes'
+					],
+				],
+			];
+		}
+		self::settings_controls( $object, $args );
+	}
+
+	/**
 	 * Adds autoplay controls to an Elementor widget.
 	 *
 	 * This function provides two controls:
