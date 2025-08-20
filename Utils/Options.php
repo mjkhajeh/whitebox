@@ -7,7 +7,7 @@ abstract class Options extends Utils {
 	abstract public static function get_option_name();
 
 	public static function get_options( array $defaults ) : array {
-		$option_name = self::get_option_name();
+		$option_name = static::get_option_name();
 		$options = !empty( $GLOBALS[$option_name] ) ? $GLOBALS[$option_name] : get_option( $option_name, $defaults );
 		foreach( $defaults as $key => $value ) {
 			if( isset( $options[$key] ) ) continue;
@@ -36,7 +36,7 @@ abstract class Options extends Utils {
 	 * @return string
 	 */
 	public static function get_logo( $keys, $defaults, $bloginfo_option = 'name' ) {
-		$options = self::get_options( $defaults );
+		$options = static::get_options( $defaults );
 		$logo_content = '';
 		if( isset( $options[$keys['type']] ) ) {
 			if( $options[$keys['type']] == 'text' ) {
