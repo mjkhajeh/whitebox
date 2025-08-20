@@ -2,6 +2,7 @@
 namespace MJ\Whitebox\ElementorControls;
 
 use MJ\Whitebox\ElementorControls;
+use MJ\Whitebox\Utils;
 use MJ\Whitebox\Utils\Elementor;
 
 class Button extends ElementorControls {
