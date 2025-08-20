@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 06:21+0000\n"
+"POT-Creation-Date: 2025-08-20 07:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -41,6 +41,10 @@ msgstr[1] ""
 msgid "After"
 msgstr ""
 
+#: ElementorControls/Button.php:135
+msgid "Alignment"
+msgstr ""
+
 #: Utils/Elementor.php:22
 msgid "All"
 msgstr ""
@@ -59,11 +63,11 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:179
+#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:236
 msgid "Autoplay"
 msgstr ""
 
-#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:187
+#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:244
 msgid "Autoplay time (s)"
 msgstr ""
 
@@ -75,11 +79,23 @@ msgstr ""
 msgid "Border Radius"
 msgstr ""
 
+#: ElementorControls/Button.php:11
+msgid "Button settings"
+msgstr ""
+
+#: ElementorControls/Button.php:118
+msgid "Button style"
+msgstr ""
+
+#: ElementorControls/Button.php:77
+msgid "Button type"
+msgstr ""
+
 #: ElementorControls.php:1392 ElementorControls.php:1510
 msgid "Category"
 msgstr ""
 
-#: ElementorControls.php:404
+#: ElementorControls.php:404 ElementorControls/Button.php:143
 msgid "Center"
 msgstr ""
 
@@ -169,8 +185,16 @@ msgstr ""
 msgid "div"
 msgstr ""
 
+#: ElementorControls/Button.php:109 ElementorControls/Button.php:147
+msgid "End"
+msgstr ""
+
 #: ElementorControls.php:1639
 msgid "Excludes"
+msgstr ""
+
+#: ElementorControls/Button.php:127
+msgid "Fullwidth"
 msgstr ""
 
 #: Utils.php:980
@@ -201,8 +225,24 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
+#: ElementorControls/Button.php:43
+msgid "Home"
+msgstr ""
+
 #: ElementorControls.php:153 ElementorControls.php:865
 msgid "Hover"
+msgstr ""
+
+#: ElementorControls/Button.php:44
+msgid "HTML tags allowed"
+msgstr ""
+
+#: ElementorControls/Button.php:95
+msgid "Icon"
+msgstr ""
+
+#: ElementorControls/Button.php:100
+msgid "Icon Position"
 msgstr ""
 
 #: Utils/Elementor.php:43
@@ -237,6 +277,10 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
+#: ElementorControls/Button.php:54
+msgid "Link"
+msgstr ""
+
 #: ElementorControls/Slider.php:123
 msgid "Loop"
 msgstr ""
@@ -254,7 +298,7 @@ msgid "Margin"
 msgstr ""
 
 #. Name of the plugin
-msgid "mj-whitebox"
+msgid "MJ Whitebox"
 msgstr ""
 
 #: ElementorControls.php:1082
@@ -294,7 +338,9 @@ msgstr ""
 #: ElementorControls.php:1435 ElementorControls.php:1449
 #: ElementorControls.php:1465 ElementorControls/Slider.php:98
 #: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
-#: ElementorControls/Slider.php:182
+#: ElementorControls/Slider.php:239 ElementorControls/Button.php:64
+#: ElementorControls/Button.php:72 ElementorControls/Button.php:89
+#: ElementorControls/Button.php:130
 msgid "No"
 msgstr ""
 
@@ -316,6 +362,10 @@ msgstr ""
 
 #: ElementorControls.php:1431
 msgid "Only on-sales"
+msgstr ""
+
+#: ElementorControls/Button.php:61
+msgid "Open in new tab"
 msgstr ""
 
 #: ElementorControls.php:1600
@@ -438,7 +488,7 @@ msgstr ""
 msgid "Search & Select"
 msgstr ""
 
-#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:188
+#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:245
 msgid "seconds"
 msgstr ""
 
@@ -502,12 +552,20 @@ msgstr ""
 msgid "Show pagination"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:152 ElementorControls/Slider.php:224
+#: ElementorControls/SectionTitle.php:152 ElementorControls/Slider.php:281
 msgid "Slider arrows style"
 msgstr ""
 
 #: ElementorControls/Slider.php:135
 msgid "Slider settings"
+msgstr ""
+
+#: ElementorControls/Button.php:86
+msgid "Small button"
+msgstr ""
+
+#: ElementorControls/Button.php:105 ElementorControls/Button.php:139
+msgid "Start"
 msgstr ""
 
 #: ElementorControls.php:1014
@@ -541,6 +599,10 @@ msgstr ""
 #: ElementorControls.php:1410 ElementorControls.php:1528
 #: ElementorControls/SectionTitle.php:58
 msgid "Tag"
+msgstr ""
+
+#: ElementorControls/Button.php:41
+msgid "Text"
 msgstr ""
 
 #: ElementorControls.php:397
@@ -591,6 +653,10 @@ msgstr ""
 msgid "Title link"
 msgstr ""
 
+#: ElementorControls/Button.php:69
+msgid "Transparent button"
+msgstr ""
+
 #: ElementorControls.php:1174
 msgid ""
 "Turn off pagination if you don't need it. It can improve the page's "
@@ -606,6 +672,8 @@ msgstr ""
 #: ElementorControls.php:1434 ElementorControls.php:1448
 #: ElementorControls.php:1464 ElementorControls/Slider.php:97
 #: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
-#: ElementorControls/Slider.php:181
+#: ElementorControls/Slider.php:238 ElementorControls/Button.php:63
+#: ElementorControls/Button.php:71 ElementorControls/Button.php:88
+#: ElementorControls/Button.php:129
 msgid "Yes"
 msgstr ""
