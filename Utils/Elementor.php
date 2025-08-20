@@ -181,8 +181,20 @@ class Elementor extends Utils {
 						$args[$device]["columns"] = $settings["{$device}_cols"];
 						$styles["--{$device}-cols"] = $settings["{$device}_cols"];
 					}
+
 					if( isset( $settings["{$device}_gap"] ) ) {
 						$styles["--{$device}-gap"] = $settings["{$device}_gap"] . "px";
+					} else {
+						if( isset( $settings["{$device}_row_gap"] ) && isset( $settings["{$device}_column_gap"] ) ) {
+							$styles["--{$device}-gap"] = "{$settings["{$device}_row_gap"]}px {$settings["{$device}_column_gap"]}px";
+						} else {
+							if( isset( $settings["{$device}_row_gap"] ) ) {
+								$styles["--{$device}-row-gap"] = $settings["{$device}_row_gap"] . "px";
+							}
+							if( isset( $settings["{$device}_column_gap"] ) ) {
+								$styles["--{$device}-column-gap"] = $settings["{$device}_column_gap"] . "px";
+							}
+						}
 					}
 				}
 			}
