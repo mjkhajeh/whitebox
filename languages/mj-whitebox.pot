@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 07:14+0000\n"
+"POT-Creation-Date: 2025-08-20 09:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -41,11 +41,11 @@ msgstr[1] ""
 msgid "After"
 msgstr ""
 
-#: ElementorControls/Button.php:135
+#: ElementorControls/Button.php:137
 msgid "Alignment"
 msgstr ""
 
-#: Utils/Elementor.php:22
+#: Utils/Elementor.php:45
 msgid "All"
 msgstr ""
 
@@ -79,23 +79,68 @@ msgstr ""
 msgid "Border Radius"
 msgstr ""
 
-#: ElementorControls/Button.php:11
+#: ElementorControls/Button.php:13
 msgid "Button settings"
 msgstr ""
 
-#: ElementorControls/Button.php:118
+#: ElementorControls/Button.php:120
 msgid "Button style"
 msgstr ""
 
-#: ElementorControls/Button.php:77
+#: Utils/Elementor.php:37
+msgctxt "Button style"
+msgid "Circle"
+msgstr ""
+
+#: Utils/Elementor.php:35
+msgctxt "Button style"
+msgid "Normal"
+msgstr ""
+
+#: Utils/Elementor.php:36
+msgctxt "Button style"
+msgid "Rounded"
+msgstr ""
+
+#: ElementorControls/Button.php:79
 msgid "Button type"
+msgstr ""
+
+#: Utils/Elementor.php:26
+msgctxt "Button type"
+msgid "Action"
+msgstr ""
+
+#: Utils/Elementor.php:27
+msgctxt "Button type"
+msgid "Bordered"
+msgstr ""
+
+#: Utils/Elementor.php:24
+msgctxt "Button type"
+msgid "Gray"
+msgstr ""
+
+#: Utils/Elementor.php:22
+msgctxt "Button type"
+msgid "Primary"
+msgstr ""
+
+#: Utils/Elementor.php:23
+msgctxt "Button type"
+msgid "Secondary"
+msgstr ""
+
+#: Utils/Elementor.php:25
+msgctxt "Button type"
+msgid "White"
 msgstr ""
 
 #: ElementorControls.php:1392 ElementorControls.php:1510
 msgid "Category"
 msgstr ""
 
-#: ElementorControls.php:404 ElementorControls/Button.php:143
+#: ElementorControls.php:404 ElementorControls/Button.php:145
 msgid "Center"
 msgstr ""
 
@@ -115,7 +160,7 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: Utils/Elementor.php:38
+#: Utils/Elementor.php:61
 msgid "Comment Count"
 msgstr ""
 
@@ -129,11 +174,11 @@ msgstr ""
 msgid "Current Query"
 msgstr ""
 
-#: ElementorControls.php:1330 Utils/Elementor.php:28
+#: ElementorControls.php:1330 Utils/Elementor.php:51
 msgid "Custom"
 msgstr ""
 
-#: ElementorControls.php:1553 Utils/Elementor.php:35 Utils/Elementor.php:46
+#: ElementorControls.php:1553 Utils/Elementor.php:58 Utils/Elementor.php:69
 msgid "Date"
 msgstr ""
 
@@ -185,7 +230,7 @@ msgstr ""
 msgid "div"
 msgstr ""
 
-#: ElementorControls/Button.php:109 ElementorControls/Button.php:147
+#: ElementorControls/Button.php:111 ElementorControls/Button.php:149
 msgid "End"
 msgstr ""
 
@@ -193,7 +238,7 @@ msgstr ""
 msgid "Excludes"
 msgstr ""
 
-#: ElementorControls/Button.php:127
+#: ElementorControls/Button.php:129
 msgid "Fullwidth"
 msgstr ""
 
@@ -225,7 +270,7 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#: ElementorControls/Button.php:43
+#: ElementorControls/Button.php:45
 msgid "Home"
 msgstr ""
 
@@ -233,19 +278,19 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: ElementorControls/Button.php:44
+#: ElementorControls/Button.php:46
 msgid "HTML tags allowed"
 msgstr ""
 
-#: ElementorControls/Button.php:95
+#: ElementorControls/Button.php:97
 msgid "Icon"
 msgstr ""
 
-#: ElementorControls/Button.php:100
+#: ElementorControls/Button.php:102
 msgid "Icon Position"
 msgstr ""
 
-#: Utils/Elementor.php:43
+#: Utils/Elementor.php:66
 msgid "ID"
 msgstr ""
 
@@ -261,7 +306,7 @@ msgstr ""
 msgid "Justify"
 msgstr ""
 
-#: Utils/Elementor.php:37 Utils/Elementor.php:47
+#: Utils/Elementor.php:60 Utils/Elementor.php:70
 msgid "Last Modified"
 msgstr ""
 
@@ -277,7 +322,7 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: ElementorControls/Button.php:54
+#: ElementorControls/Button.php:56
 msgid "Link"
 msgstr ""
 
@@ -338,9 +383,9 @@ msgstr ""
 #: ElementorControls.php:1435 ElementorControls.php:1449
 #: ElementorControls.php:1465 ElementorControls/Slider.php:98
 #: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
-#: ElementorControls/Slider.php:239 ElementorControls/Button.php:64
-#: ElementorControls/Button.php:72 ElementorControls/Button.php:89
-#: ElementorControls/Button.php:130
+#: ElementorControls/Slider.php:239 ElementorControls/Button.php:66
+#: ElementorControls/Button.php:74 ElementorControls/Button.php:91
+#: ElementorControls/Button.php:132
 msgid "No"
 msgstr ""
 
@@ -364,7 +409,7 @@ msgstr ""
 msgid "Only on-sales"
 msgstr ""
 
-#: ElementorControls/Button.php:61
+#: ElementorControls/Button.php:63
 msgid "Open in new tab"
 msgstr ""
 
@@ -412,23 +457,23 @@ msgstr ""
 msgid "Pagination style"
 msgstr ""
 
-#: Utils/Elementor.php:23
+#: Utils/Elementor.php:46
 msgid "Past Day"
 msgstr ""
 
-#: Utils/Elementor.php:25
+#: Utils/Elementor.php:48
 msgid "Past Month"
 msgstr ""
 
-#: Utils/Elementor.php:26
+#: Utils/Elementor.php:49
 msgid "Past Quarter"
 msgstr ""
 
-#: Utils/Elementor.php:24
+#: Utils/Elementor.php:47
 msgid "Past Week"
 msgstr ""
 
-#: Utils/Elementor.php:27
+#: Utils/Elementor.php:50
 msgid "Past Year"
 msgstr ""
 
@@ -436,7 +481,7 @@ msgstr ""
 msgid "Placeholder color"
 msgstr ""
 
-#: Utils/Elementor.php:49
+#: Utils/Elementor.php:72
 msgid "Popularity"
 msgstr ""
 
@@ -448,15 +493,15 @@ msgstr ""
 msgid "Posts per page"
 msgstr ""
 
-#: Utils/Elementor.php:48
+#: Utils/Elementor.php:71
 msgid "Price"
 msgstr ""
 
-#: Utils/Elementor.php:44
+#: Utils/Elementor.php:67
 msgid "Product name"
 msgstr ""
 
-#: Utils/Elementor.php:45
+#: Utils/Elementor.php:68
 msgid "Product type"
 msgstr ""
 
@@ -464,11 +509,11 @@ msgstr ""
 msgid "Query type"
 msgstr ""
 
-#: Utils/Elementor.php:39 Utils/Elementor.php:52
+#: Utils/Elementor.php:62 Utils/Elementor.php:75
 msgid "Random"
 msgstr ""
 
-#: Utils/Elementor.php:50
+#: Utils/Elementor.php:73
 msgid "Rating"
 msgstr ""
 
@@ -480,7 +525,7 @@ msgstr ""
 msgid "Row gap (px)"
 msgstr ""
 
-#: Utils/Elementor.php:51
+#: Utils/Elementor.php:74
 msgid "Sales"
 msgstr ""
 
@@ -560,11 +605,11 @@ msgstr ""
 msgid "Slider settings"
 msgstr ""
 
-#: ElementorControls/Button.php:86
+#: ElementorControls/Button.php:88
 msgid "Small button"
 msgstr ""
 
-#: ElementorControls/Button.php:105 ElementorControls/Button.php:139
+#: ElementorControls/Button.php:107 ElementorControls/Button.php:141
 msgid "Start"
 msgstr ""
 
@@ -601,7 +646,7 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
-#: ElementorControls/Button.php:41
+#: ElementorControls/Button.php:43
 msgid "Text"
 msgstr ""
 
@@ -641,7 +686,7 @@ msgctxt "Time slot label"
 msgid "Noon"
 msgstr ""
 
-#: Utils/Elementor.php:36 ElementorControls/SectionTitle.php:71
+#: Utils/Elementor.php:59 ElementorControls/SectionTitle.php:71
 msgid "Title"
 msgstr ""
 
@@ -653,7 +698,7 @@ msgstr ""
 msgid "Title link"
 msgstr ""
 
-#: ElementorControls/Button.php:69
+#: ElementorControls/Button.php:71
 msgid "Transparent button"
 msgstr ""
 
@@ -672,8 +717,8 @@ msgstr ""
 #: ElementorControls.php:1434 ElementorControls.php:1448
 #: ElementorControls.php:1464 ElementorControls/Slider.php:97
 #: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
-#: ElementorControls/Slider.php:238 ElementorControls/Button.php:63
-#: ElementorControls/Button.php:71 ElementorControls/Button.php:88
-#: ElementorControls/Button.php:129
+#: ElementorControls/Slider.php:238 ElementorControls/Button.php:65
+#: ElementorControls/Button.php:73 ElementorControls/Button.php:90
+#: ElementorControls/Button.php:131
 msgid "Yes"
 msgstr ""

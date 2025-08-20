@@ -61,7 +61,7 @@ class Posts extends Utils {
 	 * @return array[string] Array of option keys and their resolved values.
 	 */
 	public static function get_post_options( $defaults, $post_id = 0, array $options = [] ) {
-		$post_id = Posts::get_post_id( $post_id );
+		$post_id = self::get_post_id( $post_id );
 
 		if( !$options ) {
 			$options = $defaults;
@@ -105,7 +105,7 @@ class Posts extends Utils {
 	 * @return void
 	 */
 	public static function save_post_options( array $options, $defaults, $post_id = 0 ) {
-		$post_id = Posts::get_post_id( $post_id );
+		$post_id = self::get_post_id( $post_id );
 
 		foreach( $defaults as $option_key => $value ) {
 			if( isset( $options[$option_key] ) ) {
