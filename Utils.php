@@ -866,6 +866,32 @@ class Utils {
 	}
 
 	/**
+	 * Check whether Redux framework is active.
+	 *
+	 * This method validates if the Redux framework plugin is currently active and installed.
+	 * It uses WordPress core's `is_plugin_active()` function and additionally checks
+	 * if the plugin file actually exists in the plugins directory.
+	 *
+	 * The result is cached statically for subsequent calls to improve performance.
+	 *
+	 *
+	 * @return bool True if Redux framework is active and installed, false otherwise.
+	 */
+	public static function is_redux_active() {
+		static $is = null;
+		if( $is === null ) {
+			if( class_exists( 'Redux' ) ) {
+				$is = true;
+			} else {
+				$plugin = 'redux-framework/redux-framework.php';
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				$is = is_plugin_active( $plugin ) && is_file( trailingslashit( WP_PLUGIN_DIR ) . $plugin );
+			}
+		}
+		return $is;
+	}
+
+	/**
 	 * Check whether WooCommerce is active.
 	 *
 	 * This method validates if the WooCommerce plugin is currently active and installed.
