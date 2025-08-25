@@ -234,6 +234,8 @@ class Elementor extends Utils {
 
 				$args[$device]["slider"]['enabled'] = parent::to_bool( $settings["{$device}_slider"] );
 				if( $args[$device]["slider"]['enabled'] ) {
+					$settings["{$device}_slides_space"] = isset( $settings["{$device}_slides_space"] ) ? floatval( $settings["{$device}_slides_space"] ) : 0;
+
 					$wrap_classes[] = "{$device}-slider-wrap";
 					$classes[] = "{$device}-slider";
 					$args[$device]["slider"]["slidesPerView"] = $settings["{$device}_slides_type"] == 'count' ? $settings["{$device}_slides"] : 'auto';
