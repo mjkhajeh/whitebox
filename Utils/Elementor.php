@@ -182,7 +182,44 @@ class Elementor extends Utils {
 	 *	'mobile_row_gap'		=> 16,
 	 *	'mobile_column_gap'		=> 16,
 	 */
-	public static function get_display_attributes( $settings, $slider_mode = false ) {
+	/**
+	 * Get display attributes for slider and columns in themes and plugins
+	 *
+	 * @param array $settings [
+	 * 	'desktop_slider'		=> false,
+	 *	'desktop_slides_type'	=> 'auto', // auto | count
+	 *	'desktop_slides'		=> $desktop_columns,
+	 *	'desktop_slides_space'	=> 0,
+	 *	'desktop_cols'			=> $desktop_columns,
+	 *	'desktop_row_gap'		=> 16,
+	 *	'desktop_column_gap'	=> 16,
+	 *
+	 *	'tablet_slider'			=> false,
+	 *	'tablet_slides_type'	=> 'auto',
+	 *	'tablet_slides'			=> 4,
+	 *	'tablet_slides_space'	=> 0,
+	 *	'tablet_cols'			=> 2,
+	 *	'tablet_row_gap'		=> 16,
+	 *	'tablet_column_gap'		=> 16,
+	 *
+	 *	'mobile_slider'			=> false,
+	 *	'mobile_slides_type'	=> 'auto',
+	 *	'mobile_slides'			=> 4,
+	 *	'mobile_slides_space'	=> 0,
+	 *	'mobile_cols'			=> 1,
+	 *	'mobile_row_gap'		=> 16,
+	 *	'mobile_column_gap'		=> 16,
+	 * ]
+	 * @param boolean $slider_mode Force activate slider for all devices
+	 * @param array $other_slider_attrs More args for slider. It will be applied for all devices. SwiperJS options.
+	 * @return array [
+	 * 	'wrap_classes' This is for element that has 'swiper' class
+	 * 	'classes' This is for element that has 'swiper-wrapper' class
+	 * 	'args' The slider and other settings. This is for element that has 'swiper' class.
+	 * 	'style' Some styles. This is for element that has 'swiper' class
+	 * ]
+	 */
+	public static function get_display_attributes( array $settings, $slider_mode = false, $other_slider_attrs = [] ) {
 		$wrap_classes = [];
 		$classes = [];
 		$args = [];
@@ -206,6 +243,8 @@ class Elementor extends Utils {
 						$classes[] = "{$device}-slider-auto";
 					}
 					$styles["--{$device}-space"] = "{$settings["{$device}_slides_space"]}px";
+
+					$args[$device]["slider"] = array_merge( $args[$device]["slider"], $other_slider_attrs );
 				} else {
 					$wrap_classes[] = "{$device}-columns-wrap";
 					$classes[] = "{$device}-columns";
