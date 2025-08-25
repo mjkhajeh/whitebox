@@ -117,12 +117,44 @@ class Elementor extends Utils {
 			$url_attrs['rel'] = $rel_string;
 		}
 
-		$url_combined_attrs = array_merge(
-			$url_attrs,
-			\Elementor\Utils::parse_custom_attributes( $link['custom_attributes'] ?? '' ),
-		);
+		if( class_exists( "\Elementor\Utils" ) ) {
+			$url_combined_attrs = array_merge(
+				$url_attrs,
+				\Elementor\Utils::parse_custom_attributes( $link['custom_attributes'] ?? '' ),
+			);
+			return $url_combined_attrs;
+		} else {
+			$result = [];
+			// Copied from \Elementor\Utils::parse_custom_attributes
+			foreach ( $url_attrs as $attribute ) {
+				$attr_key_value = explode( '|', $attribute );
 
-		return $url_combined_attrs;
+				$attr_key = mb_strtolower( $attr_key_value[0] );
+
+				// Remove any not allowed characters.
+				preg_match( '/[-_a-z0-9]+/', $attr_key, $attr_key_matches );
+
+				if ( empty( $attr_key_matches[0] ) ) {
+					continue;
+				}
+
+				$attr_key = $attr_key_matches[0];
+
+				// Avoid Javascript events and unescaped href.
+				if ( 'href' === $attr_key || 'on' === substr( $attr_key, 0, 2 ) ) {
+					continue;
+				}
+
+				if ( isset( $attr_key_value[1] ) ) {
+					$attr_value = trim( $attr_key_value[1] );
+				} else {
+					$attr_value = '';
+				}
+
+				$result[ $attr_key ] = $attr_value;
+			}
+			return $result;
+		}
 	}
 
 	/**
