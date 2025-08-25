@@ -87,12 +87,18 @@ class Elementor extends Utils {
 	/**
 	 * Generate link HTML attributes from Elementor link settings
 	 *
-	 * @param array $link Elementor link settings
+	 * @param array|string $link Elementor link settings
 	 * @return array HTML attributes of the link
 	 */
 	public static function get_link_attributes( $link = [] ) {
 		$url_attrs = [];
 		$rel_string = '';
+
+		if( !empty( $link ) && !is_array( $link ) ) {
+			$link = [
+				'url'	=> $link
+			];
+		}
 
 		if ( ! empty( $link['url'] ) ) {
 			$url_attrs['href'] = esc_url( $link['url'] );
