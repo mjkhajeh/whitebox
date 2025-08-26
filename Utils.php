@@ -1185,4 +1185,19 @@ class Utils {
 		}
 		return $text;
 	}
+
+	/**
+	 * Counts the number of decimal digits in a given number.
+	 *
+	 * Splits the number by the decimal point and returns the length
+	 * of the fractional part, or 0 if no decimals exist.
+	 *
+	 * @param float|int|string $number The number to check. Can be integer, float, or numeric string.
+	 * 
+	 * @return int The count of digits after the decimal point.
+	 */
+	public static function count_decimals( $number ) {
+		$number_sections = explode( ".", $number );
+		return !empty( $number_sections[1] ) ? strlen( $number_sections[1] ) : 0;
+	}
 }
