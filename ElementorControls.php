@@ -254,10 +254,7 @@ class ElementorControls {
 		foreach( $args['controls'] as $control_name => $control_args ) {
 			if( !in_array( $control_name, $args['excludes'] ) ) {
 				if( method_exists( self::class, $control_name ) ) {
-					$control_selector = $control_args['selector'];
-					if( empty( $control_selector ) ) {
-						$control_selector = $selector;
-					}
+					$control_selector = empty( $control_selector ) ? $selector : $control_args['selector'];
 					if( isset( $control_args['selector'] ) ) {
 						unset( $control_args['selector'] );
 					}
@@ -298,10 +295,7 @@ class ElementorControls {
 			foreach( $args['controls'] as $control_name => $control_args ) {
 				if( !in_array( $control_name, $args['hover_excludes'] ) ) {
 					if( method_exists( self::class, $control_name ) ) {
-						$control_hover_selector = $control_args['hover_selector'];
-						if( empty( $control_hover_selector ) ) {
-							$control_hover_selector = $hover_selector;
-						}
+						$control_hover_selector = empty( $control_args['hover_selector'] ) ? $hover_selector : $control_args['hover_selector'];
 						if( isset( $control_args['selector'] ) ) {
 							unset( $control_args['selector'] );
 						}
