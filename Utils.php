@@ -1200,4 +1200,26 @@ class Utils {
 		$number_sections = explode( ".", $number );
 		return !empty( $number_sections[1] ) ? strlen( $number_sections[1] ) : 0;
 	}
+
+	/**
+	 * Parses and processes content from a WordPress text editor.
+	 *
+	 * Applies standard WordPress content filters such as shortcodes,
+	 * texturization, and auto-embeds to return the final formatted content.
+	 *
+	 * @param string $content The raw content from the editor.
+	 * 
+	 * @return string The processed and formatted content.
+	 */
+	public static function parse_text_editor( $content ) {
+		$content = shortcode_unautop( $content );
+		$content = do_shortcode( $content );
+		$content = wptexturize( $content );
+
+		if ( $GLOBALS['wp_embed'] instanceof \WP_Embed ) {
+			$content = $GLOBALS['wp_embed']->autoembed( $content );
+		}
+
+		return $content;
+	}
 }
