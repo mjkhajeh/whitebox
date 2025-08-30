@@ -339,8 +339,8 @@ class Elementor extends Utils {
 		if( isset( $args["{$prefix}link"] ) && !is_array( $args["{$prefix}link"] ) ) {
 			$args["{$prefix}link"] = [
 				'url'				=> $args["{$prefix}link"],
-				'is_external'		=> false,
-				'nofollow'			=> false,
+				'is_external'		=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
+				'nofollow'			=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
 				'custom_attributes'	=> '',
 			];
 		}
