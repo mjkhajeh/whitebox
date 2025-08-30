@@ -351,6 +351,7 @@ class Elementor extends Utils {
 			"{$prefix}small"		=> false,
 			"{$prefix}icon"			=> '',
 			"{$prefix}text"			=> '',
+			"{$prefix}title"		=> '',
 			"{$prefix}link"			=> [],
 			"{$prefix}new_tab"		=> false,
 			"{$prefix}icon_align"	=> $rtl ? 'right' : 'left',
