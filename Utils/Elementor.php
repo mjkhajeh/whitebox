@@ -1,6 +1,8 @@
 <?php
 namespace MJ\Whitebox\Utils;
 
+use Elementor\Plugin;
+
 use MJ\Whitebox\Utils;
 
 class Elementor extends Utils {
@@ -365,5 +367,50 @@ class Elementor extends Utils {
 			"{$prefix}atts"			=> [],
 		], ["{$prefix}icon"] );
 		return $args;
+	}
+
+	public static function get_content( $id, $inline_css = false ) {
+		if( !Plugin::$instance->documents->get( $id )->is_built_with_elementor() ) return '';
+
+		ob_start();
+
+		$post = new \Elementor\Core\Files\CSS\Post( $id );
+		$meta = $post->get_meta();
+
+		if( !$inline_css && $post::CSS_STATUS_FILE === $meta['status'] && !wp_doing_ajax() ) {
+			?>
+			<link rel="stylesheet" id="elementor-post-<?php echo esc_attr( $id ); ?>-css" href="<?php echo esc_url( $post->get_url() ); ?>" type="text/css" media="all">
+			<?php
+		} else {
+			echo '<style>' . $post->get_content() . '</style>'; //phpcs:ignore
+
+			Plugin::$instance->frontend->print_fonts_links();
+		}
+
+		$page_assets = get_post_meta( $id, '_elementor_page_assets', true );
+
+		if ( $page_assets ) {
+			Plugin::$instance->assets_loader->enable_assets( $page_assets );
+		}
+
+		echo Plugin::$instance->frontend->get_builder_content_for_display( $id, $inline_css ); //phpcs:ignore
+
+		if ( !$inline_css && empty( $meta['status'] ) && empty( $meta['time'] ) ) {
+			$post = new \Elementor\Core\Files\CSS\Post( $id );
+			$meta = $post->get_meta();
+
+			if ( $post::CSS_STATUS_FILE === $meta['status'] && !wp_doing_ajax() ) {
+				?>
+				<link rel="stylesheet" id="elementor-post-<?php echo esc_attr( $id ); ?>-css" href="<?php echo esc_url( $post->get_url() ); ?>" type="text/css" media="all">
+				<?php
+			}
+		}
+
+		if ( $post::CSS_STATUS_FILE === $meta['status'] && !wp_doing_ajax() ) {
+			wp_dequeue_style( 'elementor-post-' . $id );
+			wp_deregister_style( 'elementor-post-' . $id );
+		}
+
+		return ob_get_clean();
 	}
 }
