@@ -369,8 +369,12 @@ class Elementor extends Utils {
 		return $args;
 	}
 
+	public static function is_built_with_elementor( $id ) {
+		return Plugin::$instance->documents->get( $id )->is_built_with_elementor();
+	}
+
 	public static function get_content( $id, $inline_css = false ) {
-		if( !Plugin::$instance->documents->get( $id )->is_built_with_elementor() ) return '';
+		if( !self::is_built_with_elementor( $id ) ) return '';
 
 		ob_start();
 
