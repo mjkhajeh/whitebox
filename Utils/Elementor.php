@@ -417,4 +417,8 @@ class Elementor extends Utils {
 
 		return ob_get_clean();
 	}
+
+	public static function has_link( $link_attr ) {
+		return ( is_array( $link_attr ) && !empty( $link_attr['url'] ) ) || ( !is_array( $link_attr ) && !empty( $link_attr ) );
+	}
 }
