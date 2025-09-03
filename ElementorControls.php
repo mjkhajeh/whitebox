@@ -254,7 +254,7 @@ class ElementorControls {
 		foreach( $args['controls'] as $control_name => $control_args ) {
 			if( !in_array( $control_name, $args['excludes'] ) ) {
 				if( method_exists( self::class, $control_name ) ) {
-					$control_selector = empty( $control_selector ) ? $selector : $control_args['selector'];
+					$control_selector = empty( $control_args['selector'] ) ? $selector : $control_args['selector'];
 					if( isset( $control_args['selector'] ) ) {
 						unset( $control_args['selector'] );
 					}
