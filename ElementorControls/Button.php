@@ -6,7 +6,7 @@ use MJ\Whitebox\Utils;
 use MJ\Whitebox\Utils\Elementor;
 
 class Button extends ElementorControls {
-	public static function settings( $object, $args = [] ) {
+	public static function settings( $object, $args = [], $prefix = "button_" ) {
 		$args = Utils::check_default( $args, [
 			'section'	=> [
 				'name'	=> 'button_settings_section',
@@ -31,12 +31,12 @@ class Button extends ElementorControls {
 			$section_args
 		);
 
-		self::controls( $object, $args );
+		self::controls( $object, $args, $prefix );
 
 		$object->end_controls_section();
 	}
 
-	public static function controls( $object, $args = [] ) {
+	public static function controls( $object, $args = [], $prefix = 'button_' ) {
 		$default_controls = [
 			'text'			=> [
 				'type'			=> \Elementor\Controls_Manager::TEXT,
@@ -158,6 +158,6 @@ class Button extends ElementorControls {
 			],
 		];
 
-		parent::_add_controls( $object, $default_controls, "button_", $args );
+		parent::_add_controls( $object, $default_controls, $prefix, $args );
 	}
 }
