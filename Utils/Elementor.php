@@ -12,13 +12,18 @@ class Elementor extends Utils {
 	 * If '{{WRAPPER}}' is not already in the string, it prepends it.
 	 *
 	 * @param string $string The CSS selector.
-	 *
 	 * @return string Selector including '{{WRAPPER}}'.
 	 */
 	public static function get_wrapper_selector( $string ) {
 		return strpos( $string, '{{WRAPPER}}' ) !== false ? $string : "{{WRAPPER}} {$string}";
 	}
 
+	/**
+	 * Get button types for Elementor controls.
+	 *
+	 * @param array $args Optional arguments to modify button types.
+	 * @return array List of button types.
+	 */
 	public static function button_types( $args = [] ) {
 		$types = [
 			'primary'	=> esc_html_x( 'Primary', 'Button type', 'mj-whitebox' ),
@@ -32,6 +37,12 @@ class Elementor extends Utils {
 		return $types;
 	}
 
+	/**
+	 * Get button styles for Elementor controls.
+	 *
+	 * @param array $args Optional arguments to modify button styles.
+	 * @return array List of button styles.
+	 */
 	public static function button_styles( $args = [] ) {
 		$styles = [
 			'normal'	=> esc_html_x( 'Normal', 'Button style', 'mj-whitebox' ),
@@ -42,6 +53,12 @@ class Elementor extends Utils {
 		return $styles;
 	}
 
+	/**
+	 * Get date types for Elementor controls.
+	 *
+	 * @param array $args Optional arguments to modify date types.
+	 * @return array List of date types.
+	 */
 	public static function date_types( $args = [] ) {
 		return apply_filters( 'mj\whitebox\utils\elementor\date_types', [
 			'anytime'	=> esc_html__( 'All', 'mj-whitebox' ),
@@ -54,6 +71,14 @@ class Elementor extends Utils {
 		], $args );
 	}
 
+	/**
+	 * Get orderby options for queries.
+	 *
+	 * @param bool $wc Whether to include WooCommerce-specific options.
+	 * @param array $excludes List of options to exclude.
+	 * @param array $args Additional arguments.
+	 * @return array List of orderby options.
+	 */
 	public static function orderby( $wc = false, $excludes = [], $args = [] ) {
 		if( !$wc ) {
 			$orderby = [
@@ -87,10 +112,10 @@ class Elementor extends Utils {
 	}
 
 	/**
-	 * Generate link HTML attributes from Elementor link settings
+	 * Generate link HTML attributes from Elementor link settings.
 	 *
-	 * @param array|string $link Elementor link settings
-	 * @return array HTML attributes of the link
+	 * @param array|string $link Elementor link settings.
+	 * @return array HTML attributes of the link.
 	 */
 	public static function get_link_attributes( $link = [] ) {
 		$url_attrs = [];
@@ -185,41 +210,12 @@ class Elementor extends Utils {
 	 *	'mobile_column_gap'		=> 16,
 	 */
 	/**
-	 * Get display attributes for slider and columns in themes and plugins
+	 * Get display attributes for slider and columns in themes and plugins.
 	 *
-	 * @param array $settings [
-	 * 	'desktop_slider'		=> false,
-	 *	'desktop_slides_type'	=> 'auto', // auto | count
-	 *	'desktop_slides'		=> $desktop_columns,
-	 *	'desktop_slides_space'	=> 0,
-	 *	'desktop_cols'			=> $desktop_columns,
-	 *	'desktop_row_gap'		=> 16,
-	 *	'desktop_column_gap'	=> 16,
-	 *
-	 *	'tablet_slider'			=> false,
-	 *	'tablet_slides_type'	=> 'auto',
-	 *	'tablet_slides'			=> 4,
-	 *	'tablet_slides_space'	=> 0,
-	 *	'tablet_cols'			=> 2,
-	 *	'tablet_row_gap'		=> 16,
-	 *	'tablet_column_gap'		=> 16,
-	 *
-	 *	'mobile_slider'			=> false,
-	 *	'mobile_slides_type'	=> 'auto',
-	 *	'mobile_slides'			=> 4,
-	 *	'mobile_slides_space'	=> 0,
-	 *	'mobile_cols'			=> 1,
-	 *	'mobile_row_gap'		=> 16,
-	 *	'mobile_column_gap'		=> 16,
-	 * ]
-	 * @param boolean $slider_mode Force activate slider for all devices
-	 * @param array $other_slider_attrs More args for slider. It will be applied for all devices. SwiperJS options.
-	 * @return array [
-	 * 	'wrap_classes' This is for element that has 'swiper' class
-	 * 	'classes' This is for element that has 'swiper-wrapper' class
-	 * 	'args' The slider and other settings. This is for element that has 'swiper' class.
-	 * 	'style' Some styles. This is for element that has 'swiper' class
-	 * ]
+	 * @param array $settings Display settings for different devices.
+	 * @param bool $slider_mode Force activate slider for all devices.
+	 * @param array $other_slider_attrs Additional slider attributes.
+	 * @return array Display attributes including classes, args, and styles.
 	 */
 	public static function get_display_attributes( array $settings, $slider_mode = false, $other_slider_attrs = [] ) {
 		$wrap_classes = [];
@@ -288,6 +284,13 @@ class Elementor extends Utils {
 		];
 	}
 
+	/**
+	 * Get button arguments based on settings.
+	 *
+	 * @param array $settings Button settings.
+	 * @param string $prefix Prefix for button argument keys.
+	 * @return array Button arguments.
+	 */
 	public static function get_button_args( array $settings, string $prefix = 'button_' ) {
 		$icon = '';
 		if( isset( $settings['button_icon'] ) ) {
@@ -335,6 +338,13 @@ class Elementor extends Utils {
 		return $args;
 	}
 
+	/**
+	 * Check and set default values for button arguments.
+	 *
+	 * @param array $args Button arguments.
+	 * @param string $prefix Prefix for button argument keys.
+	 * @return array Button arguments with defaults applied.
+	 */
 	public static function check_button_defaults( array $args, string $prefix = 'button_' ) {
 		$rtl = is_rtl();
 
@@ -369,10 +379,23 @@ class Elementor extends Utils {
 		return $args;
 	}
 
+	/**
+	 * Check if a post is built with Elementor.
+	 *
+	 * @param int $id Post ID.
+	 * @return bool True if the post is built with Elementor, false otherwise.
+	 */
 	public static function is_built_with_elementor( $id ) {
 		return Plugin::$instance->documents->get( $id )->is_built_with_elementor();
 	}
 
+	/**
+	 * Get the content of a post built with Elementor.
+	 *
+	 * @param int $id Post ID.
+	 * @param bool $inline_css Whether to include inline CSS.
+	 * @return string The content of the post.
+	 */
 	public static function get_content( $id, $inline_css = false ) {
 		if( !self::is_built_with_elementor( $id ) ) return '';
 
@@ -418,6 +441,12 @@ class Elementor extends Utils {
 		return ob_get_clean();
 	}
 
+	/**
+	 * Check if a link attribute contains a valid URL.
+	 *
+	 * @param array|string $link_attr Link attributes.
+	 * @return bool True if the link attribute contains a valid URL, false otherwise.
+	 */
 	public static function has_link( $link_attr ) {
 		return ( is_array( $link_attr ) && !empty( $link_attr['url'] ) ) || ( !is_array( $link_attr ) && !empty( $link_attr ) );
 	}
