@@ -225,6 +225,14 @@ class Elementor extends Utils {
 		$devices = ['desktop', 'tablet', 'mobile'];
 
 		if( !empty( $settings ) ) {
+			if( !empty( $settings['autoplay'] ) && parent::to_bool( $settings['autoplay'] ) && isset( $settings['autoplay_time'] ) ) {
+				$args['slider']['autoplay'] = [
+					'delay'	=> floatval( $settings['autoplay_time'] )
+				];
+			}
+			if( !empty( $settings['loop'] ) && parent::to_bool( $settings['loop'] ) ) {
+				$args['slider']['loop'] = true;
+			}
 			foreach( $devices as $device ) {
 				if( $slider_mode ) {
 					$settings["{$device}_slider"] = true;
