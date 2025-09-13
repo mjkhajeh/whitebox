@@ -478,7 +478,8 @@ class Utils {
 						$value = explode( " ", $value );
 					}
 					if( is_array( $value ) ) {
-						$value = implode( " ", array_filter( array_unique( array_map( 'sanitize_html_class', $value ) ) ) );
+						$value = array_unique( self::array_flatten( $value ) );
+						$value = implode( " ", array_filter( array_map( 'sanitize_html_class', $value ) ) );
 					}
 					if( !$value ) continue;
 				} else if( $key == 'style' ) {
