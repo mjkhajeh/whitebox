@@ -689,8 +689,8 @@ class Utils {
 	 * @param int $seconds The total number of seconds to convert.
 	 * @return string The formatted time string.
 	 */
-	public static function second_to_string( int $seconds ) : string {
-		if ($seconds < 0) return "";
+	public static function second_to_string( $seconds ) : string {
+		if( $seconds === null || $seconds === "" || $seconds === false || $seconds < 0 ) return "";
 
 		$hours = intdiv($seconds, 3600);
 		$minutes = intdiv($seconds % 3600, 60);
