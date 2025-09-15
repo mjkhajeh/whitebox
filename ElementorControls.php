@@ -1540,7 +1540,7 @@ class ElementorControls {
 
 		// Default end controls
 		$date_types = apply_filters( 'mj\whitebox\elementor_controls\query_controls\date_types', Elementor::date_types( $args ), $args );
-		$orderby_types = apply_filters( 'mj\whitebox\elementor_controls\query_controls\orderby', Elementor::orderby( $wc, [], $args ), $args );
+		$orderby_types = apply_filters( 'mj\whitebox\elementor_controls\query_controls\orderby', Elementor::orderby( $wc, [], $args ), $wc, $args );
 
 		$end_controls = [
 			'query_date'		=> [
