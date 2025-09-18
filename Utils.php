@@ -1030,17 +1030,47 @@ class Utils {
 	}
 
 	/**
-	 * Check the module requirements
+	 * Determines whether a module should be included based on its requirements.
 	 *
-	 * @param string|array $requirements
-	 * @return boolean
+	 * Evaluates the provided index and requirement data to decide if a specific
+	 * module should be loaded. For WooCommerce-related modules, it checks whether
+	 * WooCommerce is active before allowing inclusion.
+	 *
+	 * @param string       $index The module index or identifier.
+	 * @param array|string $data  Optional. Requirements for including the module.
+	 *                            Can be a string, an array of requirements, or an
+	 *                            associative array containing a 'requirements' key.
+	 * 
+	 * @return bool
 	 */
-	public static function should_include_module( $requirements = [] ) {
-		if( empty( $requirements ) || !is_array( $requirements ) ) return true;
-		if( is_string( $requirements ) ) $requirements = [$requirements];
-		// Check WC is active
-		if( in_array( 'woocommerce', $requirements ) && !self::is_wc_active() ) {
-			return false;
+	public static function should_include_module( $index, $data = [] ) : bool {
+		if( is_string( $index ) ) {
+			if( empty( $data ) || !is_array( $data ) ) return true;
+			$requirements = [];
+			if( is_string( $data ) ) {
+				$requirements[] = $data;
+			} else {
+				if( empty( $data['requirements'] ) ) {
+					$requirements = $data;
+				} else {
+					$requirements = $data['requirements'];
+				}
+			}
+
+			// Check WC is active
+			if( !empty( array_intersect( ['woocommerce', 'wc', 'WC', 'WooCommerce'], $requirements ) ) && !self::is_wc_active() ) {
+				return false;
+			}
+
+			// Check Elementor is active
+			if( !empty( array_intersect( ['elementor', 'Elementor'], $requirements ) ) && !self::is_elementor_active() ) {
+				return false;
+			}
+
+			// Check Elementor Pro is active
+			if( !empty( array_intersect( ['elementor-pro', 'elementor_pro', 'elementorpro', 'ElementorPro', 'Elementorpro', 'elementorPro'], $requirements ) ) && !self::is_elementor_active() ) {
+				return false;
+			}
 		}
 		return true;
 	}
