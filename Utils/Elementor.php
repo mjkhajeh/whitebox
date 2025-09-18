@@ -306,44 +306,53 @@ class Elementor extends Utils {
 			if( is_array( $icon ) && !empty( $icon['url'] ) ) {
 				$icon = $icon['url'];
 			}
+			unset( $settings['button_icon'] );
 		}
 
-		$args = [];
 		if( isset( $settings['button_type'] ) ) {
-			$args["{$prefix}type"] = $settings['button_type'];
+			$settings["{$prefix}type"] = $settings['button_type'];
+			unset( $settings['button_type'] );
 		}
 		if( isset( $settings['button_transparent'] ) ) {
-			$args["{$prefix}transparent"] = Utils::to_bool( $settings['button_transparent'] );
+			$settings["{$prefix}transparent"] = Utils::to_bool( $settings['button_transparent'] );
+			unset( $settings['button_transparent'] );
 		}
 		if( isset( $settings['button_small'] ) ) {
-			$args["{$prefix}small"] = Utils::to_bool( $settings['button_small'] );
+			$settings["{$prefix}small"] = Utils::to_bool( $settings['button_small'] );
+			unset( $settings['button_small'] );
 		}
 		if( $icon ) {
-			$args["{$prefix}icon"] = $icon;
+			$settings["{$prefix}icon"] = $icon;
 		}
 		if( isset( $settings['button_text'] ) ) {
-			$args["{$prefix}text"] = $settings['button_text'];
+			$settings["{$prefix}text"] = $settings['button_text'];
+			unset( $settings['button_text'] );
 		}
 		if( isset( $settings['button_link'] ) ) {
-			$args["{$prefix}link"] = $settings['button_link'];
+			$settings["{$prefix}link"] = $settings['button_link'];
+			unset( $settings['button_link'] );
 		}
 		if( isset( $settings['button_new_tab'] ) ) {
-			$args["{$prefix}new_tab"] = Utils::to_bool( $settings['button_new_tab'] );
-			if( $args["{$prefix}new_tab"] ) {
-				$args["{$prefix}link"]['is_external'] = 'on';
+			$settings["{$prefix}new_tab"] = Utils::to_bool( $settings['button_new_tab'] );
+			if( $settings["{$prefix}new_tab"] ) {
+				$settings["{$prefix}link"]['is_external'] = 'on';
 			}
+			unset( $settings['button_new_tab'] );
 		}
 		if( isset( $settings['button_icon_align'] ) ) {
-			$args["{$prefix}icon_align"] = $settings['button_icon_align'];
+			$settings["{$prefix}icon_align"] = $settings['button_icon_align'];
+			unset( $settings['button_icon_align'] );
 		}
 		if( isset( $settings['button_style'] ) ) {
-			$args["{$prefix}style"] = $settings['button_style'];
+			$settings["{$prefix}style"] = $settings['button_style'];
+			unset( $settings['button_style'] );
 		}
 		if( isset( $settings['button_align'] ) ) {
-			$args["{$prefix}align"] = $settings['button_align'];
+			$settings["{$prefix}align"] = $settings['button_align'];
+			unset( $settings['button_align'] );
 		}
 		
-		return $args;
+		return $settings;
 	}
 
 	/**
