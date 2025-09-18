@@ -365,6 +365,14 @@ class Elementor extends Utils {
 			];
 		}
 
+		if( isset( $args["{$prefix}classes"] ) ) {
+			if( is_array( $args["{$prefix}classes"] ) ) {
+				$args["{$prefix}classes"] = parent::array_flatten( $args["{$prefix}classes"] );
+			} else {
+				$args["{$prefix}classes"] = [$args["{$prefix}classes"]];
+			}
+		}
+
 		$args = Utils::check_default( $args, [
 			"{$prefix}transparent"	=> false,
 			"{$prefix}type"			=> 'primary',
