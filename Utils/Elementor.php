@@ -335,7 +335,9 @@ class Elementor extends Utils {
 		if( isset( $settings['button_new_tab'] ) ) {
 			$settings["{$prefix}new_tab"] = Utils::to_bool( $settings['button_new_tab'] );
 			if( $settings["{$prefix}new_tab"] ) {
-				$settings["{$prefix}link"]['is_external'] = 'on';
+				if( is_array( $settings["{$prefix}link"] ) ) {
+					$settings["{$prefix}link"]['is_external'] = 'on';
+				}
 			}
 			unset( $settings['button_new_tab'] );
 		}
@@ -365,13 +367,20 @@ class Elementor extends Utils {
 	public static function check_button_defaults( array $args, string $prefix = 'button_' ) {
 		$rtl = is_rtl();
 
-		if( isset( $args["{$prefix}link"] ) && !is_array( $args["{$prefix}link"] ) ) {
-			$args["{$prefix}link"] = [
-				'url'				=> $args["{$prefix}link"],
-				'is_external'		=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
-				'nofollow'			=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
-				'custom_attributes'	=> '',
-			];
+		if( isset( $args["{$prefix}link"] ) ) {
+			if( !is_array( $args["{$prefix}link"] ) ) {
+				$args["{$prefix}link"] = [
+					'url'				=> $args["{$prefix}link"],
+					'is_external'		=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
+					'nofollow'			=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
+					'custom_attributes'	=> '',
+				];
+			} else {
+				if( isset( $args["{$prefix}new_tab"] ) ) {
+					$args["{$prefix}link"]['is_external'] = Utils::to_bool( $args["{$prefix}new_tab"] );
+					$args["{$prefix}link"]['nofollow'] = Utils::to_bool( $args["{$prefix}new_tab"] );
+				}
+			}
 		}
 
 		if( isset( $args["{$prefix}classes"] ) ) {
