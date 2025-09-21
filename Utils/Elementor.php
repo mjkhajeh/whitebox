@@ -6,6 +6,8 @@ use Elementor\Plugin;
 use MJ\Whitebox\Utils;
 
 class Elementor extends Utils {
+	protected static $use_relatives_for_align = false;
+
 	/**
 	 * Ensure a CSS selector string includes the Elementor wrapper placeholder.
 	 *
@@ -391,6 +393,12 @@ class Elementor extends Utils {
 			}
 		}
 
+		if( static::$use_relatives_for_align ) {
+			$align = 'start';
+		} else {
+			$align = $rtl ? 'right' : 'left';
+		}
+
 		$args = Utils::check_default( $args, [
 			"{$prefix}transparent"	=> false,
 			"{$prefix}type"			=> 'primary',
@@ -401,9 +409,9 @@ class Elementor extends Utils {
 			"{$prefix}link"			=> [],
 			"{$prefix}new_tab"		=> false,
 			"{$prefix}fullwidth"	=> false,
-			"{$prefix}icon_align"	=> $rtl ? 'right' : 'left',
+			"{$prefix}icon_align"	=> $align,
 			"{$prefix}style"		=> 'rounded',
-			"{$prefix}align"		=> $rtl ? 'right' : 'left',
+			"{$prefix}align"		=> $align,
 			"{$prefix}classes"		=> [],
 			"{$prefix}id"			=> '',
 			"{$prefix}disabled"		=> false,
