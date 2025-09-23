@@ -2,6 +2,10 @@
 namespace MJ\Whitebox;
 
 class Utils {
+	protected static $project_dir = '';
+	protected static $project_uri = '';
+	protected static $project_slug = '';
+
 	/**
 	 * Checks and applies default values to an array based on provided defaults and skip indexes. Also, check the type of the value based on defaults.
 	 *
@@ -1252,5 +1256,40 @@ class Utils {
 		}
 
 		return $content;
+	}
+
+	public static function get_icon_packs() {
+		static $packs = [];
+		if( empty( $packs[static::$project_slug] ) ) {
+			$theme_packs = wp_json_file_decode( static::$project_dir . "assets/icons.json", ['associative' => true] );
+			$packs[static::$project_slug] = apply_filters( static::$project_slug . '/icon-picker/packs', $theme_packs );
+
+			// Set svg icons url
+			foreach( $packs[static::$project_slug] as $pack_name => $pack ) {
+				if( $pack['mode'] == 'svg' ) {
+					$pack['dir'] = trailingslashit( $pack['dir'] );
+					foreach( $pack['icons'] as $icon_index => $icon ) {
+						$svg_url = static::$project_uri . "assets/{$pack['dir']}{$icon}";
+						if( !isset( $theme_packs[$pack_name] ) ) {
+							$svg_url = "{$pack['dir']}{$icon}";
+						}
+						if( substr( $svg_url, -4 ) != '.svg' ) {
+							$svg_url .= '.svg';
+						}
+
+						if( $pack['label_icon'] == str_replace( ".svg", "", $icon ) ) {
+							$packs[static::$project_slug][$pack_name]['label_icon'] = $svg_url;
+						}
+
+						$packs[static::$project_slug][$pack_name]['icons'][$icon_index] = $svg_url;
+					}
+				}
+			}
+		}
+		if( !isset( $packs[static::$project_slug] ) ) {
+			$packs[static::$project_slug] = [];
+		}
+
+		return $packs[static::$project_slug];
 	}
 }
