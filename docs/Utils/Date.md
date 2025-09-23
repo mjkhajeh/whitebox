@@ -143,3 +143,24 @@ public static function last_day_of_jalali_month()
 **Notes:**
 - Useful for Persian calendar integrations.
 - Handles leap years and month rules.
+
+---
+
+### timezone_offset
+Get the current timezone offset in seconds for the WordPress site.
+
+**Signature:**
+```php
+public static function timezone_offset()
+```
+
+**Returns:**
+- (float) Timezone offset in seconds.
+
+**Details:**
+- Uses the WordPress timezone setting (`timezone_string` option) if set, otherwise falls back to the GMT offset.
+- Returns the offset in seconds, suitable for date calculations and conversions.
+- Example usage:
+  ```php
+  $offset = Date::timezone_offset();
+  ```

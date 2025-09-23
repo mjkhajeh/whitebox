@@ -468,4 +468,20 @@ class Date extends Utils {
 
 		return self::j2g($last_jalali);
 	}
+
+	/**
+	 * Get timezone offset in seconds.
+	 *
+	 * @return float
+	 */
+	public static function timezone_offset() {
+		$timezone = get_option( 'timezone_string' );
+
+		if ( $timezone ) {
+			$timezone_object = new \DateTimeZone( $timezone );
+			return $timezone_object->getOffset( new \DateTime( 'now' ) );
+		} else {
+			return floatval( get_option( 'gmt_offset', 0 ) ) * HOUR_IN_SECONDS;
+		}
+	}
 }
