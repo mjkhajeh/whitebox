@@ -195,7 +195,7 @@ class Slider extends ElementorControls {
 			],
 		] );
 		if( $add_display_conditions_to_section ) {
-			$args['conditions'] = [
+			$args['section']['conditions'] = [
 				'relation'	=> 'or',
 				'terms'	=> [
 					[
