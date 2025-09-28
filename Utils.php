@@ -1016,6 +1016,7 @@ class Utils {
 			'h6'	=> __( "H6", 'mj-whitebox' ),
 			'div'	=> __( "div", 'mj-whitebox' ),
 			'p'		=> __( "p", 'mj-whitebox' ),
+			'span'	=> __( "span", 'mj-whitebox' ),
 		] );
 	}
 
