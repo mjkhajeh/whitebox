@@ -36,8 +36,8 @@ class Button extends ElementorControls {
 		$object->end_controls_section();
 	}
 
-	public static function controls( $object, $args = [], $prefix = 'button_' ) {
-		$default_controls = [
+	public static function default_controls( $args = [] ) {
+		return [
 			'text'			=> [
 				'type'			=> \Elementor\Controls_Manager::TEXT,
 				'label'			=> esc_html__( 'Text', 'mj-whitebox' ),
@@ -157,7 +157,9 @@ class Button extends ElementorControls {
 				],
 			],
 		];
+	}
 
-		parent::_add_controls( $object, $default_controls, $prefix, $args );
+	public static function controls( $object, $args = [], $prefix = 'button_' ) {
+		parent::_add_controls( $object, static::default_controls(), $prefix, $args );
 	}
 }
