@@ -1618,6 +1618,56 @@ class ElementorControls {
 			],
 		];
 
+		if( !empty( $args['start_excludes'] ) && in_array( 'query_type', $args['start_excludes'] ) ) {
+			foreach( $includes_controls as $index => $control ) {
+				if( !empty( $control['condition'] ) ) {
+					if( !empty( $control['condition']['query_type!'] ) ) {
+						unset( $control['condition']['query_type!'] );
+					}
+					if( !empty( $control['condition']['query_type'] ) ) {
+						unset( $control['condition']['query_type'] );
+					}
+					$includes_controls[$index] = $control;
+				}
+			}
+
+			foreach( $excludes_controls as $index => $control ) {
+				if( !empty( $control['condition'] ) ) {
+					if( !empty( $control['condition']['query_type!'] ) ) {
+						unset( $control['condition']['query_type!'] );
+					}
+					if( !empty( $control['condition']['query_type'] ) ) {
+						unset( $control['condition']['query_type'] );
+					}
+					$excludes_controls[$index] = $control;
+				}
+			}
+
+			foreach( $start_controls as $index => $control ) {
+				if( !empty( $control['condition'] ) ) {
+					if( !empty( $control['condition']['query_type!'] ) ) {
+						unset( $control['condition']['query_type!'] );
+					}
+					if( !empty( $control['condition']['query_type'] ) ) {
+						unset( $control['condition']['query_type'] );
+					}
+					$start_controls[$index] = $control;
+				}
+			}
+
+			foreach( $end_controls as $index => $control ) {
+				if( !empty( $control['condition'] ) ) {
+					if( !empty( $control['condition']['query_type!'] ) ) {
+						unset( $control['condition']['query_type!'] );
+					}
+					if( !empty( $control['condition']['query_type'] ) ) {
+						unset( $control['condition']['query_type'] );
+					}
+					$end_controls[$index] = $control;
+				}
+			}
+		}
+
 		$args = Utils::check_default( $args, [
 			'section'	=> [
 				'name'	=> 'settings_section',
@@ -1626,18 +1676,18 @@ class ElementorControls {
 			'tabs'		=> [
 				'includes'	=> [
 					'label'		=> esc_html__( 'Includes', 'mj-whitebox' ),
-					'condition'	=> [
+					'condition'	=> empty( $args['start_excludes'] ) || !in_array( 'query_type', $args['start_excludes'] ) ? [
 						'query_type!'	=> ['by_id', 'current_query'],
-					],
+					] : [],
 
 					'excludes'	=> [],
 					'controls'	=> $includes_controls,
 				],
 				'excludes'	=> [
 					'label'		=> esc_html__( 'Excludes', 'mj-whitebox' ),
-					'condition'	=> [
+					'condition'	=> empty( $args['start_excludes'] ) || !in_array( 'query_type', $args['start_excludes'] ) ? [
 						'query_type!'	=> ['by_id', 'current_query'],
-					],
+					] : [],
 
 					'excludes'	=> [],
 					'controls'	=> $excludes_controls,
