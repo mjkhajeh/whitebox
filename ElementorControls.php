@@ -1319,13 +1319,17 @@ class ElementorControls {
 	}
 
 	public static function query_controls( $object, bool $wc = false, array $args = [] ) {
-		$query_types = [
-			'latest'		=> !$wc ? esc_html__( 'Latests posts', 'mj-whitebox' ) : esc_html__( 'Latests products', 'mj-whitebox' ),
-			'custom'		=> esc_html__( 'Custom', 'mj-whitebox' ),
-			'current_query'	=> esc_html__( 'Current Query', 'mj-whitebox' ),
-			'by_id'			=> esc_html__( 'Manual Selection', 'mj-whitebox' ),
-		];
-		$query_types = apply_filters( 'mj\whitebox\elementor_controls\query_controls\query_types', $query_types, $args );
+		if( empty( $args['query_types'] ) ) {
+			$query_types = [
+				'latest'		=> !$wc ? esc_html__( 'Latests posts', 'mj-whitebox' ) : esc_html__( 'Latests products', 'mj-whitebox' ),
+				'custom'		=> esc_html__( 'Custom', 'mj-whitebox' ),
+				'current_query'	=> esc_html__( 'Current Query', 'mj-whitebox' ),
+				'by_id'			=> esc_html__( 'Manual Selection', 'mj-whitebox' ),
+			];
+			$query_types = apply_filters( 'mj\whitebox\elementor_controls\query_controls\query_types', $query_types, $args );
+		} else {
+			$query_types = $args['query_types'];
+		}
 
 		// Default start controls
 		$start_controls = [
