@@ -128,6 +128,15 @@ class Slider extends ElementorControls {
 				'default'		=> 'yes',
 				'separator'		=> 'before',
 			],
+			'show_dots'	=> [
+				'label'			=> esc_html__( 'Show dots', 'mj-whitebox' ),
+				'type'			=> \Elementor\Controls_Manager::SWITCHER,
+				'label_on'		=> esc_html__( 'Yes', 'mj-whitebox' ),
+				'label_off'		=> esc_html__( 'No', 'mj-whitebox' ),
+				'return_value'	=> 'yes',
+				'default'		=> 'no',
+				'separator'		=> 'before',
+			],
 		];
 		$args = Utils::check_default( $args, [
 			'section'	=> [

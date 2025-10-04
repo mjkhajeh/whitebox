@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 09:05+0000\n"
+"POT-Creation-Date: 2025-10-04 10:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,28 +16,28 @@ msgstr ""
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.3.24\n"
 "X-Domain: mj-whitebox"
 
-#: Utils.php:668
+#: Utils.php:673
 #, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: Utils.php:672
+#: Utils.php:677
 #, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: Utils.php:676
+#: Utils.php:681
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ElementorControls.php:1577
+#: ElementorControls.php:1575
 msgid "After"
 msgstr ""
 
@@ -45,37 +45,37 @@ msgstr ""
 msgid "Alignment"
 msgstr ""
 
-#: Utils/Elementor.php:45
+#: Utils/Elementor.php:66
 msgid "All"
 msgstr ""
 
-#: ElementorControls.php:1605
+#: ElementorControls.php:1603
 msgid "ASC"
 msgstr ""
 
-#: ElementorControls.php:1377 ElementorControls.php:1495
+#: ElementorControls.php:1375 ElementorControls.php:1493
 msgid "Author"
 msgstr ""
 
-#: ElementorControls.php:901 ElementorControls.php:969
-#: ElementorControls.php:1037 ElementorControls/Slider.php:28
+#: ElementorControls.php:895 ElementorControls.php:963
+#: ElementorControls.php:1031 ElementorControls/Slider.php:28
 #: ElementorControls/Slider.php:52 ElementorControls/Slider.php:76
 msgid "Auto"
 msgstr ""
 
-#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:236
+#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:245
 msgid "Autoplay"
 msgstr ""
 
-#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:244
+#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:253
 msgid "Autoplay time (s)"
 msgstr ""
 
-#: ElementorControls.php:1564
+#: ElementorControls.php:1562
 msgid "Before"
 msgstr ""
 
-#: ElementorControls.php:473
+#: ElementorControls.php:467
 msgid "Border Radius"
 msgstr ""
 
@@ -87,17 +87,17 @@ msgstr ""
 msgid "Button style"
 msgstr ""
 
-#: Utils/Elementor.php:37
+#: Utils/Elementor.php:52
 msgctxt "Button style"
 msgid "Circle"
 msgstr ""
 
-#: Utils/Elementor.php:35
+#: Utils/Elementor.php:50
 msgctxt "Button style"
 msgid "Normal"
 msgstr ""
 
-#: Utils/Elementor.php:36
+#: Utils/Elementor.php:51
 msgctxt "Button style"
 msgid "Rounded"
 msgstr ""
@@ -106,127 +106,127 @@ msgstr ""
 msgid "Button type"
 msgstr ""
 
-#: Utils/Elementor.php:26
+#: Utils/Elementor.php:35
 msgctxt "Button type"
 msgid "Action"
 msgstr ""
 
-#: Utils/Elementor.php:27
+#: Utils/Elementor.php:36
 msgctxt "Button type"
 msgid "Bordered"
 msgstr ""
 
-#: Utils/Elementor.php:24
+#: Utils/Elementor.php:33
 msgctxt "Button type"
 msgid "Gray"
 msgstr ""
 
-#: Utils/Elementor.php:22
+#: Utils/Elementor.php:31
 msgctxt "Button type"
 msgid "Primary"
 msgstr ""
 
-#: Utils/Elementor.php:23
+#: Utils/Elementor.php:32
 msgctxt "Button type"
 msgid "Secondary"
 msgstr ""
 
-#: Utils/Elementor.php:25
+#: Utils/Elementor.php:34
 msgctxt "Button type"
 msgid "White"
 msgstr ""
 
-#: ElementorControls.php:1392 ElementorControls.php:1510
+#: ElementorControls.php:1390 ElementorControls.php:1508
 msgid "Category"
 msgstr ""
 
-#: ElementorControls.php:404 ElementorControls/Button.php:145
+#: ElementorControls.php:398 ElementorControls/Button.php:145
 msgid "Center"
 msgstr ""
 
-#: ElementorControls.php:1566 ElementorControls.php:1580
+#: ElementorControls.php:1564 ElementorControls.php:1578
 msgid "Choose"
 msgstr ""
 
-#: ElementorControls.php:426
+#: ElementorControls.php:420
 msgid "Color"
 msgstr ""
 
-#: ElementorControls.php:770
+#: ElementorControls.php:764
 msgid "Column gap (px)"
 msgstr ""
 
-#: ElementorControls.php:791
+#: ElementorControls.php:785
 msgid "Columns"
 msgstr ""
 
-#: Utils/Elementor.php:61
+#: Utils/Elementor.php:90
 msgid "Comment Count"
 msgstr ""
 
-#: ElementorControls.php:900 ElementorControls.php:968
-#: ElementorControls.php:1036 ElementorControls/Slider.php:27
+#: ElementorControls.php:894 ElementorControls.php:962
+#: ElementorControls.php:1030 ElementorControls/Slider.php:27
 #: ElementorControls/Slider.php:51 ElementorControls/Slider.php:75
 msgid "Count"
 msgstr ""
 
-#: ElementorControls.php:1331
+#: ElementorControls.php:1326
 msgid "Current Query"
 msgstr ""
 
-#: ElementorControls.php:1330 Utils/Elementor.php:51
+#: ElementorControls.php:1325 Utils/Elementor.php:72
 msgid "Custom"
 msgstr ""
 
-#: ElementorControls.php:1553 Utils/Elementor.php:58 Utils/Elementor.php:69
+#: ElementorControls.php:1551 Utils/Elementor.php:87 Utils/Elementor.php:98
 msgid "Date"
 msgstr ""
 
-#: ElementorControls.php:1606
+#: ElementorControls.php:1604
 msgid "DESC"
 msgstr ""
 
-#: ElementorControls.php:946
+#: ElementorControls.php:940
 msgid "Desktop column gap"
 msgstr ""
 
-#: ElementorControls.php:927
+#: ElementorControls.php:921
 msgid "Desktop columns"
 msgstr ""
 
-#: ElementorControls.php:937
+#: ElementorControls.php:931
 msgid "Desktop row gap"
 msgstr ""
 
-#: ElementorControls.php:888
+#: ElementorControls.php:882
 msgid "Desktop slider"
 msgstr ""
 
-#: ElementorControls.php:918 ElementorControls/Slider.php:41
+#: ElementorControls.php:912 ElementorControls/Slider.php:41
 msgid "Desktop slides space"
 msgstr ""
 
-#: ElementorControls.php:896 ElementorControls/Slider.php:23
+#: ElementorControls.php:890 ElementorControls/Slider.php:23
 msgid "Desktop slides type"
 msgstr ""
 
-#: ElementorControls.php:908 ElementorControls/Slider.php:32
+#: ElementorControls.php:902 ElementorControls/Slider.php:32
 msgid "Desktop visible slides"
 msgstr ""
 
-#: ElementorControls.php:1462
+#: ElementorControls.php:1460
 msgid "Disabling this option will increase the performance of the page"
 msgstr ""
 
-#: ElementorControls.php:552
+#: ElementorControls.php:546
 msgid "Display"
 msgstr ""
 
-#: ElementorControls.php:1094
+#: ElementorControls.php:1088
 msgid "Display settings"
 msgstr ""
 
-#: Utils.php:986
+#: Utils.php:1017
 msgid "div"
 msgstr ""
 
@@ -234,7 +234,7 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: ElementorControls.php:1639
+#: ElementorControls.php:1687
 msgid "Excludes"
 msgstr ""
 
@@ -242,31 +242,31 @@ msgstr ""
 msgid "Fullwidth"
 msgstr ""
 
-#: Utils.php:980
+#: Utils.php:1011
 msgid "H1"
 msgstr ""
 
-#: Utils.php:981
+#: Utils.php:1012
 msgid "H2"
 msgstr ""
 
-#: Utils.php:982
+#: Utils.php:1013
 msgid "H3"
 msgstr ""
 
-#: Utils.php:983
+#: Utils.php:1014
 msgid "H4"
 msgstr ""
 
-#: Utils.php:984
+#: Utils.php:1015
 msgid "H5"
 msgstr ""
 
-#: Utils.php:985
+#: Utils.php:1016
 msgid "H6"
 msgstr ""
 
-#: ElementorControls.php:524
+#: ElementorControls.php:518
 msgid "Height"
 msgstr ""
 
@@ -274,7 +274,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ElementorControls.php:153 ElementorControls.php:865
+#: ElementorControls.php:153 ElementorControls.php:859
 msgid "Hover"
 msgstr ""
 
@@ -290,35 +290,35 @@ msgstr ""
 msgid "Icon Position"
 msgstr ""
 
-#: Utils/Elementor.php:66
+#: Utils/Elementor.php:95
 msgid "ID"
 msgstr ""
 
-#: ElementorControls.php:1461
+#: ElementorControls.php:1459
 msgid "Ignore sticky posts"
 msgstr ""
 
-#: ElementorControls.php:1630
+#: ElementorControls.php:1678
 msgid "Includes"
 msgstr ""
 
-#: ElementorControls.php:412
+#: ElementorControls.php:406
 msgid "Justify"
 msgstr ""
 
-#: Utils/Elementor.php:60 Utils/Elementor.php:70
+#: Utils/Elementor.php:89 Utils/Elementor.php:99
 msgid "Last Modified"
 msgstr ""
 
-#: ElementorControls.php:1329
+#: ElementorControls.php:1324
 msgid "Latests posts"
 msgstr ""
 
-#: ElementorControls.php:1329
+#: ElementorControls.php:1324
 msgid "Latests products"
 msgstr ""
 
-#: ElementorControls.php:400
+#: ElementorControls.php:394
 msgid "Left"
 msgstr ""
 
@@ -334,11 +334,11 @@ msgstr ""
 msgid "Lorem"
 msgstr ""
 
-#: ElementorControls.php:1332
+#: ElementorControls.php:1327
 msgid "Manual Selection"
 msgstr ""
 
-#: ElementorControls.php:345
+#: ElementorControls.php:339
 msgid "Margin"
 msgstr ""
 
@@ -346,31 +346,31 @@ msgstr ""
 msgid "MJ Whitebox"
 msgstr ""
 
-#: ElementorControls.php:1082
+#: ElementorControls.php:1076
 msgid "Mobile column gap"
 msgstr ""
 
-#: ElementorControls.php:1063
+#: ElementorControls.php:1057
 msgid "Mobile columns"
 msgstr ""
 
-#: ElementorControls.php:1073
+#: ElementorControls.php:1067
 msgid "Mobile row gap"
 msgstr ""
 
-#: ElementorControls.php:1023
+#: ElementorControls.php:1017
 msgid "Mobile slider"
 msgstr ""
 
-#: ElementorControls.php:1054 ElementorControls/Slider.php:89
+#: ElementorControls.php:1048 ElementorControls/Slider.php:89
 msgid "Mobile slides space"
 msgstr ""
 
-#: ElementorControls.php:1032 ElementorControls/Slider.php:71
+#: ElementorControls.php:1026 ElementorControls/Slider.php:71
 msgid "Mobile slides type"
 msgstr ""
 
-#: ElementorControls.php:1044 ElementorControls/Slider.php:80
+#: ElementorControls.php:1038 ElementorControls/Slider.php:80
 msgid "Mobile visible slides"
 msgstr ""
 
@@ -378,34 +378,34 @@ msgstr ""
 msgid "MohammadJafar Khajeh"
 msgstr ""
 
-#: ElementorControls.php:891 ElementorControls.php:958
-#: ElementorControls.php:1026 ElementorControls.php:1177
-#: ElementorControls.php:1435 ElementorControls.php:1449
-#: ElementorControls.php:1465 ElementorControls/Slider.php:98
-#: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
-#: ElementorControls/Slider.php:239 ElementorControls/Button.php:66
+#: ElementorControls.php:885 ElementorControls.php:952
+#: ElementorControls.php:1020 ElementorControls.php:1171
+#: ElementorControls.php:1433 ElementorControls.php:1447
+#: ElementorControls.php:1463 ElementorControls/Button.php:66
 #: ElementorControls/Button.php:74 ElementorControls/Button.php:91
-#: ElementorControls/Button.php:132
+#: ElementorControls/Button.php:132 ElementorControls/Slider.php:98
+#: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
+#: ElementorControls/Slider.php:135 ElementorControls/Slider.php:248
 msgid "No"
 msgstr ""
 
-#: ElementorControls.php:1613
+#: ElementorControls.php:1611
 msgid "No Posts Message"
 msgstr ""
 
-#: ElementorControls.php:150 ElementorControls.php:846
+#: ElementorControls.php:150 ElementorControls.php:840
 msgid "Normal"
 msgstr ""
 
-#: ElementorControls.php:1161
+#: ElementorControls.php:1155
 msgid "Offset"
 msgstr ""
 
-#: ElementorControls.php:1445
+#: ElementorControls.php:1443
 msgid "Only instock"
 msgstr ""
 
-#: ElementorControls.php:1431
+#: ElementorControls.php:1429
 msgid "Only on-sales"
 msgstr ""
 
@@ -413,127 +413,127 @@ msgstr ""
 msgid "Open in new tab"
 msgstr ""
 
-#: ElementorControls.php:1600
+#: ElementorControls.php:1598
 msgid "Order"
 msgstr ""
 
-#: ElementorControls.php:1590
+#: ElementorControls.php:1588
 msgid "Order By"
 msgstr ""
 
-#: Utils.php:987
+#: Utils.php:1018
 msgid "p"
 msgstr ""
 
-#: ElementorControls.php:357
+#: ElementorControls.php:351
 msgid "Padding"
 msgstr ""
 
-#: ElementorControls.php:1260
+#: ElementorControls.php:1254
 msgid "Pagination current style"
 msgstr ""
 
-#: ElementorControls.php:1314
+#: ElementorControls.php:1308
 msgid "Pagination dots style"
 msgstr ""
 
-#: ElementorControls.php:1296
+#: ElementorControls.php:1290
 msgid "Pagination next style"
 msgstr ""
 
-#: ElementorControls.php:1242
+#: ElementorControls.php:1236
 msgid "Pagination number style"
 msgstr ""
 
-#: ElementorControls.php:1278
+#: ElementorControls.php:1272
 msgid "Pagination previous style"
 msgstr ""
 
-#: ElementorControls.php:1191
+#: ElementorControls.php:1185
 msgid "Pagination settings"
 msgstr ""
 
-#: ElementorControls.php:1225
+#: ElementorControls.php:1219
 msgid "Pagination style"
 msgstr ""
 
-#: Utils/Elementor.php:46
+#: Utils/Elementor.php:67
 msgid "Past Day"
 msgstr ""
 
-#: Utils/Elementor.php:48
+#: Utils/Elementor.php:69
 msgid "Past Month"
 msgstr ""
 
-#: Utils/Elementor.php:49
+#: Utils/Elementor.php:70
 msgid "Past Quarter"
 msgstr ""
 
-#: Utils/Elementor.php:47
+#: Utils/Elementor.php:68
 msgid "Past Week"
 msgstr ""
 
-#: Utils/Elementor.php:50
+#: Utils/Elementor.php:71
 msgid "Past Year"
 msgstr ""
 
-#: ElementorControls.php:440
+#: ElementorControls.php:434
 msgid "Placeholder color"
 msgstr ""
 
-#: Utils/Elementor.php:72
+#: Utils/Elementor.php:101
 msgid "Popularity"
 msgstr ""
 
-#: ElementorControls.php:1348
+#: ElementorControls.php:1346
 msgid "Post type"
 msgstr ""
 
-#: ElementorControls.php:1149
+#: ElementorControls.php:1143
 msgid "Posts per page"
 msgstr ""
 
-#: Utils/Elementor.php:71
+#: Utils/Elementor.php:100
 msgid "Price"
 msgstr ""
 
-#: Utils/Elementor.php:67
+#: Utils/Elementor.php:96
 msgid "Product name"
 msgstr ""
 
-#: Utils/Elementor.php:68
+#: Utils/Elementor.php:97
 msgid "Product type"
 msgstr ""
 
-#: ElementorControls.php:1339
+#: ElementorControls.php:1337
 msgid "Query type"
 msgstr ""
 
-#: Utils/Elementor.php:62 Utils/Elementor.php:75
+#: Utils/Elementor.php:91 Utils/Elementor.php:104
 msgid "Random"
 msgstr ""
 
-#: Utils/Elementor.php:73
+#: Utils/Elementor.php:102
 msgid "Rating"
 msgstr ""
 
-#: ElementorControls.php:408
+#: ElementorControls.php:402
 msgid "Right"
 msgstr ""
 
-#: ElementorControls.php:749
+#: ElementorControls.php:743
 msgid "Row gap (px)"
 msgstr ""
 
-#: Utils/Elementor.php:74
+#: Utils/Elementor.php:103
 msgid "Sales"
 msgstr ""
 
-#: ElementorControls.php:1361 ElementorControls.php:1476
+#: ElementorControls.php:1359 ElementorControls.php:1474
 msgid "Search & Select"
 msgstr ""
 
-#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:245
+#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:254
 msgid "seconds"
 msgstr ""
 
@@ -553,31 +553,31 @@ msgstr ""
 msgid "Section title text style"
 msgstr ""
 
-#: ElementorControls.php:1477
+#: ElementorControls.php:1475
 msgid "Select posts that you want to exclude"
 msgstr ""
 
-#: ElementorControls.php:1362
+#: ElementorControls.php:1360
 msgid "Select posts that you want to include"
 msgstr ""
 
-#: ElementorControls.php:1377
+#: ElementorControls.php:1375
 msgid "Seller"
 msgstr ""
 
-#: ElementorControls.php:1571
+#: ElementorControls.php:1569
 msgid ""
 "Setting a ‘Before’ date will show all the posts published until the chosen "
 "date (inclusive)."
 msgstr ""
 
-#: ElementorControls.php:1578
+#: ElementorControls.php:1576
 msgid ""
 "Setting an ‘After’ date will show all the posts published until the chosen "
 "date (inclusive)."
 msgstr ""
 
-#: ElementorControls.php:1626
+#: ElementorControls.php:1674
 msgid "Settings"
 msgstr ""
 
@@ -585,23 +585,27 @@ msgstr ""
 msgid "Show arrows"
 msgstr ""
 
-#: ElementorControls.php:1446
+#: ElementorControls/Slider.php:132
+msgid "Show dots"
+msgstr ""
+
+#: ElementorControls.php:1444
 msgid "Show only instock products"
 msgstr ""
 
-#: ElementorControls.php:1432
+#: ElementorControls.php:1430
 msgid "Show only on-sales products"
 msgstr ""
 
-#: ElementorControls.php:1173
+#: ElementorControls.php:1167
 msgid "Show pagination"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:152 ElementorControls/Slider.php:281
+#: ElementorControls/SectionTitle.php:152 ElementorControls/Slider.php:290
 msgid "Slider arrows style"
 msgstr ""
 
-#: ElementorControls/Slider.php:135
+#: ElementorControls/Slider.php:144
 msgid "Slider settings"
 msgstr ""
 
@@ -609,39 +613,43 @@ msgstr ""
 msgid "Small button"
 msgstr ""
 
+#: Utils.php:1019
+msgid "span"
+msgstr ""
+
 #: ElementorControls/Button.php:107 ElementorControls/Button.php:141
 msgid "Start"
 msgstr ""
 
-#: ElementorControls.php:1014
+#: ElementorControls.php:1008
 msgid "Tablet column gap"
 msgstr ""
 
-#: ElementorControls.php:995
+#: ElementorControls.php:989
 msgid "Tablet columns"
 msgstr ""
 
-#: ElementorControls.php:1005
+#: ElementorControls.php:999
 msgid "Tablet row gap"
 msgstr ""
 
-#: ElementorControls.php:955
+#: ElementorControls.php:949
 msgid "Tablet slider"
 msgstr ""
 
-#: ElementorControls.php:986 ElementorControls/Slider.php:65
+#: ElementorControls.php:980 ElementorControls/Slider.php:65
 msgid "Tablet slides space"
 msgstr ""
 
-#: ElementorControls.php:964 ElementorControls/Slider.php:47
+#: ElementorControls.php:958 ElementorControls/Slider.php:47
 msgid "Tablet slides type"
 msgstr ""
 
-#: ElementorControls.php:976 ElementorControls/Slider.php:56
+#: ElementorControls.php:970 ElementorControls/Slider.php:56
 msgid "Tablet visible slides"
 msgstr ""
 
-#: ElementorControls.php:1410 ElementorControls.php:1528
+#: ElementorControls.php:1408 ElementorControls.php:1526
 #: ElementorControls/SectionTitle.php:58
 msgid "Tag"
 msgstr ""
@@ -650,7 +658,7 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: ElementorControls.php:397
+#: ElementorControls.php:391
 msgid "Text align"
 msgstr ""
 
@@ -686,7 +694,7 @@ msgctxt "Time slot label"
 msgid "Noon"
 msgstr ""
 
-#: Utils/Elementor.php:59 ElementorControls/SectionTitle.php:71
+#: Utils/Elementor.php:88 ElementorControls/SectionTitle.php:71
 msgid "Title"
 msgstr ""
 
@@ -702,23 +710,23 @@ msgstr ""
 msgid "Transparent button"
 msgstr ""
 
-#: ElementorControls.php:1174
+#: ElementorControls.php:1168
 msgid ""
 "Turn off pagination if you don't need it. It can improve the page's "
 "performance."
 msgstr ""
 
-#: ElementorControls.php:507
+#: ElementorControls.php:501
 msgid "Width"
 msgstr ""
 
-#: ElementorControls.php:890 ElementorControls.php:957
-#: ElementorControls.php:1025 ElementorControls.php:1176
-#: ElementorControls.php:1434 ElementorControls.php:1448
-#: ElementorControls.php:1464 ElementorControls/Slider.php:97
-#: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
-#: ElementorControls/Slider.php:238 ElementorControls/Button.php:65
+#: ElementorControls.php:884 ElementorControls.php:951
+#: ElementorControls.php:1019 ElementorControls.php:1170
+#: ElementorControls.php:1432 ElementorControls.php:1446
+#: ElementorControls.php:1462 ElementorControls/Button.php:65
 #: ElementorControls/Button.php:73 ElementorControls/Button.php:90
-#: ElementorControls/Button.php:131
+#: ElementorControls/Button.php:131 ElementorControls/Slider.php:97
+#: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
+#: ElementorControls/Slider.php:134 ElementorControls/Slider.php:247
 msgid "Yes"
 msgstr ""
