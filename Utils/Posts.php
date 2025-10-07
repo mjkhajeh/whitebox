@@ -116,8 +116,6 @@ class Posts extends Utils {
 						if( $value === false ) {
 							$value = "false";
 						}
-					} else {
-						$value = self::convert_chars( $value );
 					}
 				}
 				update_post_meta( $post_id, "_{$option_key}", $value );
