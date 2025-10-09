@@ -1246,7 +1246,7 @@ class ElementorControls {
 		self::general_style_controls( $object, [ // pagination_current
 			'prefix'		=> 'pagination_current_',
 			'base_selector'	=> $base_selector,
-			'selector'		=> '.page-numbers:is(a,span).current',
+			'selector'		=> '.page-numbers:is(a,span).current:not(.next):not(.prev)',
 			'hover_type'	=> 'normal',
 
 			'section'	=> [
