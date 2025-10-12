@@ -126,4 +126,27 @@ class WC extends Utils {
 	
 		return $active_coupons;
 	}
+
+	/**
+	 * Returns an array of Iranian currencies for convert to rial.
+	 *
+	 * @return array An associative array where the keys represent the currency codes and the values represent the equalization rates to the Iranian rial.
+	 */
+	public static function ir_currencies() {
+		return [ // Array of Iranian currencies for convert to rial
+			'IRR'	=> 1, // Rial
+			'IRT'	=> 0.1, // Toman
+			'IRHR'	=> 0.001, // 1000 Rial
+			'IRHT'	=> 0.0001, // 1000 Toman
+		];
+	}
+
+	public static function ir_currencies_label() {
+		return [
+			'IRR'	=> __( 'Rial', 'mj-whitebox' ),
+			'IRT'	=> __( 'Toman', 'mj-whitebox' ),
+			'IRHR'	=> __( 'Thousand rials', 'mj-whitebox' ),
+			'IRHT'	=> __( 'Thousand Tomans', 'mj-whitebox' ),
+		];
+	}
 }

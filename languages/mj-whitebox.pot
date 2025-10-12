@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-04 10:00+0000\n"
+"POT-Creation-Date: 2025-10-12 14:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -517,6 +517,10 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
+#: Utils/WC.php:146
+msgid "Rial"
+msgstr ""
+
 #: ElementorControls.php:402
 msgid "Right"
 msgstr ""
@@ -674,6 +678,14 @@ msgstr ""
 msgid "This username is already exists."
 msgstr ""
 
+#: Utils/WC.php:148
+msgid "Thousand rials"
+msgstr ""
+
+#: Utils/WC.php:149
+msgid "Thousand Tomans"
+msgstr ""
+
 #: Utils/Date.php:426
 msgctxt "Time slot label"
 msgid "Evening"
@@ -704,6 +716,10 @@ msgstr ""
 
 #: ElementorControls/SectionTitle.php:83
 msgid "Title link"
+msgstr ""
+
+#: Utils/WC.php:147
+msgid "Toman"
 msgstr ""
 
 #: ElementorControls/Button.php:71

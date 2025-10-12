@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 06:21+0000\n"
-"PO-Revision-Date: 2025-10-04 10:01+0000\n"
+"PO-Revision-Date: 2025-10-12 14:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: فارسی\n"
 "Language: fa_IR\n"
@@ -517,6 +517,10 @@ msgstr "تصادفی"
 msgid "Rating"
 msgstr "امتیاز"
 
+#: Utils/WC.php:146
+msgid "Rial"
+msgstr "ریال"
+
 #: ElementorControls.php:402
 msgid "Right"
 msgstr "راست"
@@ -676,6 +680,14 @@ msgstr "این موبایل از قبل وجود دارد."
 msgid "This username is already exists."
 msgstr "این نام کاربری از قبل وجود دارد."
 
+#: Utils/WC.php:148
+msgid "Thousand rials"
+msgstr "هزار ریال"
+
+#: Utils/WC.php:149
+msgid "Thousand Tomans"
+msgstr "هزار تومان"
+
 #: Utils/Date.php:426
 msgctxt "Time slot label"
 msgid "Evening"
@@ -707,6 +719,10 @@ msgstr "آیکون عنوان"
 #: ElementorControls/SectionTitle.php:83
 msgid "Title link"
 msgstr "لینک عنوان"
+
+#: Utils/WC.php:147
+msgid "Toman"
+msgstr "تومان"
 
 #: ElementorControls/Button.php:71
 msgid "Transparent button"
