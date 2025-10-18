@@ -186,23 +186,24 @@ class Slider extends ElementorControls {
 			'section'	=> [
 				'name'			=> 'slider_options_controls',
 			],
-			'excludes'	=> [
-				'desktop_slides_type',
-				'desktop_slides',
-				'desktop_slides_space',
-				'tablet_slides_type',
-				'tablet_slides',
-				'tablet_slides_space',
-				'mobile_slides_type',
-				'mobile_slides',
-				'mobile_slides_space',
-			],
+			'excludes'	=> [],
 			'controls'	=> [
 				'autoplay'	=> [
 					'separator'	=> 'default'
 				]
 			],
 		] );
+		$args['excludes'] = array_values( array_unique( array_merge( $args['excludes'], [
+			'desktop_slides_type',
+			'desktop_slides',
+			'desktop_slides_space',
+			'tablet_slides_type',
+			'tablet_slides',
+			'tablet_slides_space',
+			'mobile_slides_type',
+			'mobile_slides',
+			'mobile_slides_space',
+		] ) ) );
 		if( $add_display_conditions_to_section ) {
 			$args['section']['conditions'] = [
 				'relation'	=> 'or',
