@@ -139,9 +139,11 @@ class Users extends Utils {
 		if( !$user ) {
 			$user = get_user_by( 'email', $email );
 			if( !$user ) {
-				$user = self::find_user_by_mobile( $mobile );
-				if( $user ) {
-					return new \WP_Error( 'mobile_exists', __( "This mobile is already exists.", 'mj-whitebox' ) );
+				if( !empty( $mobile ) ) {
+					$user = self::find_user_by_mobile( $mobile );
+					if( $user ) {
+						return new \WP_Error( 'mobile_exists', __( "This mobile is already exists.", 'mj-whitebox' ) );
+					}
 				}
 			} else {
 				return new \WP_Error( 'email_exists', __( "This email is already exists.", 'mj-whitebox' ) );
