@@ -1158,6 +1158,8 @@ class Utils {
 	 * @return string HTML markup for the icon.
 	 */
 	public static function get_icon( $icon, $icon_element_class = '' ) {
+		if( empty( $icon ) ) return '';
+		
 		if( is_array( $icon ) ) {
 			if( !empty( $icon['url'] ) ) {
 				$icon = sanitize_url( $icon['url'] );
