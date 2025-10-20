@@ -5,6 +5,10 @@ class Utils {
 	protected static $project_dir = '';
 	protected static $project_uri = '';
 	protected static $project_slug = '';
+	protected static $taxonomies = [ // taxonomy_name => post_type
+		'product_cat'	=> 'product',
+		'product_tag'	=> 'product',
+	];
 
 	/**
 	 * Checks and applies default values to an array based on provided defaults and skip indexes. Also, check the type of the value based on defaults.
@@ -1133,19 +1137,8 @@ class Utils {
 			$q = get_queried_object();
 			if( is_a( $q, 'WP_Term' ) ) {
 				if( !empty( $q->taxonomy ) ) {
-					$taxonomies = [
-						'product_cat'		=> 'product',
-						'product_tag'		=> 'product',
-						'video-cat'			=> 'video',
-						'video-tag'			=> 'video',
-						'portfolio-cat'		=> 'portfolio',
-						'portfolio-tag'		=> 'portfolio',
-						'hospital_category'	=> 'hospital',
-						'hospital_tag'		=> 'hospital',
-						'podcast-speaker'	=> 'podcast',
-					];
-					if( isset( $taxonomies[$q->taxonomy] ) ) {
-						$post_type = $taxonomies[$q->taxonomy];
+					if( isset( static::$taxonomies[$q->taxonomy] ) ) {
+						$post_type = static::$taxonomies[$q->taxonomy];
 					}
 				}
 			}
