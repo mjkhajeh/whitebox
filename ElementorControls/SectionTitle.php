@@ -42,17 +42,8 @@ class SectionTitle extends ElementorControls {
 		$object->end_controls_section();
 	}
 
-	/**
-	 * Add section title controls to an Elementor widget.
-	 *
-	 * @param \Elementor\Widget_Base $object The Elementor widget instance to which controls are added.
-	 * @param array[string|mixed] $args Optional arguments, including 'prefix' and control overrides.
-	 *
-	 * @return void
-	 */
-	public static function controls( $object, $args = [] ) {
-		if( !isset( $args['prefix'] ) ) $args['prefix'] = 'section_title_';
-		$default_controls = [
+	public static function default_controls() {
+		return [
 			'tag'	=> [
 				'type'			=> \Elementor\Controls_Manager::SELECT,
 				'label'			=> esc_html__( 'Tag', 'mj-whitebox' ),
@@ -91,8 +82,20 @@ class SectionTitle extends ElementorControls {
 				],
 			],
 		];
+	}
 
-		parent::_add_controls( $object, $default_controls, $args['prefix'], $args );
+	/**
+	 * Add section title controls to an Elementor widget.
+	 *
+	 * @param \Elementor\Widget_Base $object The Elementor widget instance to which controls are added.
+	 * @param array[string|mixed] $args Optional arguments, including 'prefix' and control overrides.
+	 *
+	 * @return void
+	 */
+	public static function controls( $object, $args = [] ) {
+		if( !isset( $args['prefix'] ) ) $args['prefix'] = 'section_title_';
+
+		parent::_add_controls( $object, static::default_controls(), $args['prefix'], $args );
 	}
 
 	public static function row_style( $object, $args = [] ) {
