@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-12 14:34+0000\n"
+"POT-Creation-Date: 2025-10-29 08:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,21 +16,21 @@ msgstr ""
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.3.24\n"
 "X-Domain: mj-whitebox"
 
-#: Utils.php:673
+#: Utils.php:677
 #, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: Utils.php:677
+#: Utils.php:681
 #, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: Utils.php:681
+#: Utils.php:685
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -63,11 +63,11 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:245
+#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:246
 msgid "Autoplay"
 msgstr ""
 
-#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:253
+#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:254
 msgid "Autoplay time (s)"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Display settings"
 msgstr ""
 
-#: Utils.php:1017
+#: Utils.php:1021
 msgid "div"
 msgstr ""
 
@@ -242,27 +242,27 @@ msgstr ""
 msgid "Fullwidth"
 msgstr ""
 
-#: Utils.php:1011
+#: Utils.php:1015
 msgid "H1"
 msgstr ""
 
-#: Utils.php:1012
+#: Utils.php:1016
 msgid "H2"
 msgstr ""
 
-#: Utils.php:1013
+#: Utils.php:1017
 msgid "H3"
 msgstr ""
 
-#: Utils.php:1014
+#: Utils.php:1018
 msgid "H4"
 msgstr ""
 
-#: Utils.php:1015
+#: Utils.php:1019
 msgid "H5"
 msgstr ""
 
-#: Utils.php:1016
+#: Utils.php:1020
 msgid "H6"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Loop"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:73
+#: ElementorControls/SectionTitle.php:64
 msgid "Lorem"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 #: ElementorControls/Button.php:74 ElementorControls/Button.php:91
 #: ElementorControls/Button.php:132 ElementorControls/Slider.php:98
 #: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
-#: ElementorControls/Slider.php:135 ElementorControls/Slider.php:248
+#: ElementorControls/Slider.php:135 ElementorControls/Slider.php:249
 msgid "No"
 msgstr ""
 
@@ -421,7 +421,7 @@ msgstr ""
 msgid "Order By"
 msgstr ""
 
-#: Utils.php:1018
+#: Utils.php:1022
 msgid "p"
 msgstr ""
 
@@ -537,7 +537,7 @@ msgstr ""
 msgid "Search & Select"
 msgstr ""
 
-#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:254
+#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:255
 msgid "seconds"
 msgstr ""
 
@@ -545,15 +545,15 @@ msgstr ""
 msgid "Section title"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:121
+#: ElementorControls/SectionTitle.php:124
 msgid "Section title icon style"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:105
+#: ElementorControls/SectionTitle.php:108
 msgid "Section title row style"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:137
+#: ElementorControls/SectionTitle.php:140
 msgid "Section title text style"
 msgstr ""
 
@@ -605,8 +605,12 @@ msgstr ""
 msgid "Show pagination"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:152 ElementorControls/Slider.php:290
+#: ElementorControls/SectionTitle.php:155 ElementorControls/Slider.php:291
 msgid "Slider arrows style"
+msgstr ""
+
+#: ElementorControls/Slider.php:322
+msgid "Slider dots wrap style"
 msgstr ""
 
 #: ElementorControls/Slider.php:144
@@ -617,7 +621,7 @@ msgstr ""
 msgid "Small button"
 msgstr ""
 
-#: Utils.php:1019
+#: Utils.php:1023
 msgid "span"
 msgstr ""
 
@@ -654,7 +658,7 @@ msgid "Tablet visible slides"
 msgstr ""
 
 #: ElementorControls.php:1408 ElementorControls.php:1526
-#: ElementorControls/SectionTitle.php:58
+#: ElementorControls/SectionTitle.php:49
 msgid "Tag"
 msgstr ""
 
@@ -666,15 +670,15 @@ msgstr ""
 msgid "Text align"
 msgstr ""
 
-#: Utils/Users.php:147
+#: Utils/Users.php:149
 msgid "This email is already exists."
 msgstr ""
 
-#: Utils/Users.php:144
+#: Utils/Users.php:145
 msgid "This mobile is already exists."
 msgstr ""
 
-#: Utils/Users.php:150
+#: Utils/Users.php:152
 msgid "This username is already exists."
 msgstr ""
 
@@ -706,15 +710,15 @@ msgctxt "Time slot label"
 msgid "Noon"
 msgstr ""
 
-#: Utils/Elementor.php:88 ElementorControls/SectionTitle.php:71
+#: Utils/Elementor.php:88 ElementorControls/SectionTitle.php:62
 msgid "Title"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:65
+#: ElementorControls/SectionTitle.php:56
 msgid "Title icon"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:83
+#: ElementorControls/SectionTitle.php:74
 msgid "Title link"
 msgstr ""
 
@@ -743,6 +747,6 @@ msgstr ""
 #: ElementorControls/Button.php:73 ElementorControls/Button.php:90
 #: ElementorControls/Button.php:131 ElementorControls/Slider.php:97
 #: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
-#: ElementorControls/Slider.php:134 ElementorControls/Slider.php:247
+#: ElementorControls/Slider.php:134 ElementorControls/Slider.php:248
 msgid "Yes"
 msgstr ""

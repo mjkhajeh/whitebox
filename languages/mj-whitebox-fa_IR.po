@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 06:21+0000\n"
-"PO-Revision-Date: 2025-10-12 14:34+0000\n"
+"PO-Revision-Date: 2025-10-29 08:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: فارسی\n"
 "Language: fa_IR\n"
@@ -15,21 +15,21 @@ msgstr ""
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.3.24\n"
 "X-Domain: mj-whitebox"
 
-#: Utils.php:673
+#: Utils.php:677
 #, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s ساعت"
 msgstr[1] "%s ساعت"
 
-#: Utils.php:677
+#: Utils.php:681
 #, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] "%s دقیقه"
 msgstr[1] "%s دقیقه"
 
-#: Utils.php:681
+#: Utils.php:685
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -62,11 +62,11 @@ msgstr "نویسنده"
 msgid "Auto"
 msgstr "خودکار"
 
-#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:245
+#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:246
 msgid "Autoplay"
 msgstr "پخش خودکار"
 
-#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:253
+#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:254
 msgid "Autoplay time (s)"
 msgstr "زمان پخش خودکار (ثانیه)"
 
@@ -225,7 +225,7 @@ msgstr "نمایش"
 msgid "Display settings"
 msgstr "تنظیمات نمایش"
 
-#: Utils.php:1017
+#: Utils.php:1021
 msgid "div"
 msgstr "div"
 
@@ -241,27 +241,27 @@ msgstr "استثناها"
 msgid "Fullwidth"
 msgstr "تمام عرض"
 
-#: Utils.php:1011
+#: Utils.php:1015
 msgid "H1"
 msgstr "H1"
 
-#: Utils.php:1012
+#: Utils.php:1016
 msgid "H2"
 msgstr "H2"
 
-#: Utils.php:1013
+#: Utils.php:1017
 msgid "H3"
 msgstr "H3"
 
-#: Utils.php:1014
+#: Utils.php:1018
 msgid "H4"
 msgstr "H4"
 
-#: Utils.php:1015
+#: Utils.php:1019
 msgid "H5"
 msgstr "H5"
 
-#: Utils.php:1016
+#: Utils.php:1020
 msgid "H6"
 msgstr "H6"
 
@@ -329,7 +329,7 @@ msgstr "لینک"
 msgid "Loop"
 msgstr "چرخش"
 
-#: ElementorControls/SectionTitle.php:73
+#: ElementorControls/SectionTitle.php:64
 msgid "Lorem"
 msgstr "لورم"
 
@@ -385,7 +385,7 @@ msgstr "محمدجعفر خواجه"
 #: ElementorControls/Button.php:74 ElementorControls/Button.php:91
 #: ElementorControls/Button.php:132 ElementorControls/Slider.php:98
 #: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
-#: ElementorControls/Slider.php:135 ElementorControls/Slider.php:248
+#: ElementorControls/Slider.php:135 ElementorControls/Slider.php:249
 msgid "No"
 msgstr "خیر"
 
@@ -421,7 +421,7 @@ msgstr "ترتیب"
 msgid "Order By"
 msgstr "ترتیب بر اساس"
 
-#: Utils.php:1018
+#: Utils.php:1022
 msgid "p"
 msgstr "p"
 
@@ -537,7 +537,7 @@ msgstr "تعداد فروش"
 msgid "Search & Select"
 msgstr "جستجو و انتخاب"
 
-#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:254
+#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:255
 msgid "seconds"
 msgstr "ثانیه"
 
@@ -545,15 +545,15 @@ msgstr "ثانیه"
 msgid "Section title"
 msgstr "عنوان بخش"
 
-#: ElementorControls/SectionTitle.php:121
+#: ElementorControls/SectionTitle.php:124
 msgid "Section title icon style"
 msgstr "استایل آیکون عنوان بخش"
 
-#: ElementorControls/SectionTitle.php:105
+#: ElementorControls/SectionTitle.php:108
 msgid "Section title row style"
 msgstr "استایل ردیف عنوان بخش"
 
-#: ElementorControls/SectionTitle.php:137
+#: ElementorControls/SectionTitle.php:140
 msgid "Section title text style"
 msgstr "استایل متن عنوان بخش"
 
@@ -607,9 +607,13 @@ msgstr "فقط محصولات دارای تخفیف را نمایش می‌ده�
 msgid "Show pagination"
 msgstr "نمایش صفحه‌بندی"
 
-#: ElementorControls/SectionTitle.php:152 ElementorControls/Slider.php:290
+#: ElementorControls/SectionTitle.php:155 ElementorControls/Slider.php:291
 msgid "Slider arrows style"
 msgstr "استایل فلش‌های اسلایدر"
+
+#: ElementorControls/Slider.php:322
+msgid "Slider dots wrap style"
+msgstr "استایل نقطه‌های اسلایدر"
 
 #: ElementorControls/Slider.php:144
 msgid "Slider settings"
@@ -619,7 +623,7 @@ msgstr "تنظیمات اسلایدر"
 msgid "Small button"
 msgstr "دکمه کوچک"
 
-#: Utils.php:1019
+#: Utils.php:1023
 msgid "span"
 msgstr "span"
 
@@ -656,7 +660,7 @@ msgid "Tablet visible slides"
 msgstr "تعداد اسلایدهای تبلت"
 
 #: ElementorControls.php:1408 ElementorControls.php:1526
-#: ElementorControls/SectionTitle.php:58
+#: ElementorControls/SectionTitle.php:49
 msgid "Tag"
 msgstr "تگ"
 
@@ -668,15 +672,15 @@ msgstr "متن"
 msgid "Text align"
 msgstr "چینش متن"
 
-#: Utils/Users.php:147
+#: Utils/Users.php:149
 msgid "This email is already exists."
 msgstr "این ایمیل از قبل وجود دارد."
 
-#: Utils/Users.php:144
+#: Utils/Users.php:145
 msgid "This mobile is already exists."
 msgstr "این موبایل از قبل وجود دارد."
 
-#: Utils/Users.php:150
+#: Utils/Users.php:152
 msgid "This username is already exists."
 msgstr "این نام کاربری از قبل وجود دارد."
 
@@ -708,15 +712,15 @@ msgctxt "Time slot label"
 msgid "Noon"
 msgstr "ظهر"
 
-#: Utils/Elementor.php:88 ElementorControls/SectionTitle.php:71
+#: Utils/Elementor.php:88 ElementorControls/SectionTitle.php:62
 msgid "Title"
 msgstr "عنوان"
 
-#: ElementorControls/SectionTitle.php:65
+#: ElementorControls/SectionTitle.php:56
 msgid "Title icon"
 msgstr "آیکون عنوان"
 
-#: ElementorControls/SectionTitle.php:83
+#: ElementorControls/SectionTitle.php:74
 msgid "Title link"
 msgstr "لینک عنوان"
 
@@ -747,6 +751,6 @@ msgstr "عرض"
 #: ElementorControls/Button.php:73 ElementorControls/Button.php:90
 #: ElementorControls/Button.php:131 ElementorControls/Slider.php:97
 #: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
-#: ElementorControls/Slider.php:134 ElementorControls/Slider.php:247
+#: ElementorControls/Slider.php:134 ElementorControls/Slider.php:248
 msgid "Yes"
 msgstr "بله"

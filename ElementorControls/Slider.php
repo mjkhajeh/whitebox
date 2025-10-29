@@ -299,4 +299,35 @@ class Slider extends ElementorControls {
 
 		parent::general_style_controls( $object, $args );
 	}
+
+	/**
+	 * Adds style controls for slider pagination dots in an Elementor widget.
+	 *
+	 * This function allows customization of arrow appearance, including color, size, and other styles.
+	 *
+	 * @param \Elementor\Widget_Base $object The Elementor widget instance to which the controls will be added.
+	 * @param string $dot_selector Something like: .bijan-slider-nav-btn
+	 * @param array $args Optional. Configuration array to customize prefix, selector, section settings, and mode.
+	 * 
+	 * @return void
+	 */
+
+	public static function dots_style_controls( $object, $dot_selector, $args = [] ) {
+		$args = Utils::check_default( $args, [
+			'prefix'	=> 'slider_dots_',
+			'selector'	=> $dot_selector,
+			
+			'section'	=> [
+				'name'		=> 'slider_dots',
+				'label'		=> esc_html__( 'Slider dots wrap style', 'mj-whitebox' ),
+				'condition'	=> [
+					'show_dots'	=> 'yes'
+				],
+			],
+
+			'mode'	=> 'wrap',
+		] );
+
+		parent::general_style_controls( $object, $args );
+	}
 }
