@@ -525,6 +525,9 @@ class Utils {
 		if( empty( $string ) ) {
 			return '';
 		}
+		if( $string == 'transparent' ) {
+			return $string;
+		}
 
 		$string = strtolower( $string );
 		$has_hashtag = str_starts_with( $string, '#' );
