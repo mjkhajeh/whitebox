@@ -359,6 +359,38 @@ class Elementor extends Utils {
 		return $settings;
 	}
 
+	public static function button_default_args( $prefix ) {
+		if( static::$use_relatives_for_align ) {
+			$align = 'start';
+		} else {
+			$align = is_rtl() ? 'right' : 'left';
+		}
+
+		return [
+			"{$prefix}transparent"	=> false,
+			"{$prefix}type"			=> 'primary',
+			"{$prefix}small"		=> false,
+			"{$prefix}icon"			=> '',
+			"{$prefix}text"			=> '',
+			"{$prefix}title"		=> '',
+			"{$prefix}link"			=> [],
+			"{$prefix}new_tab"		=> false,
+			"{$prefix}fullwidth"	=> false,
+			"{$prefix}icon_align"	=> $align,
+			"{$prefix}style"		=> 'rounded',
+			"{$prefix}align"		=> $align,
+			"{$prefix}classes"		=> [],
+			"{$prefix}id"			=> '',
+			"{$prefix}disabled"		=> false,
+			"{$prefix}loading"		=> false,
+			"{$prefix}atts"			=> [],
+		];
+	}
+
+	public static function button_default_args_skips( $prefix ) {
+		return ["{$prefix}icon"];
+	}
+
 	/**
 	 * Check and set default values for button arguments.
 	 *
@@ -367,8 +399,6 @@ class Elementor extends Utils {
 	 * @return array Button arguments with defaults applied.
 	 */
 	public static function check_button_defaults( array $args, string $prefix = 'button_' ) {
-		$rtl = is_rtl();
-
 		if( isset( $args["{$prefix}link"] ) ) {
 			if( !is_array( $args["{$prefix}link"] ) ) {
 				$args["{$prefix}link"] = [
@@ -393,32 +423,7 @@ class Elementor extends Utils {
 			}
 		}
 
-		if( static::$use_relatives_for_align ) {
-			$align = 'start';
-		} else {
-			$align = $rtl ? 'right' : 'left';
-		}
-
-		$args = Utils::check_default( $args, [
-			"{$prefix}transparent"	=> false,
-			"{$prefix}type"			=> 'primary',
-			"{$prefix}small"		=> false,
-			"{$prefix}icon"			=> '',
-			"{$prefix}text"			=> '',
-			"{$prefix}title"		=> '',
-			"{$prefix}link"			=> [],
-			"{$prefix}new_tab"		=> false,
-			"{$prefix}fullwidth"	=> false,
-			"{$prefix}icon_align"	=> $align,
-			"{$prefix}style"		=> 'rounded',
-			"{$prefix}align"		=> $align,
-			"{$prefix}classes"		=> [],
-			"{$prefix}id"			=> '',
-			"{$prefix}disabled"		=> false,
-			"{$prefix}loading"		=> false,
-			"{$prefix}atts"			=> [],
-		], ["{$prefix}icon"] );
-		return $args;
+		return Utils::check_default( $args, static::button_default_args( $prefix ), static::button_default_args_skips( $prefix ) );
 	}
 
 	/**
