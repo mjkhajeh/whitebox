@@ -41,8 +41,6 @@ class Users extends Utils {
 			if( is_object( $user ) ) {
 				if( !empty( $user->ID ) ) {
 					return $user->ID;
-				} else if( !empty( $user->id ) ) {
-					return $user->id;
 				}
 			}
 			if( is_array( $user ) ) {
