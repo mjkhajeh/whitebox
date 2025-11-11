@@ -484,4 +484,15 @@ class Date extends Utils {
 			return floatval( get_option( 'gmt_offset', 0 ) ) * HOUR_IN_SECONDS;
 		}
 	}
+
+	public static function get_day_names( $iran = false ) {
+		$days = [__( 'Sunday', 'mj-whitebox' ), __( 'Monday', 'mj-whitebox' ), __( 'Tuesday', 'mj-whitebox' ), __( 'Wednesday', 'mj-whitebox' ), __( 'Thursday', 'mj-whitebox' ), __( 'Friday', 'mj-whitebox' ), __( 'Saturday', 'mj-whitebox' )];
+
+		if( $iran ) {
+			// Convert to Iran week template
+			ksort( $days );
+			$days = array_merge(array_slice($days, 6), array_slice($days, 0, 6));
+		}
+		return $days;
+	}
 }

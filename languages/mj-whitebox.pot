@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 08:49+0000\n"
+"POT-Creation-Date: 2025-11-11 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,21 +16,21 @@ msgstr ""
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.3.24\n"
 "X-Domain: mj-whitebox"
 
-#: Utils.php:677
+#: Utils.php:680
 #, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: Utils.php:681
+#: Utils.php:684
 #, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: Utils.php:685
+#: Utils.php:688
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Display settings"
 msgstr ""
 
-#: Utils.php:1021
+#: Utils.php:1024
 msgid "div"
 msgstr ""
 
@@ -238,31 +238,35 @@ msgstr ""
 msgid "Excludes"
 msgstr ""
 
+#: Utils/Date.php:489
+msgid "Friday"
+msgstr ""
+
 #: ElementorControls/Button.php:129
 msgid "Fullwidth"
 msgstr ""
 
-#: Utils.php:1015
+#: Utils.php:1018
 msgid "H1"
 msgstr ""
 
-#: Utils.php:1016
+#: Utils.php:1019
 msgid "H2"
 msgstr ""
 
-#: Utils.php:1017
+#: Utils.php:1020
 msgid "H3"
 msgstr ""
 
-#: Utils.php:1018
+#: Utils.php:1021
 msgid "H4"
 msgstr ""
 
-#: Utils.php:1019
+#: Utils.php:1022
 msgid "H5"
 msgstr ""
 
-#: Utils.php:1020
+#: Utils.php:1023
 msgid "H6"
 msgstr ""
 
@@ -378,6 +382,10 @@ msgstr ""
 msgid "MohammadJafar Khajeh"
 msgstr ""
 
+#: Utils/Date.php:489
+msgid "Monday"
+msgstr ""
+
 #: ElementorControls.php:885 ElementorControls.php:952
 #: ElementorControls.php:1020 ElementorControls.php:1171
 #: ElementorControls.php:1433 ElementorControls.php:1447
@@ -421,7 +429,7 @@ msgstr ""
 msgid "Order By"
 msgstr ""
 
-#: Utils.php:1022
+#: Utils.php:1025
 msgid "p"
 msgstr ""
 
@@ -533,6 +541,10 @@ msgstr ""
 msgid "Sales"
 msgstr ""
 
+#: Utils/Date.php:489
+msgid "Saturday"
+msgstr ""
+
 #: ElementorControls.php:1359 ElementorControls.php:1474
 msgid "Search & Select"
 msgstr ""
@@ -621,12 +633,16 @@ msgstr ""
 msgid "Small button"
 msgstr ""
 
-#: Utils.php:1023
+#: Utils.php:1026
 msgid "span"
 msgstr ""
 
 #: ElementorControls/Button.php:107 ElementorControls/Button.php:141
 msgid "Start"
+msgstr ""
+
+#: Utils/Date.php:489
+msgid "Sunday"
 msgstr ""
 
 #: ElementorControls.php:1008
@@ -670,15 +686,15 @@ msgstr ""
 msgid "Text align"
 msgstr ""
 
-#: Utils/Users.php:149
+#: Utils/Users.php:147
 msgid "This email is already exists."
 msgstr ""
 
-#: Utils/Users.php:145
+#: Utils/Users.php:143
 msgid "This mobile is already exists."
 msgstr ""
 
-#: Utils/Users.php:152
+#: Utils/Users.php:150
 msgid "This username is already exists."
 msgstr ""
 
@@ -688,6 +704,10 @@ msgstr ""
 
 #: Utils/WC.php:149
 msgid "Thousand Tomans"
+msgstr ""
+
+#: Utils/Date.php:489
+msgid "Thursday"
 msgstr ""
 
 #: Utils/Date.php:426
@@ -730,10 +750,18 @@ msgstr ""
 msgid "Transparent button"
 msgstr ""
 
+#: Utils/Date.php:489
+msgid "Tuesday"
+msgstr ""
+
 #: ElementorControls.php:1168
 msgid ""
 "Turn off pagination if you don't need it. It can improve the page's "
 "performance."
+msgstr ""
+
+#: Utils/Date.php:489
+msgid "Wednesday"
 msgstr ""
 
 #: ElementorControls.php:501
