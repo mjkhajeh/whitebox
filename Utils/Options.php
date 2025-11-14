@@ -78,4 +78,12 @@ abstract class Options extends Utils {
 		}
 		return $logo_content;
 	}
+
+	public static function get_color( $color ) {
+		if( substr( $color, 0, 1 ) == '#' ) {
+			return parent::minify_hex( $color );
+		} else {
+			return $color;
+		}
+	}
 }
