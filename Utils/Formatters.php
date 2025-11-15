@@ -24,6 +24,7 @@ class Formatters extends Utils {
 	 * @return string Price
 	 */
 	public static function price( $price, $wc = false, $suffix = '', $decimals = null ) {
+		$price = floatval( $price );
 		if( $wc && function_exists( 'wc_price' ) ) {
 			$price = wc_price( $price );
 		} else {
