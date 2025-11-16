@@ -495,4 +495,15 @@ class Date extends Utils {
 		}
 		return $days;
 	}
+
+	/**
+	 * check if timezone set to Asia/Tehran
+	 */
+	public static function is_iran_timezone() {
+		static $timezone_string = null;
+		if( $timezone_string === null ) {
+			$timezone_string = wp_timezone_string();
+		}
+		return $timezone_string == 'Asia/Tehran' || $timezone_string == '+03:30';
+	}
 }
