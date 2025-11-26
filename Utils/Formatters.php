@@ -47,7 +47,7 @@ class Formatters extends Utils {
 	 * @return string Formatted phone number
 	 */
 	public static function phone( string $string, bool $reverse = false ) : string {
-		$string = str_replace( " ", "", $string );
+		$string = Sanitizers::phone( $string );
 		$phone = self::spliter( $string, [4,3,4] );
 
 		if( $reverse ) {
