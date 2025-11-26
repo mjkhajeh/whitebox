@@ -22,12 +22,13 @@ class WC extends Utils {
 	 * @return string The detected account endpoint slug. Defaults to 'dashboard' if no match is found.
 	 */
 	public static function get_account_endpoint( $items = [] ) {
-		static $endpoint = '';
-		if( $endpoint === '' && function_exists( 'wc_get_account_menu_items' ) ) {
+		if( function_exists( 'wc_get_account_menu_items' ) || !empty( $items ) ) {
 			if( empty( $items ) ) {
 				$items = array_keys( wc_get_account_menu_items() );
 			} else {
-				$items = array_keys( $items );
+				if( !wp_is_numeric_array( $items ) ) {
+					$items = array_keys( $items );
+				}
 			}
 			$items[] = 'view-order';
 			global $wp;
