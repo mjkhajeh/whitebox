@@ -1246,13 +1246,19 @@ class Utils {
 	 * @return string The processed and formatted content.
 	 */
 	public static function parse_text_editor( $content ) {
+		$content = trim( $content );
 		$content = shortcode_unautop( $content );
 		$content = do_shortcode( $content );
-		$content = wptexturize( $content );
 
-		if ( $GLOBALS['wp_embed'] instanceof \WP_Embed ) {
+		if( isset( $GLOBALS['wp_embed'] ) && $GLOBALS['wp_embed'] instanceof \WP_Embed ) {
+			$content = $GLOBALS['wp_embed']->run_shortcode( $content );
 			$content = $GLOBALS['wp_embed']->autoembed( $content );
 		}
+
+		$content = wptexturize( $content );
+		$content = convert_smilies( $content );
+		$content = wp_filter_content_tags( $content );
+		$content = force_balance_tags( $content );
 
 		return $content;
 	}
