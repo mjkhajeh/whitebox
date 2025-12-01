@@ -2,6 +2,7 @@
 namespace MJ\Whitebox\Utils;
 
 use MJ\Whitebox\Utils;
+use Automattic\WooCommerce\Enums\ProductType;
 
 class WC extends Utils {
 	/**
@@ -149,5 +150,27 @@ class WC extends Utils {
 			'IRHR'	=> __( 'Thousand rials', 'mj-whitebox' ),
 			'IRHT'	=> __( 'Thousand Tomans', 'mj-whitebox' ),
 		];
+	}
+
+	public static function get_gallery_ids( $product ) {
+		$post_thumbnail_id = $product->get_image_id();
+		$attachment_ids = $product->get_gallery_image_ids();
+		$new_images = [$post_thumbnail_id];
+
+		if( $product->is_type( 'variable' ) || ( class_exists( "Automattic\WooCommerce\Enums\ProductType" ) && $product->is_type( ProductType::VARIABLE ) ) ) {
+			$variations_with_image = $product->get_available_variations( 'image' );
+			// Add variation images
+			foreach( $variations_with_image as $variation ) {
+				$new_images[] = $variation->get_image_id();
+			}
+			// Add variations gallery
+			foreach( $variations_with_image as $variation ) {
+				$new_images = array_merge( $new_images, $variation->get_gallery_image_ids() );
+			}
+		}
+
+		$attachment_ids = array_values( array_unique( array_merge( $new_images, $attachment_ids ) ) );
+
+		return $attachment_ids;
 	}
 }
