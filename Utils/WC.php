@@ -5,6 +5,8 @@ use MJ\Whitebox\Utils;
 use Automattic\WooCommerce\Enums\ProductType;
 
 class WC extends Utils {
+	protected static $products_type_cache = [];
+
 	/**
 	 * Retrieve the current WooCommerce account endpoint slug.
 	 *
@@ -172,5 +174,21 @@ class WC extends Utils {
 		$attachment_ids = array_values( array_unique( array_merge( $new_images, $attachment_ids ) ) );
 
 		return $attachment_ids;
+	}
+
+	public static function get_product_type_by_id( $product_id ) {
+		if( !isset( self::$products_type_cache[$product_id] ) ) {
+			$product_type = '';
+			if( class_exists( 'WC_Product_Factory' ) ) {
+				$product_type = \WC_Product_Factory::get_product_type( $product_id );
+			}
+			if( !$product_type ) {
+				$product = wc_get_product( $product_id );
+				$product_type = $product->get_type();
+			}
+			self::$products_type_cache[$product_id] = $product_type;
+		}
+		
+		return self::$products_type_cache[$product_id];
 	}
 }
