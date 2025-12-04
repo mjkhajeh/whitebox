@@ -506,4 +506,32 @@ class Date extends Utils {
 		}
 		return $timezone_string == 'Asia/Tehran' || $timezone_string == '+03:30';
 	}
+
+	/**
+	 * Converts a time string into total seconds.
+	 *
+	 * Supports flexible formats including:
+	 * - `SS`
+	 * - `MM:SS`
+	 * - `HH:MM:SS`
+	 *
+	 * Missing components are automatically padded from the left.
+	 * For example:
+	 * - `17` becomes `00:00:17`
+	 * - `05:29` becomes `00:05:29`
+	 *
+	 * @param string $time A time string in one of the supported formats.
+	 *
+	 * @return int Total number of seconds represented by the given time.
+	 */
+	public static function time_to_seconds( string $time ) : int {
+		$parts = explode(':', $time);
+
+		// Pad to always have [hours, minutes, seconds]
+		$parts = array_pad($parts, -3, '0');
+
+		list($h, $m, $s) = $parts;
+
+		return ((int) $h) * 3600 + ((int) $m) * 60 + ((int) $s);
+	}
 }
