@@ -5,17 +5,51 @@ use MJ\Whitebox\Utils;
 
 class Sanitizers extends Utils {
 	/**
-	 * Sanitize phone number
+	 * Normalize and validate Iranian phone numbers.
+	 *
+	 * Returns:
+	 * - normalized number (string) if valid
+	 * - empty string "" if invalid
 	 *
 	 * @param string $string
 	 * @return string
 	 */
 	public static function phone( $string ) {
-		$string = parent::convert_chars( $string );
-		$string = str_replace( [" ", "(", ")", "+", "-"], "", $string );
-		$string = substr( $string, 0, 2 ) == "98" ? substr( $string, 2 ) : $string;
-		$string = substr( $string, 0, 1 ) === '0' ? $string : "0{$string}";
-		return $string;
+		$string = Utils::convert_chars( $string );
+		// 1) Clean non-digits & convert Persian digits
+		$raw = preg_replace('/[^\d]/u', '', $string);
+
+		// 2) Remove country code
+		$raw = preg_replace('/^(98|0098)/', '', $raw);
+
+		// 3) Add leading zero if appropriate
+		if (strlen($raw) >= 9 && $raw[0] !== '0') {
+			$raw = '0' . $raw;
+		}
+
+		// 4) Validate mobile (11 digits, starts with 09)
+		if (preg_match('/^09\d{9}$/', $raw)) {
+			return $raw;
+		}
+
+		// 5) Validate landline (۳ رقمی کد + شماره ۷ یا ۸ رقمی)
+		// پیش‌شماره‌های رسمی: 021 تا 091 (بازه‌های معتبر)
+		if (preg_match('/^0(11|13|17|21|25|26|28|31|34|35|38|41|44|45|51|54|56|58|61|66|71|74|76|77|81|83|84|86|87)\d{7,8}$/', $raw)) {
+			return $raw;
+		}
+
+		// 6) Validate short service numbers (3–5 digits)
+		if (preg_match('/^\d{3,5}$/', $raw)) {
+			return $raw;
+		}
+
+		// 7) Validate extension (3–6 digits)
+		if (preg_match('/^\d{3,6}$/', $raw)) {
+			return $raw;
+		}
+
+		// Invalid
+		return "";
 	}
 
 	/**
