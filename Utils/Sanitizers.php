@@ -14,43 +14,81 @@ class Sanitizers extends Utils {
 	 * @param string $string
 	 * @return string
 	 */
-	public static function phone( $string ) {
-		$string = Utils::convert_chars( $string );
-		// 1) Clean non-digits & convert Persian digits
-		$raw = preg_replace('/[^\d]/u', '', $string);
+	public static function phone( $string ): string {
+		// Convert Persian/Arabic digits → English digits
+		$string = parent::convert_chars( $string );
+		$clean  = preg_replace('/[^\d\+]/', '', $string);
+		if ($clean === '' || $clean === '+') return "";
 
-		// 2) Remove country code
-		$raw = preg_replace('/^(98|0098)/', '', $raw);
+		$digits = preg_replace('/\D/', '', $clean);
 
-		// 3) Add leading zero if appropriate
-		if (strlen($raw) >= 9 && $raw[0] !== '0') {
-			$raw = '0' . $raw;
+
+		/* ============================================================
+		* 1) Short codes (2–6 digits)  → return as-is
+		* ============================================================ */
+		if ($clean[0] !== '+' && preg_match('/^\d{2,6}$/', $digits)) {
+			return $digits;
 		}
 
-		// 4) Validate mobile (11 digits, starts with 09)
-		if (preg_match('/^09\d{9}$/', $raw)) {
-			return $raw;
+
+		/* ============================================================
+		* 2) Full Iranian landline with area code (021…, 031…, 051…, …)
+		* ============================================================ */
+		$area = '(21|26|25|28|11|13|17|31|34|35|38|41|44|45|51|54|56|58|61|66|71|74|76|77|81|83|84|86|87)';
+		if (preg_match('/^0'.$area.'\d{7,8}$/', $clean)) {
+			return $clean;
 		}
 
-		// 5) Validate landline (۳ رقمی کد + شماره ۷ یا ۸ رقمی)
-		// پیش‌شماره‌های رسمی: 021 تا 091 (بازه‌های معتبر)
-		if (preg_match('/^0(11|13|17|21|25|26|28|31|34|35|38|41|44|45|51|54|56|58|61|66|71|74|76|77|81|83|84|86|87)\d{7,8}$/', $raw)) {
-			return $raw;
+
+		/* ============================================================
+		* 3) SPECIAL CASE — Tehran corporate numbers 0219xxxxxxx
+		* ============================================================ */
+		if (preg_match('/^0219\d{7}$/', $clean)) {
+			return $clean;
 		}
 
-		// 6) Validate short service numbers (3–5 digits)
-		if (preg_match('/^\d{3,5}$/', $raw)) {
-			return $raw;
+
+		/* ============================================================
+		* 4) Local landline without area code (6–8 digits)
+		*    → Assume Tehran (021)
+		* ============================================================ */
+		if ($clean[0] !== '+' && preg_match('/^\d{6,8}$/', $digits)) {
+			return '021' . $digits;
 		}
 
-		// 7) Validate extension (3–6 digits)
-		if (preg_match('/^\d{3,6}$/', $raw)) {
-			return $raw;
+
+		/* ============================================================
+		* 5) Iranian mobile 09xxxxxxxxx
+		* ============================================================ */
+		if (preg_match('/^09\d{9}$/', $clean)) {
+			return $clean;
 		}
 
-		// Invalid
+
+		/* ============================================================
+		* 6) International numbers (ONLY if explicit +…)
+		* ============================================================ */
+
+		// 00 → + تبدیل
+		if (strpos($clean, '00') === 0) {
+			$clean = '+' . substr($clean, 2);
+		}
+
+		if ($clean[0] === '+') {
+			// E.164: 7–15 digits after plus
+			if (preg_match('/^\+[1-9]\d{6,14}$/', $clean)) {
+				return $clean; // foreign number
+			}
+			return "";
+		}
+
+
+		/* ============================================================
+		* 7) Everything else → invalid
+		* ============================================================ */
 		return "";
 	}
+
 
 	/**
 	 * Sanitize OTP
