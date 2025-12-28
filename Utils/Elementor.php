@@ -351,6 +351,10 @@ class Elementor extends Utils {
 			$settings["{$prefix}style"] = $settings['button_style'];
 			unset( $settings['button_style'] );
 		}
+		if( isset( $settings['button_fullwidth'] ) ) {
+			$settings["{$prefix}fullwidth"] = Utils::to_bool( $settings['button_fullwidth'] );
+			unset( $settings['button_fullwidth'] );
+		}
 		if( isset( $settings['button_align'] ) ) {
 			$settings["{$prefix}align"] = $settings['button_align'];
 			unset( $settings['button_align'] );
