@@ -149,12 +149,12 @@ class Elementor extends Utils {
 		if( class_exists( "\Elementor\Utils" ) ) {
 			$url_combined_attrs = array_merge(
 				$url_attrs,
-				\Elementor\Utils::parse_custom_attributes( $link['custom_attributes'] ?? '' ),
+				\Elementor\parent::parse_custom_attributes( $link['custom_attributes'] ?? '' ),
 			);
 			return $url_combined_attrs;
 		} else {
 			$result = [];
-			// Copied from \Elementor\Utils::parse_custom_attributes
+			// Copied from \Elementor\parent::parse_custom_attributes
 			foreach ( $url_attrs as $attribute ) {
 				$attr_key_value = explode( '|', $attribute );
 
@@ -316,11 +316,11 @@ class Elementor extends Utils {
 			unset( $settings['button_type'] );
 		}
 		if( isset( $settings['button_transparent'] ) ) {
-			$settings["{$prefix}transparent"] = Utils::to_bool( $settings['button_transparent'] );
+			$settings["{$prefix}transparent"] = parent::to_bool( $settings['button_transparent'] );
 			unset( $settings['button_transparent'] );
 		}
 		if( isset( $settings['button_small'] ) ) {
-			$settings["{$prefix}small"] = Utils::to_bool( $settings['button_small'] );
+			$settings["{$prefix}small"] = parent::to_bool( $settings['button_small'] );
 			unset( $settings['button_small'] );
 		}
 		if( $icon ) {
@@ -335,7 +335,7 @@ class Elementor extends Utils {
 			unset( $settings['button_link'] );
 		}
 		if( isset( $settings['button_new_tab'] ) ) {
-			$settings["{$prefix}new_tab"] = Utils::to_bool( $settings['button_new_tab'] );
+			$settings["{$prefix}new_tab"] = parent::to_bool( $settings['button_new_tab'] );
 			if( $settings["{$prefix}new_tab"] ) {
 				if( is_array( $settings["{$prefix}link"] ) ) {
 					$settings["{$prefix}link"]['is_external'] = 'on';
@@ -352,7 +352,7 @@ class Elementor extends Utils {
 			unset( $settings['button_style'] );
 		}
 		if( isset( $settings['button_fullwidth'] ) ) {
-			$settings["{$prefix}fullwidth"] = Utils::to_bool( $settings['button_fullwidth'] );
+			$settings["{$prefix}fullwidth"] = parent::to_bool( $settings['button_fullwidth'] );
 			unset( $settings['button_fullwidth'] );
 		}
 		if( isset( $settings['button_align'] ) ) {
@@ -407,14 +407,14 @@ class Elementor extends Utils {
 			if( !is_array( $args["{$prefix}link"] ) ) {
 				$args["{$prefix}link"] = [
 					'url'				=> $args["{$prefix}link"],
-					'is_external'		=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
-					'nofollow'			=> isset( $args["{$prefix}new_tab"] ) && Utils::to_bool( $args["{$prefix}new_tab"] ),
+					'is_external'		=> isset( $args["{$prefix}new_tab"] ) && parent::to_bool( $args["{$prefix}new_tab"] ),
+					'nofollow'			=> isset( $args["{$prefix}new_tab"] ) && parent::to_bool( $args["{$prefix}new_tab"] ),
 					'custom_attributes'	=> '',
 				];
 			} else {
 				if( isset( $args["{$prefix}new_tab"] ) ) {
-					$args["{$prefix}link"]['is_external'] = Utils::to_bool( $args["{$prefix}new_tab"] );
-					$args["{$prefix}link"]['nofollow'] = Utils::to_bool( $args["{$prefix}new_tab"] );
+					$args["{$prefix}link"]['is_external'] = parent::to_bool( $args["{$prefix}new_tab"] );
+					$args["{$prefix}link"]['nofollow'] = parent::to_bool( $args["{$prefix}new_tab"] );
 				}
 			}
 		}
@@ -427,7 +427,7 @@ class Elementor extends Utils {
 			}
 		}
 
-		return Utils::check_default( $args, static::button_default_args( $prefix ), static::button_default_args_skips( $prefix ) );
+		return parent::check_default( $args, static::button_default_args( $prefix ), static::button_default_args_skips( $prefix ) );
 	}
 
 	/**
