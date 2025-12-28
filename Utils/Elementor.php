@@ -149,7 +149,7 @@ class Elementor extends Utils {
 		if( class_exists( "\Elementor\Utils" ) ) {
 			$url_combined_attrs = array_merge(
 				$url_attrs,
-				\Elementor\parent::parse_custom_attributes( $link['custom_attributes'] ?? '' ),
+				\Elementor\Utils::parse_custom_attributes( $link['custom_attributes'] ?? '' ),
 			);
 			return $url_combined_attrs;
 		} else {
