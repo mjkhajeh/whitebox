@@ -154,7 +154,7 @@ class Elementor extends Utils {
 			return $url_combined_attrs;
 		} else {
 			$result = [];
-			// Copied from \Elementor\parent::parse_custom_attributes
+			// Copied from \Elementor\Utils::parse_custom_attributes
 			foreach ( $url_attrs as $attribute ) {
 				$attr_key_value = explode( '|', $attribute );
 
@@ -334,7 +334,7 @@ class Elementor extends Utils {
 			$settings["{$prefix}link"] = $settings['button_link'];
 			unset( $settings['button_link'] );
 		}
-		if( isset( $settings['button_new_tab'] ) ) {
+		if( isset( $settings['button_new_tab'] ) && isset( $settings["{$prefix}link"] ) ) {
 			$settings["{$prefix}new_tab"] = parent::to_bool( $settings['button_new_tab'] );
 			if( $settings["{$prefix}new_tab"] ) {
 				if( is_array( $settings["{$prefix}link"] ) ) {
