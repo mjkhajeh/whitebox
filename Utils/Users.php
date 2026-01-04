@@ -126,7 +126,7 @@ class Users extends Utils {
 	 * @param string $password Optional. User password. Generates a random one if empty.
 	 * @param string $email Optional. User email address.
 	 * @param string $mobile Optional. User mobile number.
-	 * @param array[string] $meta Optional. Additional user meta to save.
+	 * @param array $meta Optional. Additional user meta to save.
 	 *
 	 * @return int|WP_Error New user ID on success, or WP_Error on failure.
 	 */
@@ -158,13 +158,16 @@ class Users extends Utils {
 				'mobile'			=> $mobile,
 				'billing_phone'		=> $mobile,
 				'shipping_phone'	=> $mobile,
-				'has_password'		=> !empty( $password ),
 			]
 		];
 		if( $meta ) {
 			$data['meta_input'] = array_merge( $data['meta_input'], $meta );
 		}
-		return wp_insert_user( $data );
+		$user_id = wp_insert_user( $data );
+		if( !is_wp_error( $user_id ) ) {
+			update_user_meta( $user_id, 'has_password', !empty( $password ) );
+		}
+		return $user_id;
 	}
 
 	/**
