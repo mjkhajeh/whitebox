@@ -5,6 +5,9 @@ use MJ\Whitebox\ElementorControls;
 use MJ\Whitebox\Utils;
 
 class Slider extends ElementorControls {
+	public static $default_next_arrow_icon = [];
+	public static $default_prev_arrow_icon = [];
+
 	/**
 	 * Add slider settings controls to an Elementor widget.
 	 *
@@ -118,6 +121,26 @@ class Slider extends ElementorControls {
 				'return_value'	=> 'yes',
 				'default'		=> 'yes',
 				'separator'		=> 'before',
+			],
+			'next_arrow_icon'	=> [
+				'type'			=> \Elementor\Controls_Manager::ICONS,
+				'label'			=> esc_html__( 'Next arrow icon', 'mj-whitebox' ),
+				'skin'			=> 'inline',
+				'label_block'	=> false,
+				'default'		=> self::$default_next_arrow_icon,
+				'condition'		=> [
+					'show_arrows'	=> 'yes'
+				],
+			],
+			'prev_arrow_icon'	=> [
+				'type'			=> \Elementor\Controls_Manager::ICONS,
+				'label'			=> esc_html__( 'Previous arrow icon', 'mj-whitebox' ),
+				'skin'			=> 'inline',
+				'label_block'	=> false,
+				'default'		=> self::$default_prev_arrow_icon,
+				'condition'		=> [
+					'show_arrows'	=> 'yes'
+				],
 			],
 			'loop' => [
 				'label'			=> esc_html__( 'Loop', 'mj-whitebox' ),

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mj-whitebox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-11 09:43+0000\n"
+"POT-Creation-Date: 2026-02-22 12:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -58,16 +58,16 @@ msgid "Author"
 msgstr ""
 
 #: ElementorControls.php:895 ElementorControls.php:963
-#: ElementorControls.php:1031 ElementorControls/Slider.php:28
-#: ElementorControls/Slider.php:52 ElementorControls/Slider.php:76
+#: ElementorControls.php:1031 ElementorControls/Slider.php:31
+#: ElementorControls/Slider.php:55 ElementorControls/Slider.php:79
 msgid "Auto"
 msgstr ""
 
-#: ElementorControls/Slider.php:95 ElementorControls/Slider.php:246
+#: ElementorControls/Slider.php:98 ElementorControls/Slider.php:269
 msgid "Autoplay"
 msgstr ""
 
-#: ElementorControls/Slider.php:104 ElementorControls/Slider.php:254
+#: ElementorControls/Slider.php:107 ElementorControls/Slider.php:277
 msgid "Autoplay time (s)"
 msgstr ""
 
@@ -165,8 +165,8 @@ msgid "Comment Count"
 msgstr ""
 
 #: ElementorControls.php:894 ElementorControls.php:962
-#: ElementorControls.php:1030 ElementorControls/Slider.php:27
-#: ElementorControls/Slider.php:51 ElementorControls/Slider.php:75
+#: ElementorControls.php:1030 ElementorControls/Slider.php:30
+#: ElementorControls/Slider.php:54 ElementorControls/Slider.php:78
 msgid "Count"
 msgstr ""
 
@@ -202,15 +202,15 @@ msgstr ""
 msgid "Desktop slider"
 msgstr ""
 
-#: ElementorControls.php:912 ElementorControls/Slider.php:41
+#: ElementorControls.php:912 ElementorControls/Slider.php:44
 msgid "Desktop slides space"
 msgstr ""
 
-#: ElementorControls.php:890 ElementorControls/Slider.php:23
+#: ElementorControls.php:890 ElementorControls/Slider.php:26
 msgid "Desktop slides type"
 msgstr ""
 
-#: ElementorControls.php:902 ElementorControls/Slider.php:32
+#: ElementorControls.php:902 ElementorControls/Slider.php:35
 msgid "Desktop visible slides"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-#: ElementorControls/Slider.php:123
+#: ElementorControls/Slider.php:146
 msgid "Loop"
 msgstr ""
 
@@ -366,15 +366,15 @@ msgstr ""
 msgid "Mobile slider"
 msgstr ""
 
-#: ElementorControls.php:1048 ElementorControls/Slider.php:89
+#: ElementorControls.php:1048 ElementorControls/Slider.php:92
 msgid "Mobile slides space"
 msgstr ""
 
-#: ElementorControls.php:1026 ElementorControls/Slider.php:71
+#: ElementorControls.php:1026 ElementorControls/Slider.php:74
 msgid "Mobile slides type"
 msgstr ""
 
-#: ElementorControls.php:1038 ElementorControls/Slider.php:80
+#: ElementorControls.php:1038 ElementorControls/Slider.php:83
 msgid "Mobile visible slides"
 msgstr ""
 
@@ -386,14 +386,18 @@ msgstr ""
 msgid "Monday"
 msgstr ""
 
+#: ElementorControls/Slider.php:127
+msgid "Next arrow icon"
+msgstr ""
+
 #: ElementorControls.php:885 ElementorControls.php:952
 #: ElementorControls.php:1020 ElementorControls.php:1171
 #: ElementorControls.php:1433 ElementorControls.php:1447
 #: ElementorControls.php:1463 ElementorControls/Button.php:66
 #: ElementorControls/Button.php:74 ElementorControls/Button.php:91
-#: ElementorControls/Button.php:132 ElementorControls/Slider.php:98
-#: ElementorControls/Slider.php:117 ElementorControls/Slider.php:126
-#: ElementorControls/Slider.php:135 ElementorControls/Slider.php:249
+#: ElementorControls/Button.php:132 ElementorControls/Slider.php:101
+#: ElementorControls/Slider.php:120 ElementorControls/Slider.php:149
+#: ElementorControls/Slider.php:158 ElementorControls/Slider.php:272
 msgid "No"
 msgstr ""
 
@@ -501,6 +505,10 @@ msgstr ""
 msgid "Posts per page"
 msgstr ""
 
+#: ElementorControls/Slider.php:137
+msgid "Previous arrow icon"
+msgstr ""
+
 #: Utils/Elementor.php:100
 msgid "Price"
 msgstr ""
@@ -525,7 +533,7 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
-#: Utils/WC.php:146
+#: Utils/WC.php:150
 msgid "Rial"
 msgstr ""
 
@@ -549,7 +557,7 @@ msgstr ""
 msgid "Search & Select"
 msgstr ""
 
-#: ElementorControls/Slider.php:105 ElementorControls/Slider.php:255
+#: ElementorControls/Slider.php:108 ElementorControls/Slider.php:278
 msgid "seconds"
 msgstr ""
 
@@ -597,11 +605,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ElementorControls/Slider.php:114
+#: ElementorControls/Slider.php:117
 msgid "Show arrows"
 msgstr ""
 
-#: ElementorControls/Slider.php:132
+#: ElementorControls/Slider.php:155
 msgid "Show dots"
 msgstr ""
 
@@ -617,15 +625,15 @@ msgstr ""
 msgid "Show pagination"
 msgstr ""
 
-#: ElementorControls/SectionTitle.php:155 ElementorControls/Slider.php:291
+#: ElementorControls/SectionTitle.php:155 ElementorControls/Slider.php:314
 msgid "Slider arrows style"
 msgstr ""
 
-#: ElementorControls/Slider.php:322
+#: ElementorControls/Slider.php:345
 msgid "Slider dots wrap style"
 msgstr ""
 
-#: ElementorControls/Slider.php:144
+#: ElementorControls/Slider.php:167
 msgid "Slider settings"
 msgstr ""
 
@@ -661,15 +669,15 @@ msgstr ""
 msgid "Tablet slider"
 msgstr ""
 
-#: ElementorControls.php:980 ElementorControls/Slider.php:65
+#: ElementorControls.php:980 ElementorControls/Slider.php:68
 msgid "Tablet slides space"
 msgstr ""
 
-#: ElementorControls.php:958 ElementorControls/Slider.php:47
+#: ElementorControls.php:958 ElementorControls/Slider.php:50
 msgid "Tablet slides type"
 msgstr ""
 
-#: ElementorControls.php:970 ElementorControls/Slider.php:56
+#: ElementorControls.php:970 ElementorControls/Slider.php:59
 msgid "Tablet visible slides"
 msgstr ""
 
@@ -698,11 +706,11 @@ msgstr ""
 msgid "This username is already exists."
 msgstr ""
 
-#: Utils/WC.php:148
+#: Utils/WC.php:152
 msgid "Thousand rials"
 msgstr ""
 
-#: Utils/WC.php:149
+#: Utils/WC.php:153
 msgid "Thousand Tomans"
 msgstr ""
 
@@ -742,7 +750,7 @@ msgstr ""
 msgid "Title link"
 msgstr ""
 
-#: Utils/WC.php:147
+#: Utils/WC.php:151
 msgid "Toman"
 msgstr ""
 
@@ -773,8 +781,8 @@ msgstr ""
 #: ElementorControls.php:1432 ElementorControls.php:1446
 #: ElementorControls.php:1462 ElementorControls/Button.php:65
 #: ElementorControls/Button.php:73 ElementorControls/Button.php:90
-#: ElementorControls/Button.php:131 ElementorControls/Slider.php:97
-#: ElementorControls/Slider.php:116 ElementorControls/Slider.php:125
-#: ElementorControls/Slider.php:134 ElementorControls/Slider.php:248
+#: ElementorControls/Button.php:131 ElementorControls/Slider.php:100
+#: ElementorControls/Slider.php:119 ElementorControls/Slider.php:148
+#: ElementorControls/Slider.php:157 ElementorControls/Slider.php:271
 msgid "Yes"
 msgstr ""
