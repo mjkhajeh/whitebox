@@ -127,7 +127,7 @@ class Slider extends ElementorControls {
 				'label'			=> esc_html__( 'Next arrow icon', 'mj-whitebox' ),
 				'skin'			=> 'inline',
 				'label_block'	=> false,
-				'default'		=> self::$default_next_arrow_icon,
+				'default'		=> static::$default_next_arrow_icon,
 				'condition'		=> [
 					'show_arrows'	=> 'yes'
 				],
@@ -137,7 +137,7 @@ class Slider extends ElementorControls {
 				'label'			=> esc_html__( 'Previous arrow icon', 'mj-whitebox' ),
 				'skin'			=> 'inline',
 				'label_block'	=> false,
-				'default'		=> self::$default_prev_arrow_icon,
+				'default'		=> static::$default_prev_arrow_icon,
 				'condition'		=> [
 					'show_arrows'	=> 'yes'
 				],
