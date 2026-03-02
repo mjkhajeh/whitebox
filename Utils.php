@@ -781,6 +781,7 @@ class Utils {
 	 * @return integer
 	 */
 	public static function calc_discount_percentage( $regular_price, $sale_price ) : int {
+		if( !is_numeric( $regular_price ) || !is_numeric( $sale_price ) ) return 0;
 		$percentage = absint( (100 - round( $sale_price / $regular_price * 100 )) );
 		if( $percentage === 100 && !empty( $sale_price ) ) {
 			$percentage = 99;
