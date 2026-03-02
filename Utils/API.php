@@ -22,4 +22,25 @@ class API extends Utils {
 
 		return $data;
 	}
+
+	public static function convert_id_to_attachment_array( $id ) {
+		return [
+			'id'	=> absint( $id ),
+			'url'	=> wp_get_attachment_url( $id )
+		];
+	}
+
+	public static function convert_id_to_attachment_url( $id ) {
+		return wp_get_attachment_url( $id );
+	}
+
+	public static function convert_array_ids_to_attachment_array( $ids ) {
+		$ids = array_values( array_filter( $ids ) );
+		return array_map( fn( $id ) => static::convert_id_to_attachment_array( $id ) , $ids );
+	}
+
+	public static function convert_array_ids_to_attachment_url( $ids ) {
+		$ids = array_values( array_filter( $ids ) );
+		return array_map( 'wp_get_attachment_url', $ids );
+	}
 }
