@@ -208,6 +208,16 @@ class ElementorControls {
 			} else {
 				$args['controls']['css_filters'] = Utils::check_default( $args['controls']['css_filters'], $default_control_args );
 			}
+			if( !isset( $args['controls']['width'] ) ) {
+				$args['controls']['width'] = $default_control_args;
+			} else {
+				$args['controls']['width'] = Utils::check_default( $args['controls']['width'], $default_control_args );
+			}
+			if( !isset( $args['controls']['height'] ) ) {
+				$args['controls']['height'] = $default_control_args;
+			} else {
+				$args['controls']['height'] = Utils::check_default( $args['controls']['height'], $default_control_args );
+			}
 		} else if( $args['mode'] == 'input' ) {
 			$args['excludes'] = array_unique( array_merge( $args['excludes'], ['icon_size', 'text_shadow']) );
 			$args['hover_excludes'] = array_unique( array_merge( $args['hover_excludes'], ['icon_size', 'text_shadow']) );
