@@ -254,6 +254,14 @@ class Elementor extends Utils {
 					}
 					$styles["--{$device}-space"] = "{$settings["{$device}_slides_space"]}px";
 
+					if( !empty( $settings["{$device}_rows"] ) ) {
+						$args[$device]["slider"]["grid"] = [
+							'rows'	=> absint( $settings["{$device}_rows"] ),
+							'fill'	=> 'row',
+						];
+						$styles["--{$device}-rows"] = absint( $settings["{$device}_rows"] );
+					}
+
 					$args[$device]["slider"] = array_merge( $args[$device]["slider"], $other_slider_attrs );
 				} else {
 					$wrap_classes[] = "{$device}-columns-wrap";
