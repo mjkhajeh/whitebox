@@ -122,4 +122,31 @@ class Posts extends Utils {
 			}
 		}
 	}
+
+	/**
+	 * Estimate the reading time for a post in minutes.
+	 *
+	 * Calculates reading time based on word count and average reading speed.
+	 * Strips HTML tags and shortcodes before counting words.
+	 *
+	 * @param mixed $post Optional. Post ID, object, or null for current post.
+	 * @param int $words_per_minute Optional. Average reading speed. Default 200.
+	 * @return int Estimated reading time in minutes (minimum 1).
+	 */
+	public static function estimate_reading_time( $post = null, $words_per_minute = 200 ) {
+		$post = self::get_post( $post );
+		
+		if ( ! $post ) {
+			return 0;
+		}
+
+		$content = $post->post_content;
+		$content = strip_shortcodes( $content );
+		$content = wp_strip_all_tags( $content );
+		
+		$word_count = str_word_count( $content );
+		$reading_time = ceil( $word_count / $words_per_minute );
+		
+		return max( 1, $reading_time );
+	}
 }
