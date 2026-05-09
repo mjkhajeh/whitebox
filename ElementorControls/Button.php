@@ -36,7 +36,7 @@ class Button extends ElementorControls {
 		$object->end_controls_section();
 	}
 
-	public static function default_controls( $args = [] ) {
+	public static function default_controls( $args = [], $prefix = 'button_' ) {
 		return [
 			'text'			=> [
 				'type'			=> \Elementor\Controls_Manager::TEXT,
@@ -81,7 +81,7 @@ class Button extends ElementorControls {
 				'default'	=> 'primary',
 				'options'	=> Elementor::button_types( $args ),
 				'condition'	=> [
-					'button_transparent!'	=> 'yes'
+					$prefix . 'transparent!'	=> 'yes'
 				]
 			],
 			'small'			=> [
@@ -113,7 +113,7 @@ class Button extends ElementorControls {
 					],
 				],
 				'condition'	=> [
-					'button_icon[value]!'	=> '',
+					$prefix . 'icon[value]!'	=> '',
 				],
 			],
 			'style'			=> [
@@ -122,7 +122,7 @@ class Button extends ElementorControls {
 				'default'	=> 'rounded',
 				'options'	=> Elementor::button_styles( $args ),
 				'condition'	=> [
-					'button_transparent!'	=> 'yes'
+					$prefix . 'transparent!'	=> 'yes'
 				]
 			],
 			'fullwidth'			=> [
@@ -153,13 +153,13 @@ class Button extends ElementorControls {
 				'default'	=> 'start',
 				'toggle'	=> true,
 				'condition'	=> [
-					'button_fullwidth!'	=> 'yes'
+					$prefix . 'fullwidth!'	=> 'yes'
 				],
 			],
 		];
 	}
 
 	public static function controls( $object, $args = [], $prefix = 'button_' ) {
-		parent::_add_controls( $object, static::default_controls(), $prefix, $args );
+		parent::_add_controls( $object, static::default_controls( [], $prefix ), $prefix, $args );
 	}
 }
