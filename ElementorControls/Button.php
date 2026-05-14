@@ -121,9 +121,6 @@ class Button extends ElementorControls {
 				'type'		=> \Elementor\Controls_Manager::SELECT,
 				'default'	=> 'rounded',
 				'options'	=> Elementor::button_styles( $args ),
-				'condition'	=> [
-					$prefix . 'transparent!'	=> 'yes'
-				]
 			],
 			'fullwidth'			=> [
 				'label'			=> esc_html__( 'Fullwidth', 'mj-whitebox' ),
