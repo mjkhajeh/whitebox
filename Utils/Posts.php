@@ -146,8 +146,7 @@ class Posts extends Utils {
 		
 		preg_match_all('/\p{L}+/u', $content, $matches);
 		$word_count = count( $matches[0] );
-		$reading_speed = 180;
-		$minutes = ceil( $word_count / $reading_speed );
+		$minutes = ceil( $word_count / $words_per_minute );
 		
 		return max( 1, $minutes );
 	}
