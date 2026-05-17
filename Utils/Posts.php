@@ -144,9 +144,11 @@ class Posts extends Utils {
 		$content = strip_shortcodes( $content );
 		$content = wp_strip_all_tags( $content );
 		
-		$word_count = str_word_count( $content );
-		$reading_time = ceil( $word_count / $words_per_minute );
+		preg_match_all('/\p{L}+/u', $content, $matches);
+		$word_count = count( $matches[0] );
+		$reading_speed = 180;
+		$minutes = ceil( $word_count / $reading_speed );
 		
-		return max( 1, $reading_time );
+		return max( 1, $minutes );
 	}
 }
