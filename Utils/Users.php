@@ -98,7 +98,7 @@ class Users extends Utils {
 	/**
 	 * Retrieve a user's mobile number.
 	 *
-	 * Checks the meta fields '_mobile', '_billing_phone', and '_shipping_phone' in order.
+	 * Checks the meta fields 'mobile', 'billing_phone', and 'shipping_phone' in order.
 	 *
 	 * @param int|string $user_id User ID or value resolvable to a user ID.
 	 *
@@ -106,12 +106,12 @@ class Users extends Utils {
 	 */
 	public static function get_user_mobile( $user_id ) {
 		$user_id = self::get_user_id( $user_id );
-		$mobile = get_user_meta( $user_id, '_mobile', true );
+		$mobile = get_user_meta( $user_id, 'mobile', true );
 		if( empty( $mobile ) ) {
-			$mobile = get_user_meta( $user_id, '_billing_phone', true );
+			$mobile = get_user_meta( $user_id, 'billing_phone', true );
 		}
 		if( empty( $mobile ) ) {
-			$mobile = get_user_meta( $user_id, '_shipping_phone', true );
+			$mobile = get_user_meta( $user_id, 'shipping_phone', true );
 		}
 		return $mobile;
 	}

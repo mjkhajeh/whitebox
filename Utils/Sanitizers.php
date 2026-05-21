@@ -11,82 +11,13 @@ class Sanitizers extends Utils {
 	 * - normalized number (string) if valid
 	 * - empty string "" if invalid
 	 *
-	 * @param string $string
+	 * @param string $phone
 	 * @return string
 	 */
-	public static function phone( $string ): string {
-		// Convert Persian/Arabic digits → English digits
-		$string = parent::convert_chars( $string );
-		$clean  = preg_replace('/[^\d\+]/', '', $string);
-		if ($clean === '' || $clean === '+') return "";
-
-		$digits = preg_replace('/\D/', '', $clean);
-
-
-		/* ============================================================
-		* 1) Short codes (2–6 digits)  → return as-is
-		* ============================================================ */
-		if ($clean[0] !== '+' && preg_match('/^\d{2,6}$/', $digits)) {
-			return $digits;
-		}
-
-
-		/* ============================================================
-		* 2) Full Iranian landline with area code (021…, 031…, 051…, …)
-		* ============================================================ */
-		$area = '(21|26|25|28|11|13|17|31|34|35|38|41|44|45|51|54|56|58|61|66|71|74|76|77|81|83|84|86|87)';
-		if (preg_match('/^0'.$area.'\d{7,8}$/', $clean)) {
-			return $clean;
-		}
-
-
-		/* ============================================================
-		* 3) SPECIAL CASE — Tehran corporate numbers 0219xxxxxxx
-		* ============================================================ */
-		if (preg_match('/^0219\d{7}$/', $clean)) {
-			return $clean;
-		}
-
-
-		/* ============================================================
-		* 4) Local landline without area code (6–8 digits)
-		*    → Assume Tehran (021)
-		* ============================================================ */
-		if ($clean[0] !== '+' && preg_match('/^\d{6,8}$/', $digits)) {
-			return '021' . $digits;
-		}
-
-
-		/* ============================================================
-		* 5) Iranian mobile 09xxxxxxxxx
-		* ============================================================ */
-		if (preg_match('/^09\d{9}$/', $clean)) {
-			return $clean;
-		}
-
-
-		/* ============================================================
-		* 6) International numbers (ONLY if explicit +…)
-		* ============================================================ */
-
-		// 00 → + تبدیل
-		if (strpos($clean, '00') === 0) {
-			$clean = '+' . substr($clean, 2);
-		}
-
-		if ($clean[0] === '+') {
-			// E.164: 7–15 digits after plus
-			if (preg_match('/^\+[1-9]\d{6,14}$/', $clean)) {
-				return $clean; // foreign number
-			}
-			return "";
-		}
-
-
-		/* ============================================================
-		* 7) Everything else → invalid
-		* ============================================================ */
-		return "";
+	public static function phone( string $phone ) {
+		$phone = parent::convert_chars( $phone );
+		$phone = str_replace( '+98', '0', $phone );
+		return str_replace( ' ', '', $phone );
 	}
 
 
