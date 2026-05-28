@@ -8,6 +8,34 @@ if( !defined( 'ABSPATH' ) ) exit;
 if( isset( $_GET['elementor_updater'] ) ) return;
 
 class ElementorControls {
+	protected static function prepare_args( $args, $default_controls ) {
+		if( !empty( $args['only'] ) ) {
+			foreach( array_keys( $default_controls ) as $default_control ) {
+				if( !in_array( $default_control, $args['only'] ) ) {
+					$args['excludes'][] = $default_control;
+					if( isset( $args['hover_excludes'] ) ) {
+						$args['hover_excludes'][] = $default_control;
+					}
+				}
+			}
+		}
+
+		foreach( array_keys( $default_controls ) as $index => $control_name ) {
+			if( !in_array( $control_name, $args['excludes'] ) ) {
+				Utils::reposition_array_element( $args['controls'], $control_name, $index );
+			}
+		}
+
+		// Reposition controls
+		foreach( $args['controls'] as $control_name => $control_args ) {
+			if( isset( $control_args['_position'] ) ) {
+				Utils::reposition_array_element( $args['controls'], $control_name, $control_args['_position'] );
+			}
+		}
+
+		return $args;
+	}
+
 	/**
 	 * Helper function: Add controls to an Elementor widget, handling exclusions and responsive settings.
 	 *
@@ -24,20 +52,11 @@ class ElementorControls {
 	protected static function _add_controls( $object, $default_controls, $prefix, $args = [] ) {
 		$args = Utils::check_default( $args, [
 			'excludes'	=> [],
+			'only'		=> [],
 			'controls'	=> $default_controls
 		] );
 
-		foreach( array_keys( $default_controls ) as $index => $control_name ) {
-			if( !in_array( $control_name, $args['excludes'] ) ) {
-				Utils::reposition_array_element( $args['controls'], $control_name, $index );
-			}
-		}
-
-		foreach( $args['controls'] as $control_name => $control_args ) {
-			if( isset( $control_args['_position'] ) ) {
-				Utils::reposition_array_element( $args['controls'], $control_name, $control_args['_position'] );
-			}
-		}
+		$args = self::prepare_args( $args, $default_controls );
 
 		foreach( $args['controls'] as $control_name => $control_args ) {
 			if( !in_array( $control_name, $args['excludes'] ) ) {
@@ -156,6 +175,7 @@ class ElementorControls {
 
 			'excludes'			=> [],
 			'hover_excludes'	=> [],
+			'only'				=> [],
 			'controls'			=> $default_controls,
 
 			'mode'	=> '', // svg, icon, wrapper(wrap), text, img(image)
@@ -254,12 +274,7 @@ class ElementorControls {
 			);
 		}
 
-		// Reposition controls
-		foreach( $args['controls'] as $control_name => $control_args ) {
-			if( isset( $control_args['_position'] ) ) {
-				Utils::reposition_array_element( $args['controls'], $control_name, $control_args['_position'] );
-			}
-		}
+		$args = self::prepare_args( $args, $default_controls );
 
 		foreach( $args['controls'] as $control_name => $control_args ) {
 			if( !in_array( $control_name, $args['excludes'] ) ) {
@@ -1098,20 +1113,11 @@ class ElementorControls {
 				'label'	=> esc_html__( 'Display settings', 'mj-whitebox' ),
 			],
 			'excludes'	=> [],
+			'only'		=> [],
 			'controls'	=> $default_controls
 		] );
-		foreach( array_keys( $default_controls ) as $index => $control_name ) {
-			if( !in_array( $control_name, $args['excludes'] ) ) {
-				Utils::reposition_array_element( $args['controls'], $control_name, $index );
-			}
-		}
-
-		// Reposition controls
-		foreach( $args['controls'] as $control_name => $control_args ) {
-			if( isset( $control_args['_position'] ) ) {
-				Utils::reposition_array_element( $args['controls'], $control_name, $control_args['_position'] );
-			}
-		}
+		
+		$args = self::prepare_args( $args, $default_controls );
 
 		$section_args = [
 			'label'	=> $args['section']['label'],
@@ -1195,6 +1201,7 @@ class ElementorControls {
 				'label'	=> esc_html__( 'Pagination settings', 'mj-whitebox' ),
 			],
 			'excludes'	=> [],
+			'only'		=> [],
 			'controls'	=> $default_controls,
 		] );
 
@@ -1691,6 +1698,7 @@ class ElementorControls {
 					] : [],
 
 					'excludes'	=> [],
+					'only'		=> [],
 					'controls'	=> $includes_controls,
 				],
 				'excludes'	=> [
@@ -1700,6 +1708,7 @@ class ElementorControls {
 					] : [],
 
 					'excludes'	=> [],
+					'only'		=> [],
 					'controls'	=> $excludes_controls,
 				],
 			],
@@ -1709,9 +1718,11 @@ class ElementorControls {
 			'tag'		=> !$wc ? 'tag' : 'product_tag',
 
 			'start_excludes'	=> [],
+			'start_only'		=> [],
 			'start_controls'	=> $start_controls,
 
 			'end_excludes'	=> [],
+			'end_only'		=> [],
 			'end_controls'	=> $end_controls,
 		] );
 
@@ -1731,10 +1742,13 @@ class ElementorControls {
 			$section_args
 		);
 
-		self::_add_controls( $object, $start_controls, '', [
+		$start_args = self::prepare_args( [
 			'excludes'	=> $args['start_excludes'],
+			'only'		=> $args['start_only'],
 			'controls'	=> $args['start_controls'],
-		] );
+		], $start_controls );
+
+		self::_add_controls( $object, $start_controls, '', $start_args );
 
 		$object->start_controls_tabs( 'tabs_post_archive_queries' );
 
@@ -1768,20 +1782,26 @@ class ElementorControls {
 				$tab['controls']['query_exclude_tag']['autocomplete']['query']['taxonomy'] = $args['tag'];
 			}
 
-			self::_add_controls( $object, $tab_name == 'includes' ? $includes_controls : $excludes_controls, '', [
+			$tab_default_controls = $tab_name == 'includes' ? $includes_controls : $excludes_controls;
+			$tab_args = self::prepare_args( [
 				'excludes'	=> $tab['excludes'],
+				'only'		=> $tab['only'],
 				'controls'	=> $tab['controls'],
-			] );
+			], $tab_default_controls );
+
+			self::_add_controls( $object, $tab_default_controls, '', $tab_args );
 
 			$object->end_controls_tab();
 		}
 
 		$object->end_controls_tabs();
 
-		self::_add_controls( $object, $end_controls, '', [
+		$end_args = self::prepare_args( [
 			'excludes'	=> $args['end_excludes'],
+			'only'		=> $args['end_only'],
 			'controls'	=> $args['end_controls'],
-		] );
+		], $end_controls );
+		self::_add_controls( $object, $end_controls, '', $end_args );
 
 		$object->end_controls_section();
 	}

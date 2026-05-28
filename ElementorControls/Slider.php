@@ -167,13 +167,10 @@ class Slider extends ElementorControls {
 				'label'	=> esc_html__( 'Slider settings', 'mj-whitebox' ),
 			],
 			'excludes'	=> [],
+			'only'		=> [],
 			'controls'	=> $default_controls
 		] );
-		foreach( array_keys( $default_controls ) as $index => $control_name ) {
-			if( !in_array( $control_name, $args['excludes'] ) ) {
-				Utils::reposition_array_element( $args['controls'], $control_name, $index );
-			}
-		}
+		
 		$section_args = [
 			'label'	=> $args['section']['label'],
 			'tab'	=> \Elementor\Controls_Manager::TAB_CONTENT,
@@ -216,7 +213,7 @@ class Slider extends ElementorControls {
 				]
 			],
 		] );
-		$args['excludes'] = array_values( array_unique( array_merge( $args['excludes'], [
+		$default_excludes = [
 			'desktop_slides_type',
 			'desktop_slides',
 			'desktop_slides_space',
@@ -226,7 +223,14 @@ class Slider extends ElementorControls {
 			'mobile_slides_type',
 			'mobile_slides',
 			'mobile_slides_space',
-		] ) ) );
+		];
+
+		foreach( $default_excludes as $control_name ) {
+			if( !isset( $args['controls'][$control_name] ) && !in_array( $control_name, $args['excludes'] ) ) {
+				$args['excludes'][] = $control_name;
+			}
+		}
+
 		if( $add_display_conditions_to_section ) {
 			$args['section']['conditions'] = [
 				'relation'	=> 'or',

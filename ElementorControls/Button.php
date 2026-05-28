@@ -13,6 +13,7 @@ class Button extends ElementorControls {
 				'label'	=> esc_html__( 'Button settings', 'mj-whitebox' ),
 			],
 			'excludes'	=> [],
+			'only'		=> [],
 			'controls'	=> [],
 		] );
 		$section_args = [

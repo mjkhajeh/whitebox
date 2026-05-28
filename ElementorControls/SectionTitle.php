@@ -19,6 +19,7 @@ class SectionTitle extends ElementorControls {
 				'label'	=> esc_html__( 'Section title', 'mj-whitebox' ),
 			],
 			'excludes'	=> [],
+			'only'		=> [],
 			'controls'	=> [], // Additional controls or other settings for current controls
 		] );
 		$section_args = [
