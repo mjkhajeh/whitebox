@@ -1181,7 +1181,7 @@ class Utils {
 		$icon_classes = '';
 		$icon_url = '';
 		if( !empty( $icon ) ) {
-			if( filter_var( $icon, FILTER_VALIDATE_URL ) ) {
+			if( wp_http_validate_url( $icon ) !== false ) {
 				$icon_url = esc_url( $icon, ['http', 'https'] );
 			} else { // Icon class
 				$icon_classes = explode( " ", self::convert_chars( $icon ) );
