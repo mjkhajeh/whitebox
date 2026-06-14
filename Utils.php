@@ -2,13 +2,15 @@
 namespace MJ\Whitebox;
 
 class Utils {
-	protected static $project_dir = '';
-	protected static $project_uri = '';
-	protected static $project_slug = '';
-	protected static $taxonomies = [ // taxonomy_name => post_type
+	protected static string $project_dir = '';
+	protected static string $project_uri = '';
+	protected static string $project_slug = '';
+	protected static array $taxonomies = [ // taxonomy_name => post_type
 		'product_cat'	=> 'product',
 		'product_tag'	=> 'product',
 	];
+	protected static bool $DEV_MODE = false;
+	protected static string $version = '';
 
 	/**
 	 * Checks and applies default values to an array based on provided defaults and skip indexes. Also, check the type of the value based on defaults.
@@ -1297,5 +1299,83 @@ class Utils {
 		}
 
 		return $packs[static::$project_slug];
+	}
+
+	/**
+	 * Enqueue a script, automatically resolving the correct file variant
+	 * (.js for development, .min.js for production) based on DEV_MODE.
+	 *
+	 *
+	 * @param string       $handle    Unique name of the script.
+	 * @param string       $src       Full URL of the script, or path relative to
+	 *                                 the plugin/theme root. May omit the file extension.
+	 * @param string[]     $deps      Optional. An array of registered script handles
+	 *                                 this script depends on. Default empty array.
+	 * @param string|bool  $ver       Optional. Script version. If empty, static::$version
+	 *                                 is used. Default ''.
+	 * @param bool         $in_footer Optional. Whether to enqueue the script before
+	 *                                 </body> instead of in the <head>. Default true.
+	 *
+	 * @return void
+	 */
+	public static function enqueue_script( string $handle, string $src, array $deps = [], $ver = '', bool $in_footer = true ) {
+		if( $ver === '' ) {
+			$ver = static::$version;
+		}
+
+		if( substr( $src, -7 ) == '.min.js' ) {
+			$src = substr( $src, 0, strlen( $src )-7 );
+		}
+		if( substr( $src, -3 ) == '.js' ) {
+			$src = substr( $src, 0, strlen( $src )-3 );
+		}
+
+		$dir = static::src_to_path( $src );
+
+		if( static::$DEV_MODE && ( !defined( 'SCRIPT_DEBUG' ) || !SCRIPT_DEBUG ) ) {
+			// Development mode: use the unminified version (.js).
+			if( file_exists( $dir . '.js' ) ) {
+				$src .= '.js';
+			}
+		} else {
+			// Production mode: prefer the minified version (.min.js).
+			if( file_exists( $dir . '.min.js' ) ) {
+				$src .= '.min.js';
+			} elseif( file_exists( $dir . '.js' ) ) {
+				// Fall back to the unminified version if no minified file exists.
+				$src .= '.js';
+			}
+		}
+		wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
+	}
+
+	/**
+	 * Convert a script $src into its physical filesystem path.
+	 *
+	 * Handles two cases:
+	 *  - A full URL (starting with http://, https://, or //): mapped to a
+	 *    physical path by replacing known WordPress URL bases with their
+	 *    corresponding directory constants.
+	 *  - A relative path: resolved against the plugin/theme root directory.
+	 *
+	 * The returned path does not include a file extension; callers are expected
+	 * to append ".js" or ".min.js" as needed.
+	 *
+	 * @param string $src Full URL or relative path of the script (extension optional).
+	 *
+	 * @return string Absolute filesystem path corresponding to $src.
+	 */
+	protected static function src_to_path( string $src ): string {
+		// Case 1: a full URL (with http(s):// or protocol-relative //).
+		if( preg_match( '#^(https?:)?//#', $src ) ) {
+			return str_replace(
+				[ content_url(), plugins_url(), site_url() ],
+				[ WP_CONTENT_DIR, WP_PLUGIN_DIR, ABSPATH ],
+				$src
+			);
+		}
+
+		// Case 2: a path relative to the plugin/theme root.
+		return rtrim( plugin_dir_path( __FILE__ ), '/' ) . '/' . ltrim( $src, '/' );
 	}
 }
