@@ -1318,7 +1318,7 @@ class Utils {
 	 *
 	 * @return void
 	 */
-	public static function enqueue_script( string $handle, string $src, array $deps = [], $ver = '', bool $in_footer = true ) {
+	public static function enqueue_script( string $handle, string $src, array $deps = ['jquery'], $ver = '', bool $in_footer = true ) {
 		if( $ver === '' ) {
 			$ver = static::$version;
 		}
