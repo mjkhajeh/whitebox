@@ -2,9 +2,9 @@
 namespace MJ\Whitebox;
 
 class Utils {
-	protected static string $project_dir = '';
-	protected static string $project_uri = '';
-	protected static string $project_slug = '';
+	protected static string $project_dir = ''; // Used in get_icon_packs
+	protected static string $project_uri = ''; // Used in get_icon_packs
+	protected static string $project_slug = ''; // Used in get_icon_packs
 	protected static array $taxonomies = [ // taxonomy_name => post_type
 		'product_cat'	=> 'product',
 		'product_tag'	=> 'product',

@@ -65,10 +65,13 @@ class Users extends Utils {
 	 * Searches the user login and user meta fields: 'mobile', 'billing_phone', and 'shipping_phone'.
 	 *
 	 * @param string $mobile The mobile number to search for.
+	 * @param string $return Set the return value. Accepts: ID | OBJECT
 	 *
-	 * @return int|string User ID if found, or empty string if no user matches.
+	 * @return mixed
 	 */
-	public static function find_user_by_mobile( string $mobile ) {
+	public static function find_user_by_mobile( string $mobile, $return = 'ID' ) {
+		$return = strtoupper( $return );
+
 		$user = get_user_by( 'login', $mobile );
 		if( empty( $user ) ) {
 			$user = get_users( [
@@ -88,9 +91,13 @@ class Users extends Utils {
 					),
 				),
 				'number' => 1,
-				'fields' => 'ID',
+				'fields' => $return == 'ID' ? 'ID' : 'all',
 			] );
 			$user = !empty( $user[0] ) ? $user[0] : '';
+		} else {
+			if( $return == 'ID' ) {
+				$user = $user->ID;
+			}
 		}
 		return $user;
 	}
