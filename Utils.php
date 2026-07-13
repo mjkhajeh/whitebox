@@ -402,7 +402,7 @@ class Utils {
 	 */
 	public static function add_zero( $number ) {
 		if( is_numeric( $number ) && $number < 10 ) {
-			$number = floatval( $number );
+			$number = doubleval( $number );
 			if( $number >= 0 ) {
 				$number = "0{$number}";
 			} else {
@@ -603,7 +603,7 @@ class Utils {
 	 */
 	public static function check_var_type( $value, string $type ) {
 		if( $type == 'numeric' || $type == 'float' ) {
-			$value = floatval( $value );
+			$value = doubleval( $value );
 		} else if( $type == 'string' ) {
 			$value = "{$value}";
 		} else if( $type == 'strupper' || $type == 'strtoupper' || $type == 'stringupper' || $type == 'stringtoupper' ) {
