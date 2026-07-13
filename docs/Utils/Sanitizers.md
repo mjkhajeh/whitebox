@@ -7,15 +7,18 @@ Provides functions for sanitizing phone numbers, OTPs, prices, IPs, tags, card n
 ## Methods
 
 ### phone
-Sanitize phone number to Iranian format.
+Normalize and validate Iranian phone numbers. Converts Persian/Arabic characters and normalizes `+98` prefix to `0`.
 
 **Signature:**
 ```php
-public static function phone($string)
+public static function phone(string $phone)
 ```
 
+**Parameters:**
+- `$phone` (string): Phone number string.
+
 **Returns:**
-- (string) Sanitized phone number.
+- (string) Normalized phone number, or empty string if invalid.
 
 ---
 

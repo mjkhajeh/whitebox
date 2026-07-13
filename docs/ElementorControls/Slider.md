@@ -27,12 +27,21 @@ Adds style controls for slider navigation arrows.
 - **$arrows_btn_selector**: CSS selector for arrow buttons
 - **$args**: Style options
 
+### dots_style_controls($object, $dot_selector, $args = [])
+Adds style controls for slider pagination dots.
+- **$object**: Elementor widget instance
+- **$dot_selector**: CSS selector for dots
+- **$args**: Style options
+
 ## Controls Provided
 - **Slides Type**: Count or auto for desktop/tablet/mobile
 - **Visible Slides**: Number of visible slides
 - **Slides Space**: Space between slides
 - **Autoplay**: Enable/disable and interval
 - **Show Arrows**: Toggle navigation arrows
+- **Show Dots**: Toggle pagination dots
+- **Next Arrow Icon**: Icon for the next arrow
+- **Previous Arrow Icon**: Icon for the previous arrow
 - **Loop**: Enable/disable looping
 
 ## Usage Example

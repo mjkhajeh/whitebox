@@ -48,5 +48,19 @@ public static function get_logo($keys, $defaults, $bloginfo_option = 'name')
 **Returns:**
 - (string) Logo HTML or text.
 
+### get_color
+Normalize a color value. If it starts with `#`, minifies the hex code.
+
+**Signature:**
+```php
+public static function get_color($color)
+```
+
+**Parameters:**
+- `$color` (string): Color value.
+
+**Returns:**
+- (string) Minified hex color (lowercase) or original value if not a hex code.
+
 **Notes:**
 - Use in themes/plugins to retrieve and display logo content based on options.

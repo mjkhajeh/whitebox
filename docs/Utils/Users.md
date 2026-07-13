@@ -37,11 +37,15 @@ Find a WordPress user by mobile number.
 
 **Signature:**
 ```php
-public static function find_user_by_mobile(string $mobile)
+public static function find_user_by_mobile(string $mobile, $return = 'ID')
 ```
 
+**Parameters:**
+- `$mobile` (string): Mobile number.
+- `$return` (string): Return type — `'ID'` for user ID, `'OBJECT'` for full user object.
+
 **Returns:**
-- (int|string) User ID or empty string.
+- (int|WP_User|string) User ID, user object, or empty string if not found.
 
 ---
 

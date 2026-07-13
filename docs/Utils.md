@@ -465,13 +465,15 @@ Get the module name.
   ```
 
 ### should_include_module
-Check the module requirements.
-- **Signature:** `should_include_module($requirements = [])`
-- **Parameters:** `$requirements` (string|array)
-- **Returns:** (bool)
+Check if a module should be included based on its requirements (e.g., plugin dependencies).
+- **Signature:** `should_include_module($index, $data = [])`
+- **Parameters:**
+  - `$index` (string): Module identifier (e.g., 'woocommerce', 'elementor').
+  - `$data` (array): Optional requirements array. Defaults to `[]`.
+- **Returns:** (bool) Whether the module should be included.
 - **Example:**
   ```php
-  $should = Utils::should_include_module(['woocommerce']);
+  $should = Utils::should_include_module('woocommerce');
   ```
 
 ### sidebars_list
@@ -547,6 +549,38 @@ Parses and processes content from a WordPress text editor.
   ```php
   $html = Utils::parse_text_editor($raw_content);
   ```
+
+### get_icon_packs
+Gets icon packs from a JSON file and applies a filter hook. Uses static caching per project slug.
+- **Signature:** `get_icon_packs()`
+- **Returns:** (array) Icon packs with SVG URLs resolved.
+- **Example:**
+  ```php
+  $packs = Utils::get_icon_packs();
+  ```
+
+### enqueue_script
+Enqueues a script, automatically resolving `.js` vs `.min.js` based on `DEV_MODE`. Falls back to whichever variant exists.
+- **Signature:** `enqueue_script(string $handle, string $src, array $deps = ['jquery'], $ver = '', bool $in_footer = true)`
+- **Parameters:**
+  - `$handle` (string): Unique script name.
+  - `$src` (string): Script URL or path (extension optional).
+  - `$deps` (array): Script dependencies.
+  - `$ver` (string): Script version. Defaults to `static::$version`.
+  - `$in_footer` (bool): Load before `</body>`. Default `true`.
+- **Returns:** (void)
+- **Example:**
+  ```php
+  Utils::enqueue_script('my-plugin', 'assets/js/main.js');
+  ```
+
+### src_to_path
+Converts a script `$src` URL/path into its physical filesystem path. Handles both full URLs and relative paths.
+- **Signature:** `src_to_path(string $src): string`
+- **Parameters:**
+  - `$src` (string): Full URL or relative path (extension optional).
+- **Returns:** (string) Absolute filesystem path.
+- **Note:** This is a `protected` method, used internally by `enqueue_script()`.
 
 ---
 

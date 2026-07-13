@@ -17,6 +17,11 @@ Adds all button controls to the widget, including text, link, icon, style, align
 - **$args**: Array of control overrides and options
 - **$prefix**: Prefix for control names
 
+### default_controls($args = [], $prefix = 'button_')
+Returns the raw array of default button control definitions without adding them to a widget.
+- **$args**: Optional control overrides
+- **$prefix**: Prefix for control names
+
 ## Controls Provided
 - **Text**: Button label (HTML allowed)
 - **Link**: URL for the button

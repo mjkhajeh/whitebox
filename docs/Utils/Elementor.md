@@ -165,6 +165,38 @@ public static function has_link($link_attr)
 **Returns:**
 - (bool)
 
+---
+
+### button_default_args
+Get default button arguments with a given prefix. Handles RTL alignment.
+
+**Signature:**
+```php
+public static function button_default_args($prefix)
+```
+
+**Parameters:**
+- `$prefix` (string): Prefix for button argument keys (e.g., `'button_'`).
+
+**Returns:**
+- (array) Default button arguments including `transparent`, `type`, `small`, `icon`, `text`, `title`, `link`, `new_tab`, `fullwidth`, `icon_align`, `style`, `align`, `classes`, `id`, `disabled`, `loading`, `atts`.
+
+---
+
+### button_default_args_skips
+Get the list of button default argument keys that should be skipped during merging.
+
+**Signature:**
+```php
+public static function button_default_args_skips($prefix)
+```
+
+**Parameters:**
+- `$prefix` (string): Prefix for button argument keys.
+
+**Returns:**
+- (array) Keys to skip (currently just `{$prefix}icon`).
+
 **Notes:**
 - These utilities simplify integration with Elementor widgets and controls.
 - Use them to standardize control options and rendering logic.

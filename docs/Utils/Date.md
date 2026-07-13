@@ -164,3 +164,61 @@ public static function timezone_offset()
   ```php
   $offset = Date::timezone_offset();
   ```
+
+---
+
+### get_day_names
+Get an array of day names (Sunday through Saturday). Optionally reordered for the Iranian week (Saturday start).
+
+**Signature:**
+```php
+public static function get_day_names($iran = false)
+```
+
+**Parameters:**
+- `$iran` (bool): If `true`, returns days starting from Saturday (Iranian week order).
+
+**Returns:**
+- (array) Localized day name strings.
+
+**Example:**
+```php
+$days = Date::get_day_names(); // ['Sunday', 'Monday', ..., 'Saturday']
+$ir_days = Date::get_day_names(true); // ['Saturday', 'Sunday', ..., 'Friday']
+```
+
+---
+
+### is_iran_timezone
+Check if the WordPress site timezone is set to Asia/Tehran.
+
+**Signature:**
+```php
+public static function is_iran_timezone()
+```
+
+**Returns:**
+- (bool) `true` if timezone is `Asia/Tehran` or `+03:30`.
+
+---
+
+### time_to_seconds
+Convert a time string into total seconds. Supports `SS`, `MM:SS`, and `HH:MM:SS` formats.
+
+**Signature:**
+```php
+public static function time_to_seconds(string $time): int
+```
+
+**Parameters:**
+- `$time` (string): Time string in a supported format.
+
+**Returns:**
+- (int) Total number of seconds.
+
+**Example:**
+```php
+Date::time_to_seconds('17');      // 17
+Date::time_to_seconds('05:29');   // 329
+Date::time_to_seconds('1:05:29'); // 3929
+```

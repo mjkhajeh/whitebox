@@ -15,6 +15,9 @@ Adds section title controls (tag, icon, title, link) to the widget.
 - **$object**: Elementor widget instance
 - **$args**: Array of control overrides and options
 
+### default_controls()
+Returns the raw array of default section title control definitions without adding them to a widget.
+
 ### row_style($object, $args = [])
 Adds style controls for the section title row.
 - **$object**: Elementor widget instance

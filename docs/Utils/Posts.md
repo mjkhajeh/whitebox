@@ -56,5 +56,20 @@ public static function save_post_options(array $options, $defaults, $post_id = 0
 **Returns:**
 - (void)
 
+### estimate_reading_time
+Estimate the reading time for a post in minutes. Strips HTML tags and shortcodes before counting words.
+
+**Signature:**
+```php
+public static function estimate_reading_time($post = null, $words_per_minute = 200)
+```
+
+**Parameters:**
+- `$post` (mixed): Post ID, object, or `null` for current post.
+- `$words_per_minute` (int): Average reading speed. Default `200`.
+
+**Returns:**
+- (int) Estimated reading time in minutes (minimum 1).
+
 **Notes:**
 - Use these utilities to manage custom post meta and options.
