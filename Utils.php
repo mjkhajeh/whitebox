@@ -1,6 +1,8 @@
 <?php
 namespace MJ\Whitebox;
 
+use stdClass;
+
 class Utils {
 	protected static string $project_dir = ''; // Used in get_icon_packs
 	protected static string $project_uri = ''; // Used in get_icon_packs
@@ -589,7 +591,8 @@ class Utils {
 	 *
 	 * @param mixed  $value The value to be converted.
 	 * @param string $type  The target type. Supported types:
-	 *                      - 'numeric', 'float': Converts to float.
+	 *                      - 'numeric', 'double': Converts to double.
+	 *                      - 'float': Converts to float.
 	 *                      - 'string': Converts to string.
 	 *                      - 'strupper', 'strtoupper', 'stringupper', 'stringtoupper': Converts to uppercase string.
 	 *                      - 'strlower', 'strtolower', 'stringlower', 'stringtolower': Converts to lowercase string.
@@ -602,18 +605,48 @@ class Utils {
 	 * @return mixed The converted value based on the specified type.
 	 */
 	public static function check_var_type( $value, string $type ) {
-		if( $type == 'numeric' || $type == 'float' ) {
-			$value = doubleval( $value );
+		if( $type == 'numeric' || $type == 'double' ) {
+			if( !is_scalar( $value ) || !is_numeric( $value ) ) {
+				$value = 0;
+			} else {
+				$value = doubleval( $value );
+			}
+		} else if( $type == 'float' ) {
+			if( !is_scalar( $value ) || !is_numeric( $value ) ) {
+				$value = 0;
+			} else {
+				$value = floatval( $value );
+			}
 		} else if( $type == 'string' ) {
-			$value = "{$value}";
+			if( !is_scalar( $value ) ) {
+				$value = '';
+			} else {
+				$value = "{$value}";
+			}
 		} else if( $type == 'strupper' || $type == 'strtoupper' || $type == 'stringupper' || $type == 'stringtoupper' ) {
-			$value = strtoupper( "{$value}" );
+			if( !is_scalar( $value ) ) {
+				$value = '';
+			} else {
+				$value = strtoupper( "{$value}" );
+			}
 		} else if( $type == 'strlower' || $type == 'strtolower' || $type == 'stringlower' || $type == 'stringtolower' ) {
-			$value = strtolower( "{$value}" );
+			if( !is_scalar( $value ) ) {
+				$value = '';
+			} else {
+				$value = strtolower( "{$value}" );
+			}
 		} else if( $type == 'int' || $type == 'integer' ) {
-			$value = intval( $value );
+			if( !is_scalar( $value ) || !is_numeric( $value ) ) {
+				$value = 0;
+			} else {
+				$value = intval( $value );
+			}
 		} else if( $type == 'absint' || $type == 'absinteger' ) {
-			$value = absint( $value );
+			if( !is_scalar( $value ) || !is_numeric( $value ) ) {
+				$value = 0;
+			} else {
+				$value = absint( $value );
+			}
 		} else if( $type == 'bool' || $type == 'boolean' ) {
 			$value = self::to_bool( $value );
 		} else if( $type == 'array' || $type == '[]' ) {
