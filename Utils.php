@@ -750,6 +750,59 @@ class Utils {
 	}
 
 	/**
+	* Converts a time string into seconds.
+	*
+	* Accepts time strings in `MM:SS` or `HH:MM:SS` format and converts them
+	* to the total number of seconds. The input string is first normalized using
+	* {@see self::convert_chars()} before validation.
+	*
+	* If the string is not in a valid format, contains empty parts, or contains
+	* non-numeric values, the function returns `0`.
+	 *
+	 * Examples:
+	 *
+	 * - 12:30 returns 750
+	 * - 01:02:03 returns 3723
+	 * - abc, 10, 10:, or 10:20:30:40 return 0
+	 *
+	 * @param string $string Time string in `MM:SS` or `HH:MM:SS` format.
+	 *
+	 * @return int Total number of seconds, or `0` on invalid input.
+	 */
+	public static function string_to_second( string $string ) : int {
+		$string = self::convert_chars( $string );
+
+		$parts = explode( ':', $string );
+
+		if( count( $parts ) < 2 || count( $parts ) > 3 ) {
+			return 0;
+		}
+
+		foreach( $parts as $part ) {
+			if ( '' === $part || !ctype_digit( $part ) ) {
+				return 0;
+			}
+		}
+
+		if ( count( $parts ) === 1 ) {
+			return absint( $parts[0] );
+		}
+
+		if ( count( $parts ) === 2 ) {
+			$minutes = absint( $parts[0] );
+			$seconds = absint( $parts[1] );
+
+			return ( $minutes * 60 ) + $seconds;
+		}
+
+		$hours   = absint( $parts[0] );
+		$minutes = absint( $parts[1] );
+		$seconds = absint( $parts[2] );
+
+		return ( $hours * 3600 ) + ( $minutes * 60 ) + $seconds;
+	}
+
+	/**
 	 * Create placeholder for use in DB query
 	 *
 	 * @param array|object $object
