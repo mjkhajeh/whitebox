@@ -312,6 +312,18 @@ class Utils {
 		return json_last_error() === JSON_ERROR_NONE;
 	}
 
+	public static function is_base64( $string ) {
+		if( !is_scalar( $string ) || empty( $string ) ) {
+			return false;
+		}
+		// Check if it's a valid base64 encoded string
+		if (base64_encode(base64_decode($string, true)) === $string) {
+			// Also check if it only contains valid base64 characters
+			return preg_match('/^[a-zA-Z0-9\/\r\n+]*={0,2}$/', $string);
+		}
+		return false;
+	}
+
 	/**
 	 * Ensures that values in the source array are allowed according to the specified set of allowed values.
 	 *
