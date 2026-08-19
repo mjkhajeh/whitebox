@@ -183,7 +183,11 @@ class WC extends Utils {
 			}
 			if( !$product_type ) {
 				$product = wc_get_product( $product_id );
-				$product_type = $product->get_type();
+				if( $product ) {
+					$product_type = $product->get_type();
+				} else {
+					return '';
+				}
 			}
 			self::$products_type_cache[$product_id] = $product_type;
 		}
