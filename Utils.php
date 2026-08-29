@@ -13,6 +13,8 @@ class Utils {
 	];
 	protected static bool $DEV_MODE = false;
 	protected static string $version = '';
+	protected static string $icons_dir = '';
+	protected static string $icons_prefix = '';
 
 	/**
 	 * Checks and applies default values to an array based on provided defaults and skip indexes. Also, check the type of the value based on defaults.
@@ -1396,6 +1398,15 @@ class Utils {
 		}
 
 		return $packs[static::$project_slug];
+	}
+
+	public static function get_local_icons() {
+		$files = glob( trailingslashit( static::$icons_dir ) . "*.svg" );
+		$icons = [];
+		foreach( $files as $file_path ) {
+			$icons[] = static::$icons_prefix . pathinfo( $file_path, PATHINFO_FILENAME );
+		}
+		return $icons;
 	}
 
 	/**
