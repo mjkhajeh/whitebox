@@ -242,11 +242,15 @@ class Utils {
 	 * @param string $string
 	 * @param string|array|boolean|callback $sanitize Write functions you want to sanitize the string with them. Separate each function with '&&' for multiple functions. Or write a callback. Bool mode will exec sanitize_text_field
 	 * @param string|array|boolean|callback $name Like sanitize param
-	 * @param boolean $reverse Convert English chars to Persian
+	 * @param boolean $reverse Convert English chars to Persian. This will convert Arabic chars and symbols
+	 * @param array $excludes Exclude group items. Accepts:
+	 * 		numbers | number | numeric | numerics
+	 * 		symbols | symbol
+	 * 		char | chars | characters | character
 	 * 
 	 * @return string
 	 */
-	public static function convert_chars( $string, $sanitize = 'sanitize_text_field', $sanitize_after = '', $reverse = false ) {
+	public static function convert_chars( $string, $sanitize = 'sanitize_text_field', $sanitize_after = '', $reverse = false, array $excludes = [] ) {
 		if( !empty( $sanitize ) ) {
 			if( is_callable( $sanitize ) ) {
 				$string = call_user_func( $sanitize, $string );
@@ -277,24 +281,44 @@ class Utils {
 		}
 
 		if( is_string( $string ) ) {
-			$chars = [
-				'۰'	=> '0',
-				'۱'	=> '1',
-				'۲'	=> '2',
-				'۳'	=> '3',
-				'۴'	=> '4',
-				'۵'	=> '5',
-				'۶'	=> '6',
-				'۷'	=> '7',
-				'۸'	=> '8',
-				'۹'	=> '9',
-				'٪'	=> '%',
-				'×'	=> '*',
-				'-'	=> '-',
-				'ـ'	=> '_',
-				'ي'	=> 'ی',
-				'ك'	=> 'ک',
+			$parts = [
+				'numerics'	=> [
+					'۰'	=> '0',
+					'۱'	=> '1',
+					'۲'	=> '2',
+					'۳'	=> '3',
+					'۴'	=> '4',
+					'۵'	=> '5',
+					'۶'	=> '6',
+					'۷'	=> '7',
+					'۸'	=> '8',
+					'۹'	=> '9',
+				],
+				'symbols'	=> [
+					'٪'	=> '%',
+					'×'	=> '*',
+					'-'	=> '-',
+					'ـ'	=> '_',
+				],
+				'chars'		=> [
+					'ي'	=> 'ی',
+					'ك'	=> 'ک',
+				],
 			];
+			$chars = [];
+
+			if( !empty( $excludes ) ) {
+				if( !empty( array_intersect( ['numbers', 'number', 'numeric', 'numerics'], $excludes ) ) ) {
+					unset( $parts['numerics'] );
+				} else if( !empty( array_intersect( ['symbols', 'symbol'], $excludes ) ) ) {
+					unset( $parts['symbols'] );
+				} else if( !empty( array_intersect( ['char', 'chars', 'characters', 'character'], $excludes ) ) ) {
+					unset( $parts['chars'] );
+				}
+			}
+			foreach( $parts as $part )  {
+				$chars = array_merge( $chars, $part );
+			}
 
 			$string = !$reverse ? str_replace( array_keys( $chars ), array_values( $chars ), $string ) : str_replace( array_values( $chars ), array_keys( $chars ), $string );
 		}
