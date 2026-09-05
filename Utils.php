@@ -247,10 +247,14 @@ class Utils {
 	 * 		numbers | number | numeric | numerics
 	 * 		symbols | symbol
 	 * 		char | chars | characters | character
+	 * @param array $includes Include group items. (Excludes will run first) Accepts:
+	 * 		numbers | number | numeric | numerics
+	 * 		symbols | symbol
+	 * 		char | chars | characters | character
 	 * 
 	 * @return string
 	 */
-	public static function convert_chars( $string, $sanitize = 'sanitize_text_field', $sanitize_after = '', $reverse = false, array $excludes = [] ) {
+	public static function convert_chars( $string, $sanitize = 'sanitize_text_field', $sanitize_after = '', $reverse = false, array $excludes = [], array $includes = [] ) {
 		if( !empty( $sanitize ) ) {
 			if( is_callable( $sanitize ) ) {
 				$string = call_user_func( $sanitize, $string );
@@ -310,14 +314,37 @@ class Utils {
 			if( !empty( $excludes ) ) {
 				if( !empty( array_intersect( ['numbers', 'number', 'numeric', 'numerics'], $excludes ) ) ) {
 					unset( $parts['numerics'] );
-				} else if( !empty( array_intersect( ['symbols', 'symbol'], $excludes ) ) ) {
+				}
+				if( !empty( array_intersect( ['symbols', 'symbol'], $excludes ) ) ) {
 					unset( $parts['symbols'] );
-				} else if( !empty( array_intersect( ['char', 'chars', 'characters', 'character'], $excludes ) ) ) {
+				}
+				if( !empty( array_intersect( ['char', 'chars', 'characters', 'character'], $excludes ) ) ) {
 					unset( $parts['chars'] );
 				}
 			}
-			foreach( $parts as $part )  {
-				$chars = array_merge( $chars, $part );
+
+			if( !empty( $includes ) ) {
+				if( !empty( array_intersect( ['numbers', 'number', 'numeric', 'numerics'], $includes ) ) ) {
+					if( isset( $parts['numerics'] ) ) {
+						$chars = array_merge( $chars, $parts['numerics'] );
+					}
+				}
+				if( !empty( array_intersect( ['symbols', 'symbol'], $includes ) ) ) {
+					if( isset( $parts['symbols'] ) ) {
+						$chars = array_merge( $chars, $parts['symbols'] );
+					}
+				}
+				if( !empty( array_intersect( ['char', 'chars', 'characters', 'character'], $includes ) ) ) {
+					if( isset( $parts['chars'] ) ) {
+						$chars = array_merge( $chars, $parts['chars'] );
+					}
+				}
+			}
+
+			if( empty( $includes ) ) {
+				foreach( $parts as $part )  {
+					$chars = array_merge( $chars, $part );
+				}
 			}
 
 			$string = !$reverse ? str_replace( array_keys( $chars ), array_values( $chars ), $string ) : str_replace( array_values( $chars ), array_keys( $chars ), $string );
