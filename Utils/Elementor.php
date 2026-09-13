@@ -253,6 +253,10 @@ class Elementor extends Utils {
 						$classes[] = "{$device}-slider-auto";
 					}
 					$styles["--{$device}-space"] = "{$settings["{$device}_slides_space"]}px";
+					$styles["--{$device}-gap"] = "{$settings["{$device}_slides_space"]}px";
+					if( $args[$device]["slider"]["slidesPerView"] != 'auto' ) {
+						$styles["--{$device}-cols"] = $args[$device]["slider"]["slidesPerView"];
+					}
 
 					if( !empty( $settings["{$device}_rows"] ) ) {
 						$args[$device]["slider"]["grid"] = [
