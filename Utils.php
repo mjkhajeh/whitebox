@@ -427,17 +427,71 @@ class Utils {
 	/**
 	 * Reposition an array element by its key.
 	 *
-	 * @param array      $array The array is being reordered.
-	 * @param string|int $key The key of the element you want to reposition.
-	 * @param int        $order The position in the array you want to move the element to. (0 is first)
+	 * - If $order is an existing key name: moves the element $order immediately after $key.
+	 * - If $order is a numeric index (not an existing key): moves element $key to position $order (legacy fallback).
+	 *
+	 * @param array      $array The array being reordered (passed by reference).
+	 * @param string|int $key   The reference anchor key (element to place after).
+	 * @param string|int $order The key of the item you want to move after $key, OR a numeric index.
+	 * @return bool True on success, false if required keys do not exist.
 	 */
-	public static function reposition_array_element( array &$array, $key, int $order ) {
-		if( ($a = array_search( $key, array_keys( $array ) ) ) === false ) {
-			return false;
+	public static function reposition_array_element( array &$array, $key, $order ): bool {
+		// Nothing to do if both keys are identical
+		if ( $key === $order ) {
+			return array_key_exists( $key, $array );
 		}
-		$p1 = array_splice( $array, $a, 1 );
-		$p2 = array_splice( $array, 0, $order );
-		$array = array_merge( $p2, $p1, $array );
+
+		// --- Mode 1: $order is a key name in the array (move $order after $key) ---
+		if ( array_key_exists( $order, $array ) ) {
+			// Anchor key must exist
+			if ( ! array_key_exists( $key, $array ) ) {
+				return false;
+			}
+
+			// 1. Extract the $order element
+			$order_value = $array[ $order ];
+			unset( $array[ $order ] );
+
+			// 2. Locate the anchor $key in the remaining array
+			$keys      = array_keys( $array );
+			$key_index = array_search( $key, $keys, true );
+
+			if ( $key_index === false ) {
+				return false;
+			}
+
+			// 3. Target position is immediately after $key (+1)
+			$target_pos = $key_index + 1;
+
+			// 4. Slice and recombine preserving string and numeric keys
+			$part1 = array_slice( $array, 0, $target_pos, true );
+			$part2 = array_slice( $array, $target_pos, null, true );
+
+			$array = $part1 + [ $order => $order_value ] + $part2;
+
+			return true;
+		}
+
+		// --- Mode 2: Legacy numeric index fallback (moves $key to numeric offset $order) ---
+		if ( is_int( $order ) || is_numeric( $order ) ) {
+			if ( ! array_key_exists( $key, $array ) ) {
+				return false;
+			}
+
+			$key_value = $array[ $key ];
+			unset( $array[ $key ] );
+
+			$target_pos = max( 0, min( count( $array ), (int) $order ) );
+
+			$part1 = array_slice( $array, 0, $target_pos, true );
+			$part2 = array_slice( $array, $target_pos, null, true );
+
+			$array = $part1 + [ $key => $key_value ] + $part2;
+
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

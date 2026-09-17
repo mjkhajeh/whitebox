@@ -9,6 +9,7 @@ This project is particularly useful for Persian-speaking audiences, as it includ
 - Custom Elementor controls (Button, Slider, SectionTitle)
 - WooCommerce helpers
 - Localization support for Persian (fa_IR)
+- Array utilities for repositioning keyed elements
 - Modular design for easy integration into other projects
 
 ## Documentation
