@@ -1127,6 +1127,28 @@ class Utils {
 	}
 
 	/**
+	 * Check whether Polylang is active and installed.
+	 *
+	 * Uses WordPress functions to verify the plugin is active and the main plugin file exists.
+	 * Caches the result statically for performance.
+	 *
+	 * @return bool True if Polylang is active and installed, false otherwise.
+	 */
+	public static function is_pll_active() {
+		static $is = null;
+		if( $is === null ) {
+			if( class_exists( 'Polylang' ) && function_exists( 'pll_default_language' ) ) {
+				$is = true;
+			} else {
+				$plugin = 'polylang/polylang.php';
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				$is = is_plugin_active( $plugin ) && is_file( trailingslashit( WP_PLUGIN_DIR ) . $plugin );
+			}
+		}
+		return $is;
+	}
+
+	/**
 	 * Retrieve a list of custom HTML tag options.
 	 *
 	 * This method returns an associative array of allowed/custom HTML tags
