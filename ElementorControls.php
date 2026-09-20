@@ -290,18 +290,35 @@ class ElementorControls {
 							];
 						}
 					}
+
+					if( $args['mode'] == 'icon' ) {
+						if( $control_name == 'color' ) {
+							$control_args['selectors'][$control_selector] = 'color:{{VALUE}};fill:{{VALUE}};';
+							$control_args['selectors']["{$control_selector} svg"] = 'fill:{{VALUE}};';
+						}
+					}
+
 					self::{$control_name}( $object, $prefix . $control_name, $control_selector, $control_args );
 				} else {
-					if( empty( $control_args['_responsive'] ) ) {
-						$object->add_control(
-							$prefix . $control_name,
+					if( !empty( $control_args['is_group_control'] ) ) {
+						$name = !empty( $control_args['name'] ) ? $control_args['name'] : ( !empty( $control_args['id'] ) ? $control_args['id'] : '' );
+						$control_args['name'] = $name;
+						$object->add_group_control(
+							$control_args['type'],
 							$control_args
 						);
 					} else {
-						$object->add_responsive_control(
-							$prefix . $control_name,
-							$control_args
-						);
+						if( empty( $control_args['_responsive'] ) ) {
+							$object->add_control(
+								$prefix . $control_name,
+								$control_args
+							);
+						} else {
+							$object->add_responsive_control(
+								$prefix . $control_name,
+								$control_args
+							);
+						}
 					}
 				}
 			}
@@ -331,22 +348,39 @@ class ElementorControls {
 								];
 							}
 						}
+
+						if( $args['mode'] == 'icon' ) {
+							if( $control_name == 'color' ) {
+								$control_args['selectors'][$control_hover_selector] = 'color:{{VALUE}};fill:{{VALUE}};';
+								$control_args['selectors']["{$control_hover_selector} svg"] = 'fill:{{VALUE}};';
+							}
+						}
 						self::{$control_name}( $object, "{$prefix}{$control_name}_hover", $control_hover_selector, $control_args );
 					} else {
 						if( !empty( $control_args['hover_selectors'] ) ) {
 							$control_args['selectors'] = $control_args['hover_selectors'];
 							unset( $control_args['hover_selectors'] );
 						}
-						if( empty( $control_args['_responsive'] ) ) {
-							$object->add_control(
-								"{$prefix}{$control_name}_hover",
+						if( !empty( $control_args['is_group_control'] ) ) {
+							$name = !empty( $control_args['name'] ) ? $control_args['name'] : ( !empty( $control_args['id'] ) ? $control_args['id'] : '' );
+							$name .= "_hover";
+							$control_args['name'] = $name;
+							$object->add_group_control(
+								$control_args['type'],
 								$control_args
 							);
 						} else {
-							$object->add_responsive_control(
-								"{$prefix}{$control_name}_hover",
-								$control_args
-							);
+							if( empty( $control_args['_responsive'] ) ) {
+								$object->add_control(
+									"{$prefix}{$control_name}_hover",
+									$control_args
+								);
+							} else {
+								$object->add_responsive_control(
+									"{$prefix}{$control_name}_hover",
+									$control_args
+								);
+							}
 						}
 					}
 				}

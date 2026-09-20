@@ -1398,7 +1398,21 @@ class Utils {
 				'aria-hidden'	=> 'true',
 				'class'			=> [$icon_element_class],
 			] );
-			return ob_get_clean();
+			$svg_output = ob_get_clean();
+
+			if( !class_exists( 'WP_HTML_Tag_Processor' ) ) {
+				include_once( ABSPATH . WPINC . "/html-api/class-wp-html-tag-processor.php" );
+			}
+
+			if( !empty( $icon_element_class ) ) {
+				$processor = new \WP_HTML_Tag_Processor( $svg_output );
+				if( $processor->next_tag( 'svg' ) ) {
+					$processor->add_class( esc_attr( trim( $icon_element_class ) ) );
+					$svg_output = $processor->get_updated_html();
+				}
+			}
+
+			return $svg_output;
 		}
 		
 		if( is_array( $icon ) ) {
