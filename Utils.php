@@ -1391,6 +1391,15 @@ class Utils {
 	 */
 	public static function get_icon( $icon, $icon_element_class = '' ) {
 		if( empty( $icon ) ) return '';
+
+		if( self::is_elementor_active() ) {
+			ob_start();
+			\Elementor\Icons_Manager::render_icon( $icon, [
+				'aria-hidden'	=> 'true',
+				'class'			=> [$icon_element_class],
+			] );
+			return ob_get_clean();
+		}
 		
 		if( is_array( $icon ) ) {
 			if( !empty( $icon['url'] ) ) {
