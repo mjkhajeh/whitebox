@@ -1392,7 +1392,7 @@ class Utils {
 	public static function get_icon( $icon, $icon_element_class = '' ) {
 		if( empty( $icon ) ) return '';
 
-		if( self::is_elementor_active() ) {
+		if( is_array( $icon ) && self::is_elementor_active() ) {
 			ob_start();
 			\Elementor\Icons_Manager::render_icon( $icon, [
 				'aria-hidden'	=> 'true',
