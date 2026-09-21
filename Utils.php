@@ -427,12 +427,12 @@ class Utils {
 	/**
 	 * Reposition an array element by its key.
 	 *
-	 * - If $order is an existing key name: moves the element $order immediately after $key.
+	 * - If $order is an existing key name: moves the element $key immediately after $order.
 	 * - If $order is a numeric index (not an existing key): moves element $key to position $order (legacy fallback).
 	 *
 	 * @param array      $array The array being reordered (passed by reference).
-	 * @param string|int $key   The reference anchor key (element to place after).
-	 * @param string|int $order The key of the item you want to move after $key, OR a numeric index.
+	 * @param string|int $key   The key of the element to move.
+	 * @param string|int $order The key to move the element after, OR a numeric index.
 	 * @return bool True on success, false if required keys do not exist.
 	 */
 	public static function reposition_array_element( array &$array, $key, $order ): bool {
@@ -441,33 +441,32 @@ class Utils {
 			return array_key_exists( $key, $array );
 		}
 
-		// --- Mode 1: $order is a key name in the array (move $order after $key) ---
+		// --- Mode 1: $order is a key name in the array (move $key after $order) ---
 		if ( array_key_exists( $order, $array ) ) {
-			// Anchor key must exist
 			if ( ! array_key_exists( $key, $array ) ) {
 				return false;
 			}
 
-			// 1. Extract the $order element
-			$order_value = $array[ $order ];
-			unset( $array[ $order ] );
+			// 1. Extract the element being moved
+			$key_value = $array[ $key ];
+			unset( $array[ $key ] );
 
-			// 2. Locate the anchor $key in the remaining array
-			$keys      = array_keys( $array );
-			$key_index = array_search( $key, $keys, true );
+			// 2. Locate the anchor in the remaining array
+			$keys        = array_keys( $array );
+			$order_index = array_search( $order, $keys, true );
 
-			if ( $key_index === false ) {
+			if ( $order_index === false ) {
 				return false;
 			}
 
-			// 3. Target position is immediately after $key (+1)
-			$target_pos = $key_index + 1;
+			// 3. Target position is immediately after the anchor
+			$target_pos = $order_index + 1;
 
 			// 4. Slice and recombine preserving string and numeric keys
 			$part1 = array_slice( $array, 0, $target_pos, true );
 			$part2 = array_slice( $array, $target_pos, null, true );
 
-			$array = $part1 + [ $order => $order_value ] + $part2;
+			$array = $part1 + [ $key => $key_value ] + $part2;
 
 			return true;
 		}

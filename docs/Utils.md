@@ -166,13 +166,13 @@ Converts a string to PascalCase.
 Reposition an array element by its key.
 - **Signature:** `reposition_array_element(array &$array, string|int $key, string|int $order): bool`
 - **Parameters:**
-  - `$array` (array)
-  - `$key` (string|int) The anchor key, or the key of the element to move when using a numeric position.
-  - `$order` (string|int) An existing key to move after `$key`, or a zero-based numeric position.
+  - `$array` (array) The array being reordered.
+  - `$key` (string|int) The key of the element to move.
+  - `$order` (string|int) An existing anchor key to move `$key` after, or a zero-based numeric position.
 - **Returns:** (bool) `true` on success, `false` when a required key does not exist.
 - **Example:**
   ```php
-  Utils::reposition_array_element($arr, 'title', 'button');
+  Utils::reposition_array_element($arr, 'button', 'title');
   ```
 
 ### show_errors
