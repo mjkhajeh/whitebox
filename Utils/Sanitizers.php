@@ -14,12 +14,18 @@ class Sanitizers extends Utils {
 	 * @param string $phone
 	 * @return string
 	 */
-	public static function phone( string $phone ) {
+	public static function phone( $phone ) {
 		$phone = parent::convert_chars( $phone );
 		$phone = str_replace( '+98', '0', $phone );
-		return str_replace( ' ', '', $phone );
+		$phone = str_replace( [' ', '(', ')'], '', $phone );
+		if( substr( $phone, 0, 2 ) !== "09" ) {
+			$phone = "09{$phone}";
+		}
+		if( substr( $phone, 0, 2 ) === "00" ) {
+			$phone = substr( $phone, 1 );
+		}
+		return $phone;
 	}
-
 
 	/**
 	 * Sanitize OTP
