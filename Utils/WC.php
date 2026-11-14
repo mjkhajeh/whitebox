@@ -194,4 +194,53 @@ class WC extends Utils {
 		
 		return self::$products_type_cache[$product_id];
 	}
+
+	/**
+	 * Retrieves order IDs containing at least one of the specified products or variations.
+	 *
+	 * Searches WooCommerce order items using both `_product_id` and `_variation_id`
+	 * metadata keys.
+	 *
+	 * Compatible with both legacy order storage and HPOS.
+	 *
+	 * @param int[] $product_ids List of product or variation IDs to search for.
+	 *
+	 * @return int[] List of matching order IDs. Returns an empty array if no
+	 *               matching orders are found or no valid product IDs are provided.
+	 */
+	function get_order_ids_by_product_ids( array $product_ids ): array {
+		global $wpdb;
+
+		$product_ids = array_filter(
+			array_unique(
+				array_map( 'absint', $product_ids )
+			)
+		);
+
+		if ( empty( $product_ids ) ) {
+			return [];
+		}
+
+		$placeholders = implode(
+			', ',
+			array_fill( 0, count( $product_ids ), '%d' )
+		);
+
+		$sql = "
+			SELECT DISTINCT oi.order_id
+			FROM {$wpdb->prefix}woocommerce_order_items AS oi
+			INNER JOIN {$wpdb->prefix}woocommerce_order_itemmeta AS oim
+				ON oi.order_item_id = oim.order_item_id
+			WHERE oi.order_item_type = 'line_item'
+				AND oim.meta_key IN ( '_product_id', '_variation_id' )
+				AND oim.meta_value IN ({$placeholders})
+		";
+
+		return array_map(
+			'absint',
+			$wpdb->get_col(
+				$wpdb->prepare( $sql, $product_ids )
+			)
+		);
+	}
 }
