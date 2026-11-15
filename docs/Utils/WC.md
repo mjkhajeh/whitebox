@@ -136,7 +136,7 @@ Finds WooCommerce order IDs that contain any of the provided product or variatio
 
 **Signature:**
 ```php
-public function get_order_ids_by_product_ids(array $product_ids): array
+public static function get_order_ids_by_product_ids(array $product_ids): array
 ```
 
 **Parameters:**
@@ -149,3 +149,25 @@ public function get_order_ids_by_product_ids(array $product_ids): array
 - Normalizes IDs with `absint()` and removes duplicates.
 - Searches both `'_product_id'` and `'_variation_id'` WooCommerce order item meta keys.
 - Works with both legacy order storage and HPOS by querying the WooCommerce order item tables directly.
+
+---
+
+### get_order_buyer_name
+Retrieves the buyer name for a WooCommerce order using a predefined priority.
+
+**Signature:**
+```php
+public static function get_order_buyer_name($order)
+```
+
+**Parameters:**
+- `$order` (WC_Order): WooCommerce order object.
+
+**Returns:**
+- (string) Buyer name in the following priority order:
+  1. Billing first + last name
+  2. Billing company name
+  3. Customer display name from the associated user
+
+**Notes:**
+- Applies the `woocommerce_admin_order_buyer_name` filter so the final name can be customized.

@@ -208,7 +208,7 @@ class WC extends Utils {
 	 * @return int[] List of matching order IDs. Returns an empty array if no
 	 *               matching orders are found or no valid product IDs are provided.
 	 */
-	function get_order_ids_by_product_ids( array $product_ids ): array {
+	public static function get_order_ids_by_product_ids( array $product_ids ): array {
 		global $wpdb;
 
 		$product_ids = array_filter(
@@ -242,5 +242,43 @@ class WC extends Utils {
 				$wpdb->prepare( $sql, $product_ids )
 			)
 		);
+	}
+
+	/**
+	 * Gets the buyer name for an order.
+	 *
+	 * Retrieves the buyer name using the following priority:
+	 * 1. Billing first and last name.
+	 * 2. Billing company name.
+	 * 3. Customer's display name, if the order is associated with a registered user.
+	 *
+	 * Applies the `woocommerce_admin_order_buyer_name` filter to allow modification
+	 * of the resulting buyer name.
+	 *
+	 * @param WC_Order $order Order object.
+	 * @return string Buyer name.
+	 */
+	public static function get_order_buyer_name( $order ) {
+		$buyer = '';
+
+		if ( $order->get_billing_first_name() || $order->get_billing_last_name() ) {
+			/* translators: 1: first name 2: last name */
+			$buyer = trim( sprintf( _x( '%1$s %2$s', 'full name', 'woocommerce' ), $order->get_billing_first_name(), $order->get_billing_last_name() ) );
+		} elseif ( $order->get_billing_company() ) {
+			$buyer = trim( $order->get_billing_company() );
+		} elseif ( $order->get_customer_id() ) {
+			$user  = get_user_by( 'id', $order->get_customer_id() );
+			$buyer = ucwords( $user->display_name );
+		}
+
+		/**
+		 * Filter buyer name in list table orders.
+		 *
+		 * @since 3.7.0
+		 *
+		 * @param string   $buyer Buyer name.
+		 * @param WC_Order $order Order data.
+		 */
+		return apply_filters( 'woocommerce_admin_order_buyer_name', $buyer, $order );
 	}
 }
