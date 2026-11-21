@@ -574,6 +574,29 @@ Enqueues a script, automatically resolving `.js` vs `.min.js` based on `DEV_MODE
   Utils::enqueue_script('my-plugin', 'assets/js/main.js');
   ```
 
+### detect_current_language
+Detects the active language slug, checking a request language and multilingual plugins before falling back to the site's locale.
+- **Signature:** `detect_current_language(): string`
+- **Returns:** (string) A sanitized language slug. Falls back to the two-letter locale language or `en`.
+- **Example:**
+  ```php
+  $language = Utils::detect_current_language(); // "fa", "en", "fr", etc.
+  ```
+
+### get_current_language_slug
+Gets the active language slug from the `lang` request parameter, WPML, or Polylang.
+- **Signature:** `get_current_language_slug(): string`
+- **Returns:** (string) A sanitized language slug, or an empty string when no language is available.
+- **Precedence:**
+  1. `$_REQUEST['lang']`
+  2. WPML's `wpml_current_language` filter
+  3. Polylang's current or default language
+  4. WPML's `wpml_default_language` filter
+- **Example:**
+  ```php
+  $slug = Utils::get_current_language_slug();
+  ```
+
 ### src_to_path
 Converts a script `$src` URL/path into its physical filesystem path. Handles both full URLs and relative paths.
 - **Signature:** `src_to_path(string $src): string`

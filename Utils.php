@@ -1499,7 +1499,6 @@ class Utils {
 	public static function parse_text_editor( $content ) {
 		$content = trim( $content );
 		$content = shortcode_unautop( $content );
-		$content = do_shortcode( $content );
 
 		if( isset( $GLOBALS['wp_embed'] ) && $GLOBALS['wp_embed'] instanceof \WP_Embed ) {
 			$content = $GLOBALS['wp_embed']->run_shortcode( $content );
@@ -1510,6 +1509,11 @@ class Utils {
 		$content = convert_smilies( $content );
 		$content = wp_filter_content_tags( $content );
 		$content = force_balance_tags( $content );
+		$content = convert_chars( $content );
+		$content = wpautop( $content );
+		$content = shortcode_unautop( $content );
+		$content = prepend_attachment( $content );
+		$content = do_shortcode( $content );
 
 		return $content;
 	}
@@ -1634,5 +1638,86 @@ class Utils {
 
 		// Case 2: a path relative to the plugin/theme root.
 		return rtrim( plugin_dir_path( __FILE__ ), '/' ) . '/' . ltrim( $src, '/' );
+	}
+
+	/**
+	 * Detects the active language, falling back to the site's locale.
+	 *
+	 * Examples: WPML or Polylang returning `fa` yields `fa`; without a
+	 * multilingual plugin, the `en_US` locale yields `en`.
+	 *
+	 * Usage: `$language = Utils::detect_current_language();`
+	 *
+	 * @return string A sanitized language slug.
+	 */
+	public static function detect_current_language(): string {
+		static $language = null;
+
+		if ( isset( $_REQUEST['lang'] ) && is_string( $_REQUEST['lang'] ) ) {
+			$request_language = self::get_current_language_slug();
+			if ( '' !== $request_language ) {
+				return $request_language;
+			}
+		}
+
+		if ( null === $language ) {
+			$language = self::get_current_language_slug();
+			if ( '' === $language ) {
+				$language = strtolower( substr( get_locale(), 0, 2 ) );
+				$language = '' !== $language ? $language : 'en';
+			}
+		}
+
+		return $language;
+	}
+
+	/**
+	 * Gets the current language slug from the request, WPML, or Polylang.
+	 *
+	 * Examples: WPML or Polylang returning `fr` yields `fr`; with no request
+	 * language or multilingual plugin, this returns an empty string.
+	 *
+	 * Usage: `$slug = Utils::get_current_language_slug();`
+	 *
+	 * @return string A sanitized language slug, or an empty string if unavailable.
+	 */
+	public static function get_current_language_slug(): string {
+		static $language = null;
+
+		if ( isset( $_REQUEST['lang'] ) && is_string( $_REQUEST['lang'] ) ) {
+			$request_language = sanitize_key( wp_unslash( $_REQUEST['lang'] ) );
+			if ( preg_match( '/\A[a-z0-9_-]+\z/', $request_language ) ) {
+				return $request_language;
+			}
+		}
+
+		if ( null !== $language ) {
+			return $language;
+		}
+
+		$language = '';
+		if ( false !== has_filter( 'wpml_current_language' ) ) {
+			$language = apply_filters( 'wpml_current_language', null );
+		}
+
+		if ( empty( $language ) && function_exists( 'pll_current_language' ) ) {
+			$language = pll_current_language( 'slug' );
+			if ( empty( $language ) && function_exists( 'pll_default_language' ) ) {
+				$language = pll_default_language( 'slug' );
+			}
+		}
+
+		if ( empty( $language ) && false !== has_filter( 'wpml_default_language' ) ) {
+			$language = apply_filters( 'wpml_default_language', null );
+		}
+
+		if ( ! is_string( $language ) ) {
+			$language = '';
+		}
+
+		$language = sanitize_key( $language );
+		$language = preg_match( '/\A[a-z0-9_-]+\z/', $language ) ? $language : '';
+
+		return $language;
 	}
 }
