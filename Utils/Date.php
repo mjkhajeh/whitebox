@@ -190,7 +190,7 @@ class Date extends Utils {
 				$out .= self::jdate_words(array('rr' => $j_d), ' ');
 				break;
 
-			case 'k';
+			case 'k':
 				$out .= self::tr_num(100 - (int) ($doy / ($kab + 365.24) * 1000) / 10, $tr_num);
 				break;
 
